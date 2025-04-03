@@ -2,12 +2,32 @@ from transformers import DistilBertTokenizer, DistilBertForSequenceClassificatio
 import torch
 import json
 
-# Load dữ liệu
+# Load dữ liệu chính
 with open('data.json', 'r') as f:
     data = json.load(f)
 
-texts = [item['text'] for item in data]
-labels = [0 if item['intent'] == 'suggest_cake' else 1 if item['intent'] == 'ask_price' else 2 for item in data]
+# Load từ viết tắt
+abbreviations = {}
+with open('abbreviations.txt', 'r', encoding='utf-8') as f:
+    for line in f:
+        abbr, full = line.strip().split(' = ')
+        abbreviations[abbr] = full
+
+# Sinh dữ liệu mới từ từ viết tắt
+expanded_data = []
+for item in data:
+    text = item['text']
+    intent = item['intent']
+    expanded_data.append({"text": text, "intent": intent})  # Giữ nguyên câu gốc
+    # Thay thế từ đầy đủ bằng từ viết tắt
+    for abbr, full in abbreviations.items():
+        if full in text:
+            new_text = text.replace(full, abbr)
+            expanded_data.append({"text": new_text, "intent": intent})
+
+# Chuẩn bị dataset
+texts = [item['text'] for item in expanded_data]
+labels = [0 if item['intent'] == 'suggest_cake' else 1 if item['intent'] == 'ask_price' else 2 for item in expanded_data]
 tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
 encodings = tokenizer(texts, truncation=True, padding=True)
 
@@ -43,3 +63,29 @@ trainer = Trainer(
 trainer.train()
 model.save_pretrained('trained_model')
 tokenizer.save_pretrained('trained_model')
+
+from pymongo import MongoClient
+
+client = MongoClient('mongodb://localhost:27017/')
+db = client['avocado']
+chats = db['chats']
+
+# Lấy dữ liệu từ MongoDB
+mongo_data = []
+for chat in chats.find():
+    user_input = chat['user']
+    bot_response = chat['bot']
+    if "Bạn thích bánh vị gì?" in bot_response:
+        intent = "suggest_cake"
+    elif "giá" in bot_response:
+        intent = "ask_price"
+    elif "kết nối" in bot_response:
+        intent = "connect_staff"
+    else:
+        continue
+    mongo_data.append({"text": user_input, "intent": intent})
+
+# Kết hợp với data.json
+with open('data.json', 'r') as f:
+    data = json.load(f)
+expanded_data = data + mongo_data

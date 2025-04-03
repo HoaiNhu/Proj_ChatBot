@@ -1,0 +1,6 @@
+#Từ viết tắt
+j = gì
+vs = với
+nv = nhân viên
+bao nhiu = bao nhiêu
+tui = tôi
