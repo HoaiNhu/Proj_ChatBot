@@ -1,0 +1,6 @@
+[
+  { "text": "Tôi muốn bánh ngọt", "intent": "suggest_cake" },
+  { "text": "Gợi ý bánh nào ngon?", "intent": "suggest_cake" },
+  { "text": "Bánh này giá bao nhiêu?", "intent": "ask_price" },
+  { "text": "Tôi cần nói chuyện với nhân viên", "intent": "connect_staff" }
+]
