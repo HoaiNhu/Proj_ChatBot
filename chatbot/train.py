@@ -97,3 +97,16 @@ with open('data.json', encoding='utf-8') as f:
     data = json.load(f)
 
 expanded_data = data + mongo_data
+# Cập nhật lại dataset
+texts = [item['text'] for item in expanded_data]
+labels = [0 if item['intent'] == 'suggest_cake' else 1 if item['intent'] == 'ask_price' else 2 for item in expanded_data]
+
+encodings = tokenizer(texts, truncation=True, padding=True)
+
+# Huấn luyện lại mô hình
+dataset = Dataset(encodings, labels)
+trainer.train()
+
+# Lưu lại mô hình và tokenizer sau khi huấn luyện
+model.save_pretrained('trained_model')
+tokenizer.save_pretrained('trained_model')

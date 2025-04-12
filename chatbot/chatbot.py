@@ -63,24 +63,66 @@ def predict_intent(user_input):
     predicted_class = torch.argmax(logits, dim=1).item()
     return predicted_class
 
-# Logic trả lời
+# Truy vấn thông tin sản phẩm từ MongoDB
+def get_product_info(product_name):
+    if not isinstance(product_name, str):
+        return None
+    
+    try:
+        product = db['products'].find_one({"productName": {"$regex": re.escape(product_name), "$options": "i"}})
+    except Exception as e:
+        print(f"Error querying MongoDB: {e}")
+        return None
+    
+    if product:
+        print (product_name)
+        return product
+    else:
+        return None
+
+# Cập nhật hàm get_response() để sử dụng thông tin sản phẩm từ MongoDB
 def get_response(user_input):
     intent = predict_intent(user_input)
+    
     if intent == 0:  # suggest_cake
         response = "Bạn thích vị gì nè? Socola, vani, hay trà xanh? Mình gợi ý thêm nhé!"
     elif intent == 1:  # ask_price
-        response = "Bánh Chocolate Lava 250k, Black Forest 300k. Bạn muốn hỏi loại nào nữa ko?"
+        product_name = extract_product_name(user_input)
+        product_info = get_product_info(product_name)
+        print ("San pham ", product_info)
+        if product_info:
+            response = f"Sản phẩm {product_info['productName']} có giá {product_info['productPrice']} VND.\nMô tả {product_info['productDescription']}"
+        else:
+            response = "Mình không tìm thấy sản phẩm này. Bạn có thể thử lại với tên khác hoặc chọn một sản phẩm từ danh sách của chúng mình?"
     elif intent == 2:  # connect_staff
         response = "Oke, để mình kết nối bạn với nhân viên nha. Chờ xíu nè!"
     else:
         response = "Hihi, mình chưa hiểu lắm. Bạn nhắn lại rõ hơn nha!"
     
-    # Lưu vào MongoDB Atlas
     try:
         chats.insert_one({'user': user_input, 'bot': response, 'timestamp': datetime.now()})
     except Exception as e:
         print(f"Error saving to MongoDB: {e}")
+    
     return response
+
+# Tạo hàm extract_product_name()
+def extract_product_name(user_input):
+    try:
+        # Lấy tất cả tên sản phẩm từ MongoDB
+        product_docs = db['products'].find({}, {'productName': 1, '_id': 0})
+        product_names = [doc['productName'] for doc in product_docs]
+    except Exception as e:
+        print(f"Error fetching product names: {e}")
+        return None
+
+    # Kiểm tra xem user_input có khớp với product name nào không
+    for product in product_names:
+        if re.search(r'\b' + re.escape(product) + r'\b', user_input, re.IGNORECASE):
+            return product
+    
+    return None
+
 
 # API Flask
 app = Flask(__name__)
@@ -106,7 +148,6 @@ def webhook():
         else:  # Facebook format
             user_input = data['entry'][0]['messaging'][0]['message']['text']
         response = get_response(user_input)
-        # TODO: Implement sending response via Messenger/Zalo API
         return jsonify({'status': 'success'})
     except KeyError:
         print("Error: Invalid webhook format")
