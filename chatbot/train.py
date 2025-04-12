@@ -1,17 +1,23 @@
 from transformers import DistilBertTokenizer, DistilBertForSequenceClassification, Trainer, TrainingArguments
 import torch
 import json
+import os
 
 # Load dữ liệu chính
-with open('data.json', 'r') as f:
+with open('data.json', encoding='utf-8') as f:
     data = json.load(f)
 
 # Load từ viết tắt
 abbreviations = {}
 with open('abbreviations.txt', 'r', encoding='utf-8') as f:
     for line in f:
-        abbr, full = line.strip().split(' = ')
-        abbreviations[abbr] = full
+        line = line.strip()
+        if ' = ' in line:
+            abbr, full = line.split(' = ', 1)
+            abbreviations[abbr.strip()] = full.strip()
+        else:
+            print(f"⚠️ Bỏ qua dòng không hợp lệ: {line}")
+
 
 # Sinh dữ liệu mới từ từ viết tắt
 expanded_data = []
@@ -66,8 +72,9 @@ tokenizer.save_pretrained('trained_model')
 
 from pymongo import MongoClient
 
-client = MongoClient('mongodb://localhost:27017/')
-db = client['avocado']
+mongo_uri = os.getenv('MONGO_URI', 'mongodb+srv://hnhu:hoainhu1234@webbuycake.asd8v.mongodb.net/?retryWrites=true&w=majority&appName=WebBuyCake')
+client = MongoClient(mongo_uri)
+db = client['test']
 chats = db['chats']
 
 # Lấy dữ liệu từ MongoDB
@@ -86,6 +93,7 @@ for chat in chats.find():
     mongo_data.append({"text": user_input, "intent": intent})
 
 # Kết hợp với data.json
-with open('data.json', 'r') as f:
+with open('data.json', encoding='utf-8') as f:
     data = json.load(f)
+
 expanded_data = data + mongo_data
