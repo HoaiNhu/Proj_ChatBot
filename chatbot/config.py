@@ -12,10 +12,6 @@ class Config:
     FACEBOOK_PAGE_ACCESS_TOKEN = os.getenv('FACEBOOK_PAGE_ACCESS_TOKEN', '')
     FACEBOOK_VERIFY_TOKEN = os.getenv('FACEBOOK_VERIFY_TOKEN', '')
     
-    # Zalo Configuration
-    ZALO_ACCESS_TOKEN = os.getenv('ZALO_ACCESS_TOKEN', '')
-    ZALO_VERIFY_TOKEN = os.getenv('ZALO_VERIFY_TOKEN', '')
-    
     # Flask Configuration
     SECRET_KEY = os.getenv('FLASK_SECRET_KEY', 'dev-secret-key')
     DEBUG = os.getenv('FLASK_ENV', 'development') == 'development'
