@@ -1,5 +1,11 @@
-torch
-flask
-pymongo
-transformers
-dotenv
+torch>=2.0.0
+flask>=2.3.0
+pymongo>=4.5.0
+transformers>=4.30.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+fuzzywuzzy>=0.18.0
+python-Levenshtein>=0.20.0
+schedule>=1.1.0

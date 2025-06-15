@@ -2,10 +2,20 @@ from transformers import DistilBertTokenizer, DistilBertForSequenceClassificatio
 import torch
 import json
 import os
+from config import Config
+from logger import logger
+from pymongo import MongoClient
 
 # Load dữ liệu chính
 with open('data.json', encoding='utf-8') as f:
     data = json.load(f)
+
+# Load dữ liệu học tập từ learning_system
+if os.path.exists('learning_data.json'):
+    with open('learning_data.json', encoding='utf-8') as f:
+        learning_data = json.load(f)
+else:
+    learning_data = []
 
 # Load từ viết tắt
 abbreviations = {}
@@ -16,26 +26,52 @@ with open('abbreviations.txt', 'r', encoding='utf-8') as f:
             abbr, full = line.split(' = ', 1)
             abbreviations[abbr.strip()] = full.strip()
         else:
-            print(f"⚠️ Bỏ qua dòng không hợp lệ: {line}")
-
+            logger.warning(f"Bỏ qua dòng không hợp lệ: {line}")
 
 # Sinh dữ liệu mới từ từ viết tắt
 expanded_data = []
-for item in data:
+for item in data + learning_data:
     text = item['text']
     intent = item['intent']
-    expanded_data.append({"text": text, "intent": intent})  # Giữ nguyên câu gốc
-    # Thay thế từ đầy đủ bằng từ viết tắt
+    expanded_data.append({"text": text, "intent": intent})
     for abbr, full in abbreviations.items():
         if full in text:
             new_text = text.replace(full, abbr)
             expanded_data.append({"text": new_text, "intent": intent})
 
+# Lấy dữ liệu từ MongoDB
+mongo_uri = Config.MONGO_URI
+client = MongoClient(mongo_uri)
+db = client['test']
+chats = db['chats']
+
+mongo_data = []
+for chat in chats.find():
+    user_input = chat['user']
+    intent = chat.get('intent')
+    if intent:
+        mongo_data.append({"text": user_input, "intent": intent})
+
+# Kết hợp dữ liệu
+expanded_data.extend(mongo_data)
+
 # Chuẩn bị dataset
 texts = [item['text'] for item in expanded_data]
-labels = [0 if item['intent'] == 'suggest_cake' else 1 if item['intent'] == 'ask_price' else 2 for item in expanded_data]
+labels = [
+    0 if item['intent'] == 'suggest_cake' else
+    1 if item['intent'] == 'ask_price' else
+    2 if item['intent'] == 'connect_staff' else
+    3 if item['intent'] == 'ask_promotion' else
+    4 if item['intent'] == 'check_order' else
+    5 if item['intent'] == 'custom_cake' else -1
+    for item in expanded_data
+]
+# Loại bỏ các mẫu không có intent hợp lệ
+valid_data = [(t, l) for t, l in zip(texts, labels) if l != -1]
+texts, labels = zip(*valid_data) if valid_data else ([], [])
+
 tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
-encodings = tokenizer(texts, truncation=True, padding=True)
+encodings = tokenizer(texts, truncation=True, padding=True, max_length=Config.MAX_LENGTH)
 
 class Dataset(torch.utils.data.Dataset):
     def __init__(self, encodings, labels):
@@ -49,15 +85,16 @@ class Dataset(torch.utils.data.Dataset):
         return len(self.labels)
 
 dataset = Dataset(encodings, labels)
-model = DistilBertForSequenceClassification.from_pretrained('distilbert-base-uncased', num_labels=3)
+model = DistilBertForSequenceClassification.from_pretrained('distilbert-base-uncased', num_labels=6)
 
 training_args = TrainingArguments(
     output_dir='./results',
-    num_train_epochs=3,
-    per_device_train_batch_size=8,
+    num_train_epochs=Config.TRAINING_EPOCHS,
+    per_device_train_batch_size=Config.BATCH_SIZE,
     warmup_steps=500,
     weight_decay=0.01,
     logging_dir='./logs',
+    learning_rate=Config.LEARNING_RATE
 )
 
 trainer = Trainer(
@@ -67,46 +104,6 @@ trainer = Trainer(
 )
 
 trainer.train()
-model.save_pretrained('trained_model')
-tokenizer.save_pretrained('trained_model')
-
-from pymongo import MongoClient
-
-mongo_uri = os.getenv('MONGO_URI', 'mongodb+srv://hnhu:hoainhu1234@webbuycake.asd8v.mongodb.net/?retryWrites=true&w=majority&appName=WebBuyCake')
-client = MongoClient(mongo_uri)
-db = client['test']
-chats = db['chats']
-
-# Lấy dữ liệu từ MongoDB
-mongo_data = []
-for chat in chats.find():
-    user_input = chat['user']
-    bot_response = chat['bot']
-    if "Bạn thích bánh vị gì?" in bot_response:
-        intent = "suggest_cake"
-    elif "giá" in bot_response:
-        intent = "ask_price"
-    elif "kết nối" in bot_response:
-        intent = "connect_staff"
-    else:
-        continue
-    mongo_data.append({"text": user_input, "intent": intent})
-
-# Kết hợp với data.json
-with open('data.json', encoding='utf-8') as f:
-    data = json.load(f)
-
-expanded_data = data + mongo_data
-# Cập nhật lại dataset
-texts = [item['text'] for item in expanded_data]
-labels = [0 if item['intent'] == 'suggest_cake' else 1 if item['intent'] == 'ask_price' else 2 for item in expanded_data]
-
-encodings = tokenizer(texts, truncation=True, padding=True)
-
-# Huấn luyện lại mô hình
-dataset = Dataset(encodings, labels)
-trainer.train()
-
-# Lưu lại mô hình và tokenizer sau khi huấn luyện
-model.save_pretrained('trained_model')
-tokenizer.save_pretrained('trained_model')
+model.save_pretrained(Config.MODEL_PATH)
+tokenizer.save_pretrained(Config.MODEL_PATH)
+logger.info("Model training completed and saved")
