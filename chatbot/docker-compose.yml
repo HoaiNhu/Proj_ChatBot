@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  chatbot:
+    build: .
+    ports:
+      - "5005:5005"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - FLASK_ENV=production
+      - LOG_LEVEL=INFO
+      - ZALO_ACCESS_TOKEN=${ZALO_ACCESS_TOKEN}
+      - ZALO_VERIFY_TOKEN=${ZALO_VERIFY_TOKEN}
+      - FACEBOOK_PAGE_ACCESS_TOKEN=${FACEBOOK_PAGE_ACCESS_TOKEN}
+      - FACEBOOK_VERIFY_TOKEN=${FACEBOOK_VERIFY_TOKEN}
+      - API_KEY=${API_KEY}
+    volumes:
+      - ./logs:/app/logs
+      - ./trained_model:/app/trained_model
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5005/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+  scheduler:
+    build: .
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./logs:/app/logs
+      - ./trained_model:/app/trained_model
+    command: python scheduler.py
+    restart: unless-stopped
