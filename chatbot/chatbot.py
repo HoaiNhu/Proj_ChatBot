@@ -245,41 +245,22 @@ def webhook():
             if isinstance(facebook_result, str):
                 return facebook_result
             elif isinstance(facebook_result, dict):
-                response, session_id = get_response(
-                    facebook_result['message'],
-                    facebook_result['platform'],
-                    facebook_result['user_id'],
-                    facebook_result.get('sessionId')
+                response = get_response(
+                    facebook_result['message'], 
+                    facebook_result['platform'], 
+                    facebook_result['user_id']
                 )
-                return jsonify({'status': 'success', 'sessionId': session_id})
-        
-        # Xử lý Zalo webhook
-        zalo_result = messenger_integration.handle_zalo_webhook()
-        if zalo_result:
-            if isinstance(zalo_result, dict) and 'platform' in zalo_result:
-                response, session_id = get_response(
-                    zalo_result['message'],
-                    zalo_result['platform'],
-                    zalo_result['user_id'],
-                    zalo_result.get('sessionId')
-                )
-                return jsonify({'status': 'success', 'sessionId': session_id})
-            else:
-                return zalo_result
+                return jsonify({'status': 'success'})
         
         # Fallback cho format cũ
         data = request.json
-        if 'message' in data:  # Zalo format
+        if 'message' in data:
             user_input = data['message']['text']
-            user_id = data['sender']['id']
-            session_id = data.get('sessionId')
-        else:  # Facebook format
+        else:
             user_input = data['entry'][0]['messaging'][0]['message']['text']
-            user_id = data['entry'][0]['messaging'][0]['sender']['id']
-            session_id = data.get('sessionId')
         
-        response, session_id = get_response(user_input, 'facebook' if 'entry' in data else 'zalo', user_id, session_id)
-        return jsonify({'status': 'success', 'sessionId': session_id})
+        response = get_response(user_input)
+        return jsonify({'status': 'success'})
         
     except Exception as e:
         logger.error(f"Error in /webhook: {e}")
