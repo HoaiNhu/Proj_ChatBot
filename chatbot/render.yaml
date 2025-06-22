@@ -1,24 +1,25 @@
 services:
   - type: web
-    name: cakebot-web
-    env: docker
-    dockerfilePath: ./Dockerfile
+    name: chatbot-fastapi
+    env: python
     plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: MONGO_URI
+      - key: PYTHON_VERSION
+        value: 3.9.16
+      - key: CHATBOT_MONGO_URI
         sync: false
-      - key: ZALO_ACCESS_TOKEN
+      - key: CHATBOT_DB_NAME
+        value: chatbot_support
+      - key: FACEBOOK_APP_ID
         sync: false
-      - key: ZALO_VERIFY_TOKEN
-        sync: false
-      - key: FACEBOOK_PAGE_ACCESS_TOKEN
+      - key: FACEBOOK_APP_SECRET
         sync: false
       - key: FACEBOOK_VERIFY_TOKEN
         sync: false
-      - key: API_KEY
+      - key: JWT_SECRET
         sync: false
-      - key: FLASK_ENV
-        value: production
       - key: LOG_LEVEL
         value: INFO
   - type: worker
