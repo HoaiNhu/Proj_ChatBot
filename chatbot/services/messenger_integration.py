@@ -1,7 +1,7 @@
 import requests
 from flask import request, jsonify
-from logger import logger
-from config import Config
+from config.config_chatbot import Config
+from utils.logger import logger
 
 class MessengerIntegration:
     def __init__(self):

@@ -1,7 +1,7 @@
 import schedule
 import time
 import subprocess
-from logger import logger
+from utils.logger import logger
 
 def retrain_model():
     logger.info("Retraining model...")

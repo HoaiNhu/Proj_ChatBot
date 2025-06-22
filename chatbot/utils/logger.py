@@ -1,7 +1,7 @@
 import logging
 import os
 from datetime import datetime
-from config import Config
+from config.config_chatbot import Config
 
 def setup_logger():
     """Thiết lập logger cho ứng dụng"""

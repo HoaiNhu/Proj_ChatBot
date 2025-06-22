@@ -2,8 +2,8 @@ from transformers import DistilBertTokenizer, DistilBertForSequenceClassificatio
 import torch
 import json
 import os
-from config import Config
-from logger import logger
+from config.config_chatbot import Config
+from utils.logger import logger
 from pymongo import MongoClient
 
 # Load dữ liệu chính

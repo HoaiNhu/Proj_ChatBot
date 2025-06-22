@@ -2,8 +2,8 @@ import json
 import os
 from datetime import datetime, timedelta
 from pymongo import MongoClient
-from logger import logger
-from config import Config
+from config.config_chatbot import Config
+from utils.logger import logger
 
 class LearningSystem:
     def __init__(self, db):

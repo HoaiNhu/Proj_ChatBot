@@ -10,10 +10,10 @@ import uuid
 
 # Import các module hiện có
 from chatbot import get_response, predict_intent, get_product_info, suggest_products
-from config import Config
-from logger import logger
-from learning_system import LearningSystem
-from messenger_integration import MessengerIntegration
+from config.config_chatbot import Config
+from utils.logger import logger
+from services.learning_system import LearningSystem
+from services.messenger_integration import MessengerIntegration
 
 # Khởi tạo FastAPI app
 app = FastAPI(
