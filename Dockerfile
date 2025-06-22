@@ -27,4 +27,4 @@ HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:5005/health || exit 1
 
 # Chạy ứng dụng
-CMD ["python", "chatbot.py"] 
+  CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
