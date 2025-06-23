@@ -1,7 +1,7 @@
 import logging
 import os
 from datetime import datetime
-from config.config_chatbot import Config
+from config.config_chatbot import ChatbotConfig
 
 def setup_logger():
     """Thiết lập logger cho ứng dụng"""
@@ -13,7 +13,7 @@ def setup_logger():
     
     # Cấu hình logger
     logger = logging.getLogger('chatbot')
-    logger.setLevel(getattr(logging, Config.LOG_LEVEL))
+    logger.setLevel(getattr(logging, ChatbotConfig.LOG_LEVEL))
     
     # Tạo formatter
     formatter = logging.Formatter(

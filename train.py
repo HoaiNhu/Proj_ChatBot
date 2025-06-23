@@ -2,7 +2,7 @@ from transformers import DistilBertTokenizer, DistilBertForSequenceClassificatio
 import torch
 import json
 import os
-from config.config_chatbot import Config
+from config.config_chatbot import ChatbotConfig
 from utils.logger import logger
 from pymongo import MongoClient
 
@@ -40,9 +40,9 @@ for item in data + learning_data:
             expanded_data.append({"text": new_text, "intent": intent})
 
 # Lấy dữ liệu từ MongoDB
-mongo_uri = Config.MONGO_URI
+mongo_uri = ChatbotConfig.CHATBOT_MONGO_URI
 client = MongoClient(mongo_uri)
-db = client['test']
+db = client[ChatbotConfig.CHATBOT_DB_NAME]
 chats = db['chats']
 
 mongo_data = []
@@ -71,7 +71,7 @@ valid_data = [(t, l) for t, l in zip(texts, labels) if l != -1]
 texts, labels = zip(*valid_data) if valid_data else ([], [])
 
 tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
-encodings = tokenizer(texts, truncation=True, padding=True, max_length=Config.MAX_LENGTH)
+encodings = tokenizer(texts, truncation=True, padding=True, max_length=ChatbotConfig.MAX_LENGTH)
 
 class Dataset(torch.utils.data.Dataset):
     def __init__(self, encodings, labels):
@@ -89,12 +89,12 @@ model = DistilBertForSequenceClassification.from_pretrained('distilbert-base-unc
 
 training_args = TrainingArguments(
     output_dir='./results',
-    num_train_epochs=Config.TRAINING_EPOCHS,
-    per_device_train_batch_size=Config.BATCH_SIZE,
+    num_train_epochs=ChatbotConfig.TRAINING_EPOCHS,
+    per_device_train_batch_size=ChatbotConfig.BATCH_SIZE,
     warmup_steps=500,
     weight_decay=0.01,
     logging_dir='./logs',
-    learning_rate=Config.LEARNING_RATE
+    learning_rate=ChatbotConfig.LEARNING_RATE
 )
 
 trainer = Trainer(
@@ -104,6 +104,6 @@ trainer = Trainer(
 )
 
 trainer.train()
-model.save_pretrained(Config.MODEL_PATH)
-tokenizer.save_pretrained(Config.MODEL_PATH)
+model.save_pretrained(ChatbotConfig.MODEL_PATH)
+tokenizer.save_pretrained(ChatbotConfig.MODEL_PATH)
 logger.info("Model training completed and saved")

@@ -7,7 +7,7 @@ import uuid
 from datetime import datetime
 
 # Import local modules
-from config.config_chatbot import Config
+from config.config_chatbot import ChatbotConfig
 from utils.logger import logger
 from services.learning_system import LearningSystem
 from services.messenger_integration import MessengerIntegration
@@ -23,8 +23,8 @@ response_service = ResponseService()
 
 # Khởi tạo database cho LearningSystem
 from pymongo import MongoClient
-client = MongoClient(Config.CHATBOT_MONGO_URI)
-db = client[Config.CHATBOT_DB_NAME]
+client = MongoClient(ChatbotConfig.CHATBOT_MONGO_URI)
+db = client[ChatbotConfig.CHATBOT_DB_NAME]
 learning_system = LearningSystem(db)
 
 messenger_integration = MessengerIntegration()

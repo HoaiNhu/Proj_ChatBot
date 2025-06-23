@@ -1,12 +1,12 @@
 import requests
 from flask import request, jsonify
-from config.config_chatbot import Config
+from config.config_chatbot import ChatbotConfig
 from utils.logger import logger
 
 class MessengerIntegration:
     def __init__(self):
-        self.facebook_token = Config.FACEBOOK_PAGE_ACCESS_TOKEN
-        self.facebook_verify_token = Config.FACEBOOK_VERIFY_TOKEN
+        self.facebook_token = ChatbotConfig.FACEBOOK_PAGE_ACCESS_TOKEN
+        self.facebook_verify_token = ChatbotConfig.FACEBOOK_VERIFY_TOKEN
     
     def handle_facebook_webhook(self):
         """Xử lý webhook từ Facebook Messenger"""
