@@ -4,10 +4,12 @@ services:
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    startCommand: python -m uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.16
+      - key: PYTHONPATH
+        value: .
       - key: CHATBOT_MONGO_URI
         sync: false
       - key: CHATBOT_DB_NAME
@@ -22,6 +24,7 @@ services:
         sync: false
       - key: LOG_LEVEL
         value: INFO
+    healthCheckPath: /health
   - type: worker
     name: cakebot-scheduler
     env: docker

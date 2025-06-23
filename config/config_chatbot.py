@@ -7,7 +7,7 @@ class ChatbotConfig:
     """Cấu hình riêng cho chatbot MongoDB"""
     
     # MongoDB cho chatbot (riêng biệt với MongoDB training)
-    CHATBOT_MONGO_URI = os.getenv("CHATBOT_MONGO_URI", "mongodb://localhost:27017/chatbot_support")
+    CHATBOT_MONGO_URI = os.getenv("CHATBOT_MONGO_URI", "mongodb+srv://hnhu1234:hoainhu1234@cluster0.xnyrq6o.mongodb.net/")
     CHATBOT_DB_NAME = os.getenv("CHATBOT_DB_NAME", "chatbot_support")
     
     # Collections trong chatbot database
@@ -38,4 +38,6 @@ class ChatbotConfig:
     
     # Logging
     LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
-    LOG_FILE = os.getenv("LOG_FILE", "chatbot_api.log") 
+    LOG_FILE = os.getenv("LOG_FILE", "chatbot_api.log")
+    
+    FACEBOOK_PAGE_ACCESS_TOKEN = os.getenv("FACEBOOK_PAGE_ACCESS_TOKEN") 
