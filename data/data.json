@@ -134,5 +134,99 @@
     "text": "Tui muốn bánh in hình riêng, làm được không?",
     "intent": "custom_cake"
   },
-  { "text": "Shop làm bánh theo yêu cầu được ko?", "intent": "custom_cake" }
+  { "text": "Shop làm bánh theo yêu cầu được ko?", "intent": "custom_cake" },
+  { "text": "Shop có khuyến mãi gì không?", "intent": "ask_promotion" },
+  { "text": "Có deal nào hot không shop?", "intent": "ask_promotion" },
+  { "text": "Ưu đãi hôm nay là gì vậy?", "intent": "ask_promotion" },
+  { "text": "Có giảm giá gì không chị ơi?", "intent": "ask_promotion" },
+  { "text": "Shop đang sale gì không?", "intent": "ask_promotion" },
+
+  { "text": "Shop mở cửa lúc mấy giờ?", "intent": "ask_opening_hours" },
+  {
+    "text": "Giờ làm việc của shop là khi nào?",
+    "intent": "ask_opening_hours"
+  },
+  { "text": "Shop có mở cửa cuối tuần không?", "intent": "ask_opening_hours" },
+  { "text": "Bao giờ shop đóng cửa vậy?", "intent": "ask_opening_hours" },
+
+  { "text": "Địa chỉ shop ở đâu vậy?", "intent": "ask_address" },
+  { "text": "Shop có chi nhánh nào ở quận 1 không?", "intent": "ask_address" },
+  { "text": "Cho xin địa chỉ cửa hàng gần nhất", "intent": "ask_address" },
+
+  {
+    "text": "Shop nhận thanh toán qua những hình thức nào?",
+    "intent": "ask_payment"
+  },
+  { "text": "Có chuyển khoản không shop?", "intent": "ask_payment" },
+  { "text": "Shop có nhận ví điện tử không?", "intent": "ask_payment" },
+
+  { "text": "Shop có giao hàng tận nơi không?", "intent": "ask_delivery" },
+  { "text": "Phí ship là bao nhiêu vậy shop?", "intent": "ask_delivery" },
+  {
+    "text": "Giao hàng trong bao lâu thì nhận được?",
+    "intent": "ask_delivery"
+  },
+
+  { "text": "Tôi muốn gửi phản hồi cho shop", "intent": "ask_feedback" },
+  {
+    "text": "Shop có nhận đánh giá khách hàng không?",
+    "intent": "ask_feedback"
+  },
+
+  { "text": "Shop có combo bánh nào không?", "intent": "ask_combo" },
+  { "text": "Có set bánh tiết kiệm nào không shop?", "intent": "ask_combo" },
+
+  { "text": "Bánh này làm từ gì vậy shop?", "intent": "ask_ingredient" },
+  { "text": "Nguyên liệu bánh kem là gì?", "intent": "ask_ingredient" },
+
+  { "text": "Shop có bánh cho ngày lễ không?", "intent": "ask_special_event" },
+  {
+    "text": "Có bánh cho sinh nhật, cưới hỏi không shop?",
+    "intent": "ask_special_event"
+  },
+
+  {
+    "text": "Bánh này bảo quản thế nào vậy shop?",
+    "intent": "ask_preservation"
+  },
+  { "text": "Để bánh ngoài tủ lạnh được không?", "intent": "ask_preservation" },
+
+  { "text": "Nếu bánh bị hỏng có được đổi không?", "intent": "ask_return" },
+  {
+    "text": "Chính sách đổi trả của shop như thế nào?",
+    "intent": "ask_return"
+  },
+
+  { "text": "Cho xin số điện thoại shop", "intent": "ask_contact" },
+  { "text": "Shop có zalo không?", "intent": "ask_contact" },
+
+  { "text": "Shop có xuất hóa đơn đỏ không?", "intent": "ask_invoice" },
+  {
+    "text": "Tôi cần hóa đơn VAT, shop hỗ trợ không?",
+    "intent": "ask_invoice"
+  },
+
+  { "text": "Shop có chương trình tích điểm không?", "intent": "ask_loyalty" },
+  {
+    "text": "Làm sao để thành khách hàng thân thiết?",
+    "intent": "ask_loyalty"
+  },
+
+  { "text": "Tôi muốn xem lại đơn hàng cũ", "intent": "ask_purchase_history" },
+  {
+    "text": "Shop kiểm tra giúp lịch sử mua hàng của tôi nhé",
+    "intent": "ask_purchase_history"
+  },
+
+  { "text": "Bánh này có bao nhiêu calo vậy shop?", "intent": "ask_nutrition" },
+  {
+    "text": "Thành phần dinh dưỡng của bánh là gì?",
+    "intent": "ask_nutrition"
+  },
+
+  {
+    "text": "Có bánh nào phù hợp cho trẻ em không shop?",
+    "intent": "ask_for_kids"
+  },
+  { "text": "Bánh cho bé 3 tuổi nên chọn loại nào?", "intent": "ask_for_kids" }
 ]

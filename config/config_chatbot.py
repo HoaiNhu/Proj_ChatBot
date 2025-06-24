@@ -41,4 +41,7 @@ class ChatbotConfig:
     LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
     LOG_FILE = os.getenv("LOG_FILE", "chatbot_api.log")
     
-    FACEBOOK_PAGE_ACCESS_TOKEN = os.getenv("FACEBOOK_PAGE_ACCESS_TOKEN") 
+    # Thêm cấu hình huấn luyện model
+    TRAINING_EPOCHS = int(os.getenv("TRAINING_EPOCHS", 5))
+    BATCH_SIZE = int(os.getenv("BATCH_SIZE", 8))
+    LEARNING_RATE = float(os.getenv("LEARNING_RATE", 5e-5))

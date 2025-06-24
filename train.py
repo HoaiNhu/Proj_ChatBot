@@ -5,21 +5,24 @@ import os
 from config.config_chatbot import ChatbotConfig
 from utils.logger import logger
 from pymongo import MongoClient
+from logic.intent_list import INTENT_LIST
+from sklearn.metrics import classification_report, confusion_matrix
+import numpy as np
 
 # Load dữ liệu chính
-with open('data.json', encoding='utf-8') as f:
+with open('data/data.json', encoding='utf-8') as f:
     data = json.load(f)
 
 # Load dữ liệu học tập từ learning_system
 if os.path.exists('learning_data.json'):
     with open('learning_data.json', encoding='utf-8') as f:
         learning_data = json.load(f)
-else:
+else: 
     learning_data = []
 
 # Load từ viết tắt
 abbreviations = {}
-with open('abbreviations.txt', 'r', encoding='utf-8') as f:
+with open('data/abbreviations.txt', 'r', encoding='utf-8') as f:
     for line in f:
         line = line.strip()
         if ' = ' in line:
@@ -58,12 +61,7 @@ expanded_data.extend(mongo_data)
 # Chuẩn bị dataset
 texts = [item['text'] for item in expanded_data]
 labels = [
-    0 if item['intent'] == 'suggest_cake' else
-    1 if item['intent'] == 'ask_price' else
-    2 if item['intent'] == 'connect_staff' else
-    3 if item['intent'] == 'ask_promotion' else
-    4 if item['intent'] == 'check_order' else
-    5 if item['intent'] == 'custom_cake' else -1
+    INTENT_LIST.index(item['intent']) if item['intent'] in INTENT_LIST else -1
     for item in expanded_data
 ]
 # Loại bỏ các mẫu không có intent hợp lệ
@@ -85,7 +83,10 @@ class Dataset(torch.utils.data.Dataset):
         return len(self.labels)
 
 dataset = Dataset(encodings, labels)
-model = DistilBertForSequenceClassification.from_pretrained('distilbert-base-uncased', num_labels=6)
+model = DistilBertForSequenceClassification.from_pretrained(
+    'distilbert-base-uncased',
+    num_labels=len(INTENT_LIST)
+)
 
 training_args = TrainingArguments(
     output_dir='./results',
@@ -103,7 +104,35 @@ trainer = Trainer(
     train_dataset=dataset,
 )
 
-trainer.train()
-model.save_pretrained(ChatbotConfig.MODEL_PATH)
-tokenizer.save_pretrained(ChatbotConfig.MODEL_PATH)
-logger.info("Model training completed and saved")
+# Sau khi train xong, đánh giá trên tập train/test (nếu có)
+def evaluate_model(trainer, dataset, labels_true):
+    preds_output = trainer.predict(dataset)
+    preds = np.argmax(preds_output.predictions, axis=1)
+    report = classification_report(labels_true, preds, target_names=INTENT_LIST)
+    matrix = confusion_matrix(labels_true, preds)
+    print("Classification Report:")
+    print(report)
+    print("Confusion Matrix:")
+    print(matrix)
+    # Log ra file
+    logger.info("Classification Report:\n" + report)
+    logger.info("Confusion Matrix:\n" + np.array2string(matrix))
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "eval":
+        # Đánh giá lại model đã train (không train lại)
+        model = DistilBertForSequenceClassification.from_pretrained(ChatbotConfig.MODEL_PATH)
+        trainer = Trainer(
+            model=model,
+            args=training_args,
+            train_dataset=dataset,
+        )
+        evaluate_model(trainer, dataset, labels)
+    else:
+        # Train và đánh giá như cũ
+        trainer.train()
+        model.save_pretrained(ChatbotConfig.MODEL_PATH)
+        tokenizer.save_pretrained(ChatbotConfig.MODEL_PATH)
+        logger.info("Model training completed and saved")
+        evaluate_model(trainer, dataset, labels)

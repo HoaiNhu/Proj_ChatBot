@@ -1,4 +1,5 @@
 from logic.intent_rules import INTENT_RULES
+from logic.intent_list import INTENT_LIST
 from services.nlp_service import NLPService
 
 class ConversationService:
@@ -19,13 +20,10 @@ class ConversationService:
             return intent, confidence
         # Dùng mô hình nếu không match luật
         intent_idx, conf = self.nlp_service.predict_intent(text)
-        # Map index về intent string
-        intent_map = {
-            0: "suggest_cake",
-            1: "ask_price",
-            2: "connect_staff",
-            3: "ask_promotion",
-            4: "check_order",
-            5: "custom_cake"
-        }
-        return intent_map.get(intent_idx, None), conf
+        # Map index về intent string dùng INTENT_LIST
+        intent = INTENT_LIST[intent_idx] if 0 <= intent_idx < len(INTENT_LIST) else None
+        return intent, conf
+
+    def get_intent_list(self):
+        """Trả về danh sách các intent có thể nhận diện"""
+        return INTENT_LIST
