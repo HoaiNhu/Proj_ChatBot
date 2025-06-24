@@ -228,5 +228,272 @@
     "text": "Có bánh nào phù hợp cho trẻ em không shop?",
     "intent": "ask_for_kids"
   },
-  { "text": "Bánh cho bé 3 tuổi nên chọn loại nào?", "intent": "ask_for_kids" }
+  { "text": "Bánh cho bé 3 tuổi nên chọn loại nào?", "intent": "ask_for_kids" },
+
+  { "text": "Tôi muốn kiểm tra đơn hàng của mình", "intent": "check_order" },
+  { "text": "Đơn hàng số 12345 đã giao chưa shop?", "intent": "check_order" },
+  {
+    "text": "Shop kiểm tra giúp tình trạng đơn hàng nhé",
+    "intent": "check_order"
+  },
+  { "text": "Đơn hàng của tôi đang ở đâu rồi?", "intent": "check_order" },
+
+  {
+    "text": "Làm sao để xem lại các đơn đã mua?",
+    "intent": "ask_purchase_history"
+  },
+  {
+    "text": "Tôi muốn biết mình đã đặt những bánh gì trước đây",
+    "intent": "ask_purchase_history"
+  },
+  {
+    "text": "Shop gửi lịch sử mua hàng cho tôi nhé",
+    "intent": "ask_purchase_history"
+  },
+  {
+    "text": "Có thể xem lại đơn cũ không shop?",
+    "intent": "ask_purchase_history"
+  },
+
+  { "text": "Bánh này có bao nhiêu calo vậy?", "intent": "ask_nutrition" },
+  {
+    "text": "Shop cho biết thành phần dinh dưỡng của bánh này",
+    "intent": "ask_nutrition"
+  },
+  { "text": "Bánh này có nhiều đường không?", "intent": "ask_nutrition" },
+  { "text": "Bánh này có chất béo không shop?", "intent": "ask_nutrition" },
+
+  {
+    "text": "Bánh này để ngoài tủ lạnh được bao lâu?",
+    "intent": "ask_preservation"
+  },
+  {
+    "text": "Cách bảo quản bánh kem như thế nào?",
+    "intent": "ask_preservation"
+  },
+  { "text": "Bánh này có cần giữ lạnh không?", "intent": "ask_preservation" },
+  {
+    "text": "Shop hướng dẫn bảo quản bánh giúp tôi",
+    "intent": "ask_preservation"
+  },
+
+  { "text": "Shop cho xin số điện thoại liên hệ", "intent": "ask_contact" },
+  { "text": "Có thể gọi điện cho shop qua số nào?", "intent": "ask_contact" },
+  { "text": "Shop có zalo không cho mình xin", "intent": "ask_contact" },
+  { "text": "Liên hệ với shop bằng cách nào?", "intent": "ask_contact" },
+
+  { "text": "Nếu bánh bị lỗi có được đổi không?", "intent": "ask_return" },
+  {
+    "text": "Chính sách trả hàng của shop như thế nào?",
+    "intent": "ask_return"
+  },
+  { "text": "Tôi muốn đổi bánh, shop hỗ trợ không?", "intent": "ask_return" },
+  { "text": "Shop có nhận đổi trả bánh không?", "intent": "ask_return" },
+
+  {
+    "text": "Có bánh nào phù hợp cho bé 5 tuổi không?",
+    "intent": "ask_for_kids"
+  },
+  { "text": "Bánh cho trẻ nhỏ nên chọn loại nào?", "intent": "ask_for_kids" },
+  { "text": "Shop gợi ý bánh cho bé gái giúp mình", "intent": "ask_for_kids" },
+  {
+    "text": "Bánh sinh nhật cho trẻ em có mẫu nào đẹp?",
+    "intent": "ask_for_kids"
+  },
+  {
+    "text": "Tôi muốn biết đơn hàng của tôi đã được giao chưa?",
+    "intent": "check_order"
+  },
+  {
+    "text": "Shop kiểm tra giúp đơn hàng mã 56789 nhé",
+    "intent": "check_order"
+  },
+  {
+    "text": "Đơn hàng của tôi bị trễ, kiểm tra giúp với",
+    "intent": "check_order"
+  },
+  {
+    "text": "Tôi chưa nhận được bánh, đơn hàng đâu rồi?",
+    "intent": "check_order"
+  },
+  {
+    "text": "Shop báo tình trạng đơn hàng cho tôi nhé",
+    "intent": "check_order"
+  },
+  {
+    "text": "Tôi muốn xem lại các đơn đã đặt trước đây",
+    "intent": "ask_purchase_history"
+  },
+  {
+    "text": "Shop có thể gửi danh sách các đơn hàng tôi đã mua không?",
+    "intent": "ask_purchase_history"
+  },
+  {
+    "text": "Làm sao để kiểm tra lịch sử mua bánh của mình?",
+    "intent": "ask_purchase_history"
+  },
+  {
+    "text": "Tôi muốn biết mình đã từng đặt những loại bánh nào",
+    "intent": "ask_purchase_history"
+  },
+  {
+    "text": "Có thể gửi lịch sử đặt hàng qua email không shop?",
+    "intent": "ask_purchase_history"
+  },
+  {
+    "text": "Bánh này có bao nhiêu protein vậy shop?",
+    "intent": "ask_nutrition"
+  },
+  { "text": "Bánh có chất bảo quản không?", "intent": "ask_nutrition" },
+  {
+    "text": "Bánh này có phù hợp cho người ăn kiêng không?",
+    "intent": "ask_nutrition"
+  },
+  { "text": "Bánh có chứa gluten không shop?", "intent": "ask_nutrition" },
+  { "text": "Bánh này có nhiều calo không?", "intent": "ask_nutrition" },
+  {
+    "text": "Bánh này để ngoài trời được bao lâu?",
+    "intent": "ask_preservation"
+  },
+  {
+    "text": "Bánh có cần bảo quản trong tủ đông không?",
+    "intent": "ask_preservation"
+  },
+  {
+    "text": "Nếu không ăn hết thì bảo quản thế nào?",
+    "intent": "ask_preservation"
+  },
+  { "text": "Bánh này có thể để qua đêm không?", "intent": "ask_preservation" },
+  {
+    "text": "Shop hướng dẫn bảo quản bánh khi vận chuyển xa",
+    "intent": "ask_preservation"
+  },
+  { "text": "Shop có facebook không cho mình xin", "intent": "ask_contact" },
+  { "text": "Có thể liên hệ shop qua email không?", "intent": "ask_contact" },
+  { "text": "Shop có số điện thoại nào khác không?", "intent": "ask_contact" },
+  {
+    "text": "Mình muốn liên hệ trực tiếp với quản lý, số nào vậy shop?",
+    "intent": "ask_contact"
+  },
+  {
+    "text": "Shop có fanpage không gửi link giúp mình",
+    "intent": "ask_contact"
+  },
+  {
+    "text": "Nếu bánh bị hỏng khi giao thì xử lý sao?",
+    "intent": "ask_return"
+  },
+  {
+    "text": "Shop có hoàn tiền nếu bánh không đúng yêu cầu không?",
+    "intent": "ask_return"
+  },
+  { "text": "Tôi muốn trả lại bánh vì không đúng mẫu", "intent": "ask_return" },
+  {
+    "text": "Bánh bị lỗi trang trí có được đổi không?",
+    "intent": "ask_return"
+  },
+  {
+    "text": "Shop hỗ trợ đổi trả trong bao lâu sau khi nhận bánh?",
+    "intent": "ask_return"
+  },
+  {
+    "text": "Có bánh nào cho bé trai 7 tuổi không shop?",
+    "intent": "ask_for_kids"
+  },
+  {
+    "text": "Bánh cho bé dị ứng sữa có loại nào không?",
+    "intent": "ask_for_kids"
+  },
+  {
+    "text": "Shop gợi ý bánh sinh nhật cho bé trai giúp mình",
+    "intent": "ask_for_kids"
+  },
+  {
+    "text": "Bánh cho bé thích hoạt hình có mẫu nào không?",
+    "intent": "ask_for_kids"
+  },
+  {
+    "text": "Có bánh nào ít ngọt cho trẻ em không shop?",
+    "intent": "ask_for_kids"
+  },
+  {
+    "text": "Tôi muốn gửi nhận xét về dịch vụ của shop",
+    "intent": "ask_feedback"
+  },
+  {
+    "text": "Shop có nhận góp ý từ khách hàng không?",
+    "intent": "ask_feedback"
+  },
+  { "text": "Tôi muốn đánh giá chất lượng bánh", "intent": "ask_feedback" },
+  { "text": "Shop có form feedback online không?", "intent": "ask_feedback" },
+  { "text": "Làm sao để gửi phản hồi cho shop?", "intent": "ask_feedback" },
+  {
+    "text": "Shop có combo bánh sinh nhật và nước uống không?",
+    "intent": "ask_combo"
+  },
+  { "text": "Có set bánh cho nhóm 5 người không shop?", "intent": "ask_combo" },
+  { "text": "Combo bánh nào đang giảm giá vậy shop?", "intent": "ask_combo" },
+  {
+    "text": "Shop gợi ý combo bánh phù hợp cho tiệc nhỏ",
+    "intent": "ask_combo"
+  },
+  { "text": "Có combo bánh ngọt và bánh mặn không?", "intent": "ask_combo" },
+  { "text": "Bánh kem này có trứng không shop?", "intent": "ask_ingredient" },
+  { "text": "Bánh mousse làm từ nguyên liệu gì?", "intent": "ask_ingredient" },
+  { "text": "Bánh này có chứa hạt điều không?", "intent": "ask_ingredient" },
+  { "text": "Bánh có dùng bột mì không shop?", "intent": "ask_ingredient" },
+  { "text": "Bánh này có chất bảo quản không?", "intent": "ask_ingredient" },
+  {
+    "text": "Shop có nhận thanh toán qua thẻ tín dụng không?",
+    "intent": "ask_payment"
+  },
+  {
+    "text": "Có thể trả tiền khi nhận hàng không shop?",
+    "intent": "ask_payment"
+  },
+  {
+    "text": "Shop có hỗ trợ thanh toán qua VNPay không?",
+    "intent": "ask_payment"
+  },
+  {
+    "text": "Có thể chuyển khoản ngân hàng không shop?",
+    "intent": "ask_payment"
+  },
+  {
+    "text": "Shop có nhận tiền mặt khi giao hàng không?",
+    "intent": "ask_payment"
+  },
+  { "text": "Shop giao hàng trong ngày được không?", "intent": "ask_delivery" },
+  { "text": "Phí ship đến quận 7 là bao nhiêu?", "intent": "ask_delivery" },
+  {
+    "text": "Shop có giao hàng ngoài giờ hành chính không?",
+    "intent": "ask_delivery"
+  },
+  {
+    "text": "Có thể đặt giao hàng hẹn giờ không shop?",
+    "intent": "ask_delivery"
+  },
+  { "text": "Shop có giao hàng qua app không?", "intent": "ask_delivery" },
+  {
+    "text": "Shop có mở cửa vào ngày lễ không?",
+    "intent": "ask_opening_hours"
+  },
+  {
+    "text": "Giờ đóng cửa của shop là mấy giờ?",
+    "intent": "ask_opening_hours"
+  },
+  {
+    "text": "Shop có làm việc vào chủ nhật không?",
+    "intent": "ask_opening_hours"
+  },
+  { "text": "Shop có mở cửa buổi tối không?", "intent": "ask_opening_hours" },
+  { "text": "Shop có nghỉ trưa không?", "intent": "ask_opening_hours" },
+  { "text": "Shop có chi nhánh ở Hà Nội không?", "intent": "ask_address" },
+  { "text": "Địa chỉ cửa hàng ở Sài Gòn là gì?", "intent": "ask_address" },
+  { "text": "Shop có cửa hàng ở gần đây không?", "intent": "ask_address" },
+  { "text": "Shop có giao hàng từ chi nhánh nào?", "intent": "ask_address" },
+  {
+    "text": "Shop có cửa hàng ở trung tâm thành phố không?",
+    "intent": "ask_address"
+  }
 ]

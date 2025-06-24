@@ -7,6 +7,7 @@ from utils.logger import logger
 from pymongo import MongoClient
 from logic.intent_list import INTENT_LIST
 from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.model_selection import train_test_split
 import numpy as np
 
 # Load dữ liệu chính
@@ -68,8 +69,14 @@ labels = [
 valid_data = [(t, l) for t, l in zip(texts, labels) if l != -1]
 texts, labels = zip(*valid_data) if valid_data else ([], [])
 
+# Tách tập train/validation (80% train, 20% val)
+texts_train, texts_val, labels_train, labels_val = train_test_split(
+    texts, labels, test_size=0.2, random_state=42, stratify=labels
+)
+
 tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
-encodings = tokenizer(texts, truncation=True, padding=True, max_length=ChatbotConfig.MAX_LENGTH)
+encodings_train = tokenizer(list(texts_train), truncation=True, padding=True, max_length=ChatbotConfig.MAX_LENGTH)
+encodings_val = tokenizer(list(texts_val), truncation=True, padding=True, max_length=ChatbotConfig.MAX_LENGTH)
 
 class Dataset(torch.utils.data.Dataset):
     def __init__(self, encodings, labels):
@@ -82,7 +89,8 @@ class Dataset(torch.utils.data.Dataset):
     def __len__(self):
         return len(self.labels)
 
-dataset = Dataset(encodings, labels)
+train_dataset = Dataset(encodings_train, list(labels_train))
+val_dataset = Dataset(encodings_val, list(labels_val))
 model = DistilBertForSequenceClassification.from_pretrained(
     'distilbert-base-uncased',
     num_labels=len(INTENT_LIST)
@@ -101,14 +109,14 @@ training_args = TrainingArguments(
 trainer = Trainer(
     model=model,
     args=training_args,
-    train_dataset=dataset,
+    train_dataset=train_dataset,
 )
 
 # Sau khi train xong, đánh giá trên tập train/test (nếu có)
-def evaluate_model(trainer, dataset, labels_true):
+def evaluate_model(trainer, dataset, labels_true, report_file="eval_report.txt"):
     preds_output = trainer.predict(dataset)
     preds = np.argmax(preds_output.predictions, axis=1)
-    report = classification_report(labels_true, preds, target_names=INTENT_LIST)
+    report = classification_report(labels_true, preds, target_names=INTENT_LIST, zero_division=0)
     matrix = confusion_matrix(labels_true, preds)
     print("Classification Report:")
     print(report)
@@ -117,6 +125,12 @@ def evaluate_model(trainer, dataset, labels_true):
     # Log ra file
     logger.info("Classification Report:\n" + report)
     logger.info("Confusion Matrix:\n" + np.array2string(matrix))
+    # Lưu ra file txt
+    with open(report_file, "w", encoding="utf-8") as f:
+        f.write("Classification Report:\n")
+        f.write(report)
+        f.write("\nConfusion Matrix:\n")
+        f.write(np.array2string(matrix))
 
 if __name__ == "__main__":
     import sys
@@ -126,13 +140,13 @@ if __name__ == "__main__":
         trainer = Trainer(
             model=model,
             args=training_args,
-            train_dataset=dataset,
+            train_dataset=train_dataset,
         )
-        evaluate_model(trainer, dataset, labels)
+        evaluate_model(trainer, val_dataset, labels_val)
     else:
         # Train và đánh giá như cũ
         trainer.train()
         model.save_pretrained(ChatbotConfig.MODEL_PATH)
         tokenizer.save_pretrained(ChatbotConfig.MODEL_PATH)
         logger.info("Model training completed and saved")
-        evaluate_model(trainer, dataset, labels)
+        evaluate_model(trainer, val_dataset, labels_val)
