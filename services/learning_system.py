@@ -8,7 +8,7 @@ from utils.logger import logger
 class LearningSystem:
     def __init__(self, db):
         self.db = db
-        self.chats_collection = db['chats']
+        self.chats_collection = db['conversation']  # Đổi từ 'chats' sang 'conversation'
         self.feedback_collection = db['feedback']
         self.learning_data_file = 'learning_data.json'
         
@@ -155,4 +155,4 @@ class LearningSystem:
             
         except Exception as e:
             logger.error(f"Lỗi khi lấy số liệu hiệu suất: {e}")
-            return {} 
+            return {}

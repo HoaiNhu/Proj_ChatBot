@@ -4,11 +4,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class ChatbotConfig:
-    """Cấu hình riêng cho chatbot MongoDB"""
+    """Cấu hình riêng cho chatbot và cửa hàng"""
     
-    # MongoDB cho chatbot (riêng biệt với MongoDB training)
-    CHATBOT_MONGO_URI = os.getenv("CHATBOT_MONGO_URI", "mongodb+srv://hnhu:hoainhu1234@webbuycake.asd8v.mongodb.net/?retryWrites=true&w=majority&appName=WebBuyCake")
-    CHATBOT_DB_NAME = os.getenv("CHATBOT_DB_NAME", "test")
+    # MongoDB cho cửa hàng (data training)
+    STORE_MONGO_URI = os.getenv("STORE_MONGO_URI", "mongodb+srv://hnhu:hoainhu1234@webbuycake.asd8v.mongodb.net/?retryWrites=true&w=majority&appName=WebBuyCake")
+    STORE_DB_NAME = os.getenv("STORE_DB_NAME", "test")
+
+    # MongoDB cho chatbot (conversation, feedback, ...)
+    CHATBOT_MONGO_URI = os.getenv("CHATBOT_MONGO_URI", "mongodb+srv://hnhu1234:hoainhu1234@cluster0.xnyrq6o.mongodb.net/")
+    CHATBOT_DB_NAME = os.getenv("CHATBOT_DB_NAME", "chatbotDB")
     
     # Collections trong chatbot database
     CONVERSATIONS_COLLECTION = "conversations"

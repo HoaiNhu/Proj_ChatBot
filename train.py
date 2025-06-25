@@ -3,12 +3,12 @@ import torch
 import json
 import os
 from config.config_chatbot import ChatbotConfig
-from utils.logger import logger
 from pymongo import MongoClient
 from logic.intent_list import INTENT_LIST
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
 import numpy as np
+from utils.logger import logger
 
 # Load dữ liệu chính
 with open('data/data.json', encoding='utf-8') as f:
@@ -43,15 +43,21 @@ for item in data + learning_data:
             new_text = text.replace(full, abbr)
             expanded_data.append({"text": new_text, "intent": intent})
 
-# Lấy dữ liệu từ MongoDB
-mongo_uri = ChatbotConfig.CHATBOT_MONGO_URI
-client = MongoClient(mongo_uri)
-db = client[ChatbotConfig.CHATBOT_DB_NAME]
-chats = db['chats']
+# Lấy data training từ MongoDB cửa hàng
+store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
+store_db = store_client[ChatbotConfig.STORE_DB_NAME]
+# Ví dụ: lấy data từ collection 'products' hoặc 'training_data'
+# data = list(store_db['training_data'].find())
+# Nếu vẫn dùng file data.json thì giữ nguyên đoạn load file
+
+# Lấy hội thoại từ MongoDB chatbot (nếu cần)
+chatbot_client = MongoClient(ChatbotConfig.CHATBOT_MONGO_URI)
+chatbot_db = chatbot_client[ChatbotConfig.CHATBOT_DB_NAME]
+chats = chatbot_db['conversation']
 
 mongo_data = []
 for chat in chats.find():
-    user_input = chat['user']
+    user_input = chat.get('user') or chat.get('user_input')
     intent = chat.get('intent')
     if intent:
         mongo_data.append({"text": user_input, "intent": intent})

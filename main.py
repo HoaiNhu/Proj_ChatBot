@@ -23,9 +23,15 @@ response_service = ResponseService()
 
 # Khởi tạo database cho LearningSystem
 from pymongo import MongoClient
-client = MongoClient(ChatbotConfig.CHATBOT_MONGO_URI)
-db = client[ChatbotConfig.CHATBOT_DB_NAME]
-learning_system = LearningSystem(db)
+# Kết nối MongoDB cửa hàng (nếu cần dùng cho training)
+store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
+store_db = store_client[ChatbotConfig.STORE_DB_NAME]
+
+# Kết nối MongoDB chatbot (lưu hội thoại)
+chatbot_client = MongoClient(ChatbotConfig.CHATBOT_MONGO_URI)
+chatbot_db = chatbot_client[ChatbotConfig.CHATBOT_DB_NAME]
+learning_system = LearningSystem(chatbot_db)
+db = chatbot_db  # Đảm bảo các API khác cũng dùng đúng db chatbot
 
 messenger_integration = MessengerIntegration()
 
