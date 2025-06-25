@@ -2,6 +2,7 @@ import json
 import os
 from datetime import datetime, timedelta
 from pymongo import MongoClient
+from services.conversation_service import ConversationService
 from config.config_chatbot import ChatbotConfig
 from utils.logger import logger
 
@@ -11,6 +12,7 @@ class LearningSystem:
         self.chats_collection = db['conversation']  # Đổi từ 'chats' sang 'conversation'
         self.feedback_collection = db['feedback']
         self.learning_data_file = 'learning_data.json'
+        self.intent_detector = ConversationService(model_path=ChatbotConfig.MODEL_PATH)
         
     def collect_conversation_data(self, user_input, bot_response, intent=None, confidence=None):
         """Thu thập dữ liệu từ cuộc trò chuyện"""
@@ -62,9 +64,8 @@ class LearningSystem:
             new_training_data = []
             
             for chat in unprocessed_chats:
-                # Phân tích intent dựa trên phản hồi
-                intent = self._analyze_intent_from_response(chat['bot_response'])
-                
+                # Nhận diện intent từ user_input (không dùng bot_response nữa)
+                intent, _ = self.intent_detector.detect_intent(chat['user_input'])
                 if intent:
                     new_training_data.append({
                         'text': chat['user_input'],
@@ -87,19 +88,6 @@ class LearningSystem:
         except Exception as e:
             logger.error(f"Lỗi khi phân tích cuộc trò chuyện: {e}")
             return []
-    
-    def _analyze_intent_from_response(self, bot_response):
-        """Phân tích intent dựa trên phản hồi của bot"""
-        response_lower = bot_response.lower()
-        
-        if any(keyword in response_lower for keyword in ['vị gì', 'gợi ý', 'thích']):
-            return 'suggest_cake'
-        elif any(keyword in response_lower for keyword in ['giá', 'bao nhiêu', 'tiền']):
-            return 'ask_price'
-        elif any(keyword in response_lower for keyword in ['kết nối', 'nhân viên']):
-            return 'connect_staff'
-        
-        return None
     
     def _save_learning_data(self, new_data):
         """Lưu dữ liệu học tập mới"""
