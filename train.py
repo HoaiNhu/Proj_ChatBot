@@ -116,8 +116,15 @@ trainer = Trainer(
 def evaluate_model(trainer, dataset, labels_true, report_file="eval_report.txt"):
     preds_output = trainer.predict(dataset)
     preds = np.argmax(preds_output.predictions, axis=1)
-    report = classification_report(labels_true, preds, target_names=INTENT_LIST, zero_division=0)
-    matrix = confusion_matrix(labels_true, preds)
+    unique_labels = sorted(set(labels_true) | set(preds))
+    report = classification_report(
+        labels_true,
+        preds,
+        labels=unique_labels,
+        target_names=[INTENT_LIST[i] for i in unique_labels],
+        zero_division=0
+    )
+    matrix = confusion_matrix(labels_true, preds, labels=unique_labels)
     print("Classification Report:")
     print(report)
     print("Confusion Matrix:")

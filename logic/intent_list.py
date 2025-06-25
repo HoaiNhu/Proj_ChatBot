@@ -1,4 +1,7 @@
 INTENT_LIST = [
+    "greeting",
+    "thank_you",
+    "goodbye",
     "suggest_cake",
     "ask_price",
     "connect_staff",

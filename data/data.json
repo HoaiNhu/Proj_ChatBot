@@ -495,5 +495,240 @@
   {
     "text": "Shop có cửa hàng ở trung tâm thành phố không?",
     "intent": "ask_address"
-  }
+  },
+  { "text": "Xin chào", "intent": "greeting" },
+  { "text": "Chào bạn", "intent": "greeting" },
+  { "text": "Hello", "intent": "greeting" },
+  { "text": "Hi shop", "intent": "greeting" },
+  { "text": "Shop ơi", "intent": "greeting" },
+  { "text": "Có ai không?", "intent": "greeting" },
+  { "text": "Cảm ơn bạn", "intent": "thank_you" },
+  { "text": "Cảm ơn shop", "intent": "thank_you" },
+  { "text": "Cảm ơn nhiều nha", "intent": "thank_you" },
+  { "text": "Thanks", "intent": "thank_you" },
+  { "text": "Tạm biệt", "intent": "goodbye" },
+  { "text": "Hẹn gặp lại", "intent": "goodbye" },
+  { "text": "Bye bye", "intent": "goodbye" },
+  { "text": "Bánh này giá bao nhiêu?", "intent": "ask_price" },
+  { "text": "Cho mình hỏi giá bánh này", "intent": "ask_price" },
+  { "text": "Bánh kem bao nhiêu tiền?", "intent": "ask_price" },
+  { "text": "Shop có bánh gì ngon?", "intent": "suggest_cake" },
+  { "text": "Gợi ý giúp mình loại bánh bán chạy", "intent": "suggest_cake" },
+  { "text": "Có loại bánh nào đặc biệt không?", "intent": "suggest_cake" },
+  { "text": "Tôi muốn gặp nhân viên", "intent": "connect_staff" },
+  { "text": "Kết nối với nhân viên giúp mình", "intent": "connect_staff" },
+  { "text": "Cho mình gặp tư vấn viên", "intent": "connect_staff" },
+  { "text": "Địa chỉ shop ở đâu?", "intent": "ask_address" },
+  { "text": "Shop nằm ở đâu vậy?", "intent": "ask_address" },
+  { "text": "Cho xin địa chỉ cửa hàng", "intent": "ask_address" },
+  { "text": "Shop mở cửa lúc mấy giờ?", "intent": "ask_opening_hours" },
+  { "text": "Giờ làm việc của shop thế nào?", "intent": "ask_opening_hours" },
+  { "text": "Shop đóng cửa lúc mấy giờ?", "intent": "ask_opening_hours" },
+  { "text": "Tôi muốn đánh giá dịch vụ", "intent": "ask_feedback" },
+  { "text": "Cho mình gửi feedback", "intent": "ask_feedback" },
+  { "text": "Mình muốn nhận xét về shop", "intent": "ask_feedback" },
+  { "text": "Bánh này làm từ gì?", "intent": "ask_ingredient" },
+  { "text": "Thành phần của bánh này là gì?", "intent": "ask_ingredient" },
+  { "text": "Bánh có nguyên liệu gì?", "intent": "ask_ingredient" },
+  { "text": "Tôi muốn đặt bánh theo yêu cầu", "intent": "custom_cake" },
+  { "text": "Shop có nhận làm bánh custom không?", "intent": "custom_cake" },
+  { "text": "Mình muốn đặt bánh cá nhân hóa", "intent": "custom_cake" },
+  { "text": "Shop có khuyến mãi gì không?", "intent": "ask_promotion" },
+  { "text": "Có ưu đãi nào không shop?", "intent": "ask_promotion" },
+  { "text": "Có chương trình giảm giá không?", "intent": "ask_promotion" },
+  { "text": "Shop có giao hàng không?", "intent": "ask_delivery" },
+  { "text": "Có ship tận nơi không?", "intent": "ask_delivery" },
+  { "text": "Phí giao hàng bao nhiêu?", "intent": "ask_delivery" },
+  { "text": "Có combo bánh nào không?", "intent": "ask_combo" },
+  { "text": "Shop có set bánh tiết kiệm không?", "intent": "ask_combo" },
+  { "text": "Có gói combo nào không shop?", "intent": "ask_combo" },
+  { "text": "Có bánh cho trẻ em không?", "intent": "ask_for_kids" },
+  { "text": "Bánh nào phù hợp cho bé?", "intent": "ask_for_kids" },
+  { "text": "Có bánh cho con nít không?", "intent": "ask_for_kids" },
+  { "text": "Bánh này bao nhiêu calo?", "intent": "ask_nutrition" },
+  { "text": "Thông tin dinh dưỡng của bánh này?", "intent": "ask_nutrition" },
+  { "text": "Bánh này có nhiều chất béo không?", "intent": "ask_nutrition" },
+  { "text": "Shop có bánh ăn kiêng không?", "intent": "ask_diet_cake" },
+  { "text": "Có bánh ít đường không shop?", "intent": "ask_diet_cake" },
+  { "text": "Bánh healthy có không?", "intent": "ask_diet_cake" },
+  { "text": "Shop có bánh chay không?", "intent": "ask_vegan_cake" },
+  { "text": "Có bánh không trứng không?", "intent": "ask_vegan_cake" },
+  { "text": "Bánh vegan có không shop?", "intent": "ask_vegan_cake" },
+  { "text": "Có bánh mới nào không?", "intent": "ask_new_cake" },
+  { "text": "Bánh nào vừa ra mắt vậy shop?", "intent": "ask_new_cake" },
+  { "text": "Có bánh hot trend không?", "intent": "ask_new_cake" },
+  { "text": "Bánh nào bán chạy nhất?", "intent": "ask_best_seller" },
+  { "text": "Top bánh được yêu thích là gì?", "intent": "ask_best_seller" },
+  { "text": "Bánh nổi bật nhất là loại nào?", "intent": "ask_best_seller" },
+  { "text": "Có bánh theo mùa không?", "intent": "ask_seasonal_cake" },
+  { "text": "Bánh mùa hè có gì đặc biệt?", "intent": "ask_seasonal_cake" },
+  { "text": "Có bánh cho dịp lễ không?", "intent": "ask_festival_cake" },
+  { "text": "Bánh lễ tết có không shop?", "intent": "ask_festival_cake" },
+  { "text": "Có bánh mini không?", "intent": "ask_mini_cake" },
+  { "text": "Bánh nhỏ xinh có không shop?", "intent": "ask_mini_cake" },
+  {
+    "text": "Shop có giao bánh đi tỉnh xa không?",
+    "intent": "ask_long_distance_delivery"
+  },
+  {
+    "text": "Có ship tỉnh không shop?",
+    "intent": "ask_long_distance_delivery"
+  },
+  { "text": "Shop có nhận trang trí bánh không?", "intent": "ask_decor_cake" },
+  { "text": "Bánh decor có không shop?", "intent": "ask_decor_cake" },
+  { "text": "Có bánh in hình không?", "intent": "ask_printed_cake" },
+  { "text": "Bánh in chữ có không shop?", "intent": "ask_printed_cake" },
+  { "text": "Có bánh nhiều màu không?", "intent": "ask_color_cake" },
+  { "text": "Bánh phối màu có không shop?", "intent": "ask_color_cake" },
+  {
+    "text": "Shop có bánh không đường không?",
+    "intent": "ask_sugar_free_cake"
+  },
+  { "text": "Bánh sugar free có không shop?", "intent": "ask_sugar_free_cake" },
+  { "text": "Có bánh ít béo không?", "intent": "ask_low_fat_cake" },
+  { "text": "Bánh low fat có không shop?", "intent": "ask_low_fat_cake" },
+  {
+    "text": "Shop có bánh không gluten không?",
+    "intent": "ask_gluten_free_cake"
+  },
+  {
+    "text": "Bánh gluten free có không shop?",
+    "intent": "ask_gluten_free_cake"
+  },
+  {
+    "text": "Có bánh cho người tiểu đường không?",
+    "intent": "ask_diabetes_cake"
+  },
+  {
+    "text": "Bánh dành cho người tiểu đường có không shop?",
+    "intent": "ask_diabetes_cake"
+  },
+  {
+    "text": "Shop có bánh cho người lớn tuổi không?",
+    "intent": "ask_elderly_cake"
+  },
+  { "text": "Bánh cho ông bà có không shop?", "intent": "ask_elderly_cake" },
+  {
+    "text": "Có bánh cho người nước ngoài không?",
+    "intent": "ask_foreigner_cake"
+  },
+  { "text": "Bánh tây có không shop?", "intent": "ask_foreigner_cake" },
+  {
+    "text": "Shop có bánh cho tiệc công ty không?",
+    "intent": "ask_company_party_cake"
+  },
+  { "text": "Bánh party có không shop?", "intent": "ask_company_party_cake" },
+  { "text": "Shop có bánh sinh nhật không?", "intent": "ask_birthday_cake" },
+  { "text": "Bánh birthday có không shop?", "intent": "ask_birthday_cake" },
+  { "text": "Shop có bánh cưới không?", "intent": "ask_wedding_cake" },
+  { "text": "Bánh wedding có không shop?", "intent": "ask_wedding_cake" },
+  { "text": "Shop có bánh thôi nôi không?", "intent": "ask_baby_cake" },
+  { "text": "Bánh đầy tháng có không shop?", "intent": "ask_baby_cake" },
+  {
+    "text": "Shop có bánh baby shower không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Bánh baby shower có không shop?",
+    "intent": "ask_baby_shower_cake"
+  },
+  { "text": "Shop có bánh valentine không?", "intent": "ask_valentine_cake" },
+  { "text": "Bánh tình yêu có không shop?", "intent": "ask_valentine_cake" },
+  { "text": "Shop có bánh tết không?", "intent": "ask_tet_cake" },
+  { "text": "Bánh ngày tết có không shop?", "intent": "ask_tet_cake" },
+  { "text": "Shop có bánh trung thu không?", "intent": "ask_mid_autumn_cake" },
+  { "text": "Bánh trung thu có không shop?", "intent": "ask_mid_autumn_cake" },
+  { "text": "Shop có bánh giáng sinh không?", "intent": "ask_christmas_cake" },
+  { "text": "Bánh noel có không shop?", "intent": "ask_christmas_cake" },
+  { "text": "Shop có bánh halloween không?", "intent": "ask_halloween_cake" },
+  { "text": "Bánh halloween có không shop?", "intent": "ask_halloween_cake" },
+  { "text": "Shop có bánh 8/3 không?", "intent": "ask_womens_day_cake" },
+  {
+    "text": "Bánh quốc tế phụ nữ có không shop?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Shop có bánh 20/10 không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Bánh phụ nữ việt nam có không shop?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Shop có bánh ngày của mẹ không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Bánh mother's day có không shop?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Shop có bánh ngày của cha không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Bánh father's day có không shop?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Shop có bánh ngày nhà giáo không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  { "text": "Bánh 20/11 có không shop?", "intent": "ask_teachers_day_cake" },
+  {
+    "text": "Shop có bánh thiếu nhi không?",
+    "intent": "ask_childrens_day_cake"
+  },
+  { "text": "Bánh 1/6 có không shop?", "intent": "ask_childrens_day_cake" },
+  { "text": "Shop có bánh men's day không?", "intent": "ask_mens_day_cake" },
+  {
+    "text": "Bánh quốc tế đàn ông có không shop?",
+    "intent": "ask_mens_day_cake"
+  },
+  {
+    "text": "Shop có bánh ngày hạnh phúc không?",
+    "intent": "ask_happiness_day_cake"
+  },
+  {
+    "text": "Bánh quốc tế hạnh phúc có không shop?",
+    "intent": "ask_happiness_day_cake"
+  },
+  {
+    "text": "Shop có bánh ngày gia đình không?",
+    "intent": "ask_family_day_cake"
+  },
+  {
+    "text": "Bánh quốc tế gia đình có không shop?",
+    "intent": "ask_family_day_cake"
+  },
+  {
+    "text": "Shop có bánh ngày bạn bè không?",
+    "intent": "ask_friends_day_cake"
+  },
+  {
+    "text": "Bánh quốc tế bạn bè có không shop?",
+    "intent": "ask_friends_day_cake"
+  },
+  {
+    "text": "Shop có bánh ngày tình yêu không?",
+    "intent": "ask_love_day_cake"
+  },
+  {
+    "text": "Bánh quốc tế tình yêu có không shop?",
+    "intent": "ask_love_day_cake"
+  },
+  {
+    "text": "Shop có bánh ngày hòa bình không?",
+    "intent": "ask_peace_day_cake"
+  },
+  {
+    "text": "Bánh quốc tế hòa bình có không shop?",
+    "intent": "ask_peace_day_cake"
+  },
+  {
+    "text": "Shop có bánh ngày lao động không?",
+    "intent": "ask_labour_day_cake"
+  },
+  { "text": "Bánh 1/5 có không shop?", "intent": "ask_labour_day_cake" }
 ]

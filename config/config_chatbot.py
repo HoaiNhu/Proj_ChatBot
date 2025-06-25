@@ -7,8 +7,8 @@ class ChatbotConfig:
     """Cấu hình riêng cho chatbot MongoDB"""
     
     # MongoDB cho chatbot (riêng biệt với MongoDB training)
-    CHATBOT_MONGO_URI = os.getenv("CHATBOT_MONGO_URI", "mongodb+srv://hnhu1234:hoainhu1234@cluster0.xnyrq6o.mongodb.net/")
-    CHATBOT_DB_NAME = os.getenv("CHATBOT_DB_NAME", "chatbot_support")
+    CHATBOT_MONGO_URI = os.getenv("CHATBOT_MONGO_URI", "mongodb+srv://hnhu:hoainhu1234@webbuycake.asd8v.mongodb.net/?retryWrites=true&w=majority&appName=WebBuyCake")
+    CHATBOT_DB_NAME = os.getenv("CHATBOT_DB_NAME", "test")
     
     # Collections trong chatbot database
     CONVERSATIONS_COLLECTION = "conversations"
@@ -36,12 +36,12 @@ class ChatbotConfig:
     MODEL_PATH = os.getenv("MODEL_PATH", "./models")
     FALLBACK_MODEL = "distilbert-base-uncased"
     MAX_LENGTH = 512
+
+    # Training config
+    TRAINING_EPOCHS = int(os.getenv("TRAINING_EPOCHS", 10))
+    BATCH_SIZE = int(os.getenv("BATCH_SIZE", 8))
+    LEARNING_RATE = float(os.getenv("LEARNING_RATE", 5e-5))
     
     # Logging
     LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
     LOG_FILE = os.getenv("LOG_FILE", "chatbot_api.log")
-    
-    # Thêm cấu hình huấn luyện model
-    TRAINING_EPOCHS = int(os.getenv("TRAINING_EPOCHS", 5))
-    BATCH_SIZE = int(os.getenv("BATCH_SIZE", 8))
-    LEARNING_RATE = float(os.getenv("LEARNING_RATE", 5e-5))

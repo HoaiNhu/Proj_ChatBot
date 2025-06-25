@@ -1,5 +1,8 @@
 # Chứa luật nhận diện intent và mapping intent sang response
 INTENT_RULES = [
+    {"keywords": ["xin chào", "chào", "hello", "hi", "shop ơi", "có ai không"], "intent": "greeting"},
+    {"keywords": ["cảm ơn", "thanks", "thank you", "cảm ơn shop", "cảm ơn bạn"], "intent": "thank_you"},
+    {"keywords": ["tạm biệt", "bye", "hẹn gặp lại", "bye bye"], "intent": "goodbye"},
     {"keywords": ["bánh", "gợi ý", "vị"], "intent": "suggest_cake"},
     {"keywords": ["giá", "bao nhiêu", "tiền"], "intent": "ask_price"},
     {"keywords": ["nhân viên", "kết nối", "liên hệ"], "intent": "connect_staff"},
