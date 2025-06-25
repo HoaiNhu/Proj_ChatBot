@@ -43,27 +43,44 @@ for item in data + learning_data:
             new_text = text.replace(full, abbr)
             expanded_data.append({"text": new_text, "intent": intent})
 
-# Lấy data training từ MongoDB cửa hàng
+# Lấy data training từ nhiều collection của cửa hàng
 store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
 store_db = store_client[ChatbotConfig.STORE_DB_NAME]
-# Ví dụ: lấy data từ collection 'products' hoặc 'training_data'
-# data = list(store_db['training_data'].find())
-# Nếu vẫn dùng file data.json thì giữ nguyên đoạn load file
 
-# Lấy hội thoại từ MongoDB chatbot (nếu cần)
-chatbot_client = MongoClient(ChatbotConfig.CHATBOT_MONGO_URI)
-chatbot_db = chatbot_client[ChatbotConfig.CHATBOT_DB_NAME]
-chats = chatbot_db['conversation']
+def extract_training_samples():
+    samples = []
+    # Products
+    for prod in store_db['products'].find():
+        if 'productName' in prod:
+            samples.append({"text": f"Bánh {prod['productName']} có ngon không?", "intent": "suggest_cake"})
+        if 'productDescription' in prod:
+            samples.append({"text": prod['productDescription'], "intent": "suggest_cake"})
+    # Orders
+    for order in store_db['orders'].find():
+        if 'orderCode' in order:
+            samples.append({"text": f"Đơn hàng mã {order['orderCode']} đã giao chưa?", "intent": "check_order"})
+    # News
+    for news in store_db['news'].find():
+        if 'newsTitle' in news:
+            samples.append({"text": news['newsTitle'], "intent": "ask_promotion"})
+        if 'newsContent' in news:
+            samples.append({"text": news['newsContent'], "intent": "ask_promotion"})
+    # Discounts
+    for discount in store_db['discounts'].find():
+        if 'discountName' in discount:
+            samples.append({"text": discount['discountName'], "intent": "ask_promotion"})
+    # Categories
+    for cat in store_db['categories'].find():
+        if 'categoryName' in cat:
+            samples.append({"text": f"Shop có bánh {cat['categoryName']} không?", "intent": "suggest_cake"})
+    # Ratings
+    for rating in store_db['ratings'].find():
+        if 'comment' in rating:
+            samples.append({"text": rating['comment'], "intent": "ask_feedback"})
+    return samples
 
-mongo_data = []
-for chat in chats.find():
-    user_input = chat.get('user') or chat.get('user_input')
-    intent = chat.get('intent')
-    if intent:
-        mongo_data.append({"text": user_input, "intent": intent})
-
-# Kết hợp dữ liệu
-expanded_data.extend(mongo_data)
+# Thêm data từ các collection trên vào expanded_data
+expanded_data.extend(extract_training_samples())
 
 # Chuẩn bị dataset
 texts = [item['text'] for item in expanded_data]

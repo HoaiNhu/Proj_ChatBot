@@ -104,6 +104,7 @@ async def chat(request: ChatRequest):
     try:
         session_id = request.session_id or str(uuid.uuid4())
         intent, confidence = nlp_service.predict_intent(request.message)
+        # Sử dụng response_service.get_response để trả lời động
         response_text = response_service.get_response(intent, request.message)
         # Lưu hội thoại để học hỏi
         learning_system.collect_conversation_data(
