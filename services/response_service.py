@@ -1,5 +1,6 @@
 import random
-from logic.intent_rules import INTENT_RESPONSES, INTENT_LIST
+from logic.intent_rules import INTENT_RESPONSES  # chỉ import INTENT_RESPONSES
+from logic.intent_list import INTENT_LIST        # import INTENT_LIST từ intent_list
 from config.config_chatbot import ChatbotConfig
 from pymongo import MongoClient
 
