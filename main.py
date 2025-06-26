@@ -102,17 +102,79 @@ async def health_check():
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     try:
+        # session_id = request.session_id or str(uuid.uuid4())
+        # intent, confidence = nlp_service.predict_intent(request.message)
+        # # Sử dụng response_service.get_response để trả lời động
+        # response_text = response_service.get_response(intent, request.message)
+        # # Lưu hội thoại để học hỏi
+        # learning_system.collect_conversation_data(
+        #     user_input=request.message,
+        #     bot_response=response_text,
+        #     intent=intent,
+        #     confidence=confidence
+        # )
+        # return ChatResponse(
+        #     text=response_text,
+        #     session_id=session_id,
+        #     intent=intent,
+        #     confidence=confidence
+        # )
         session_id = request.session_id or str(uuid.uuid4())
-        intent, confidence = nlp_service.predict_intent(request.message)
-        # Sử dụng response_service.get_response để trả lời động
-        response_text = response_service.get_response(intent, request.message)
-        # Lưu hội thoại để học hỏi
+
+        # Lấy context (lịch sử hội thoại) từ MongoDB
+        session = chatbot_db["conversations"].find_one({"sessionId": session_id})
+        context = session["messages"] if session and "messages" in session else []
+
+        # Lấy intent gần nhất của bot (nếu có)
+        last_bot_intent = None
+        for msg in reversed(context):
+            if msg.get("sender") == "bot" and msg.get("intent"):
+                last_bot_intent = msg["intent"]
+                break
+
+        # Xử lý context đơn giản: ví dụ nếu vừa hỏi địa chỉ, user xác nhận "tại shop"
+        if last_bot_intent == "ask_address" and "tại shop" in request.message.lower():
+            shop_info = store_db['shop_info'].find_one()
+            address = shop_info.get('address', 'Shop chưa cập nhật địa chỉ') if shop_info else "Shop chưa cập nhật địa chỉ"
+            response_text = f"Địa chỉ shop: {address}"
+            intent = "ask_address"
+            confidence = 1.0
+        else:
+            # Xử lý như cũ
+            intent, confidence = nlp_service.predict_intent(request.message)
+            response_text = response_service.get_response(intent, request.message)
+
+        # Lưu hội thoại mới vào messages array của session
+        chatbot_db["conversations"].update_one(
+            {"sessionId": session_id},
+            {"$push": {"messages": {
+                "text": request.message,
+                "sender": "user",
+                "timestamp": datetime.now(),
+                "intent": None,
+                "confidence": 0
+            }}},
+            upsert=True
+        )
+        chatbot_db["conversations"].update_one(
+            {"sessionId": session_id},
+            {"$push": {"messages": {
+                "text": response_text,
+                "sender": "bot",
+                "timestamp": datetime.now(),
+                "intent": intent,
+                "confidence": confidence
+            }}}
+        )
+
+        # Lưu vào collection conversation để training nếu cần
         learning_system.collect_conversation_data(
             user_input=request.message,
             bot_response=response_text,
             intent=intent,
             confidence=confidence
         )
+
         return ChatResponse(
             text=response_text,
             session_id=session_id,
