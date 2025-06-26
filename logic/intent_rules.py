@@ -70,101 +70,180 @@ INTENT_RULES = [
 ]
 
 INTENT_RESPONSES = {
+    "greeting": [
+        "Xin chào bạn! Shop có thể giúp gì cho bạn?",
+        "Chào bạn, bạn muốn tìm loại bánh nào hôm nay?",
+        "Shop xin chào! Bạn cần tư vấn về bánh không ạ?",
+        "Rất vui được gặp bạn, bạn muốn đặt bánh gì?",
+        "Chào mừng bạn đến với Avocado Cake!"
+    ],
+    "thank_you": [
+        "Cảm ơn bạn đã tin tưởng và ủng hộ shop!",
+        "Shop rất vui khi được phục vụ bạn!",
+        "Cảm ơn bạn, chúc bạn một ngày tốt lành!",
+        "Cảm ơn bạn đã liên hệ với shop!",
+        "Shop luôn sẵn sàng hỗ trợ bạn bất cứ lúc nào!"
+    ],
+    "goodbye": [
+        "Tạm biệt bạn, hẹn gặp lại lần sau!",
+        "Chúc bạn một ngày vui vẻ và nhiều năng lượng!",
+        "Shop mong sớm gặp lại bạn!",
+        "Cảm ơn bạn, chúc bạn luôn hạnh phúc!",
+        "Nếu cần hỗ trợ gì thêm, bạn cứ nhắn cho shop nhé!"
+    ],
     "suggest_cake": [
-        "Chúng tôi có nhiều loại bánh ngon. Bạn thích vị gì?",
-        "Bạn muốn thử bánh vị nào? Socola, vani, trà xanh?"
+        "Shop có nhiều loại bánh ngon như Red Velvet, Tiramisu, Mousse, bạn muốn thử loại nào?",
+        "Bạn thích vị socola, trà xanh hay phô mai? Shop sẽ gợi ý bánh phù hợp!",
+        "Bạn muốn bánh kem, bánh bông lan hay bánh mousse?",
+        "Shop có bánh sinh nhật, bánh tiệc, bánh mini, bạn cần loại nào?",
+        "Bạn muốn shop gợi ý bánh theo dịp hay theo sở thích?"
     ],
     "ask_price": [
-        "Bánh của chúng tôi có giá từ 200,000đ đến 2,000,000đ tùy loại.",
-        "Bạn muốn hỏi giá loại bánh nào ạ?"
+        "Bánh của shop có giá từ 200.000đ đến 2.000.000đ tuỳ loại và kích cỡ.",
+        "Bạn muốn hỏi giá loại bánh nào để shop báo chi tiết nhé!",
+        "Shop có nhiều mức giá, bạn cần bánh cho bao nhiêu người?",
+        "Bạn vui lòng cho shop biết tên bánh để báo giá chính xác!",
+        "Bạn muốn tham khảo bảng giá bánh sinh nhật, bánh tiệc hay bánh mini?"
     ],
     "connect_staff": [
-        "Bạn vui lòng đợi, nhân viên sẽ kết nối với bạn ngay.",
-        "Chúng tôi sẽ chuyển bạn tới nhân viên hỗ trợ."
+        "Shop sẽ kết nối bạn với nhân viên tư vấn ngay!",
+        "Bạn vui lòng chờ một chút, nhân viên sẽ hỗ trợ bạn ngay lập tức!",
+        "Shop đã chuyển thông tin của bạn cho nhân viên, bạn đợi chút nhé!",
+        "Bạn cần hỗ trợ gì thêm, nhân viên sẽ liên hệ ngay!",
+        "Nhân viên tư vấn sẽ gọi lại cho bạn trong ít phút nữa!"
     ],
     "ask_promotion": [
-        "Hiện tại shop đang có nhiều chương trình khuyến mãi hấp dẫn, bạn muốn biết về ưu đãi nào?",
-        "Bạn quan tâm đến chương trình giảm giá nào? Mình gửi thông tin chi tiết nhé!"
+        "Hiện tại shop có nhiều chương trình khuyến mãi hấp dẫn, bạn muốn biết về ưu đãi nào?",
+        "Bạn quan tâm đến chương trình giảm giá nào? Shop gửi thông tin chi tiết nhé!",
+        "Shop đang có ưu đãi cho khách hàng mới, bạn muốn nhận mã giảm giá không?",
+        "Bạn muốn biết về combo tiết kiệm hay giảm giá theo dịp lễ?",
+        "Shop thường xuyên có khuyến mãi, bạn theo dõi fanpage để cập nhật nhé!"
     ],
     "check_order": [
-        "Bạn vui lòng cung cấp mã đơn hàng để mình kiểm tra giúp nhé!",
-        "Mình sẽ kiểm tra tình trạng đơn hàng cho bạn ngay, bạn cho mình xin thông tin đơn nhé."
+        "Bạn vui lòng cung cấp mã đơn hàng để shop kiểm tra giúp nhé!",
+        "Shop sẽ kiểm tra tình trạng đơn hàng cho bạn ngay, bạn cho mình xin thông tin đơn nhé!",
+        "Bạn đặt hàng qua kênh nào để shop tra cứu nhanh hơn?",
+        "Bạn cần kiểm tra đơn hàng nào, vui lòng gửi mã hoặc số điện thoại đặt hàng!",
+        "Shop sẽ báo lại tình trạng đơn hàng trong ít phút nữa!"
     ],
     "custom_cake": [
         "Bạn muốn đặt bánh theo yêu cầu như thế nào? Mô tả chi tiết giúp shop nhé!",
-        "Shop nhận làm bánh custom, bạn gửi ý tưởng hoặc hình mẫu cho mình nhé."
+        "Shop nhận làm bánh custom, bạn gửi ý tưởng hoặc hình mẫu cho mình nhé!",
+        "Bạn muốn bánh trang trí theo chủ đề gì? Shop sẽ tư vấn mẫu phù hợp!",
+        "Bạn cần bánh kích thước, màu sắc, vị gì? Shop sẽ làm theo ý bạn!",
+        "Bạn gửi hình mẫu hoặc mô tả chi tiết để shop báo giá nhé!"
     ],
     "ask_opening_hours": [
         "Shop mở cửa từ 7h sáng đến 9h tối mỗi ngày.",
-        "Giờ làm việc của shop là 7:00 - 21:00 tất cả các ngày trong tuần."
+        "Giờ làm việc của shop là 7:00 - 21:00 tất cả các ngày trong tuần.",
+        "Bạn muốn đến shop vào khung giờ nào để shop phục vụ tốt nhất?",
+        "Shop luôn sẵn sàng phục vụ bạn từ sáng đến tối!",
+        "Bạn cần đặt bánh ngoài giờ, shop vẫn hỗ trợ giao tận nơi nhé!"
     ],
     "ask_address": [
         "Địa chỉ shop: 123 Đường Bánh Ngon, Quận 1, TP.HCM.",
-        "Bạn muốn tìm cửa hàng gần nhất ở khu vực nào ạ?"
+        "Bạn muốn tìm cửa hàng gần nhất ở khu vực nào ạ?",
+        "Shop có nhiều chi nhánh, bạn cần địa chỉ ở quận nào?",
+        "Bạn cần chỉ đường đến shop không? Shop gửi bản đồ nhé!",
+        "Bạn muốn nhận bánh tại shop hay giao tận nơi?"
     ],
     "ask_payment": [
         "Shop hỗ trợ thanh toán tiền mặt, chuyển khoản và ví điện tử.",
-        "Bạn muốn thanh toán bằng phương thức nào? Shop có Momo, ZaloPay, VNPay nhé!"
+        "Bạn muốn thanh toán bằng phương thức nào? Shop có Momo, ZaloPay, VNPay nhé!",
+        "Bạn cần xuất hoá đơn VAT, shop sẽ hỗ trợ khi thanh toán.",
+        "Bạn muốn thanh toán trước hay khi nhận bánh?",
+        "Shop có hỗ trợ trả góp cho đơn hàng lớn, bạn muốn tìm hiểu không?"
     ],
     "ask_delivery": [
-        "Shop có giao hàng tận nơi toàn quốc, phí ship tùy khu vực bạn nhé!",
-        "Bạn cần giao bánh đến đâu? Mình sẽ báo phí ship và thời gian giao dự kiến."
+        "Shop có giao hàng tận nơi toàn quốc, phí ship tuỳ khu vực bạn nhé!",
+        "Bạn cần giao bánh đến đâu? Shop sẽ báo phí ship và thời gian giao dự kiến.",
+        "Shop hỗ trợ giao nhanh trong nội thành, bạn cần nhận bánh trong bao lâu?",
+        "Bạn muốn nhận bánh trong ngày hay đặt trước?",
+        "Shop có đối tác giao hàng uy tín, đảm bảo bánh đến tay bạn an toàn!"
     ],
     "ask_feedback": [
-        "Bạn có góp ý gì cho shop không? Mình rất mong nhận được phản hồi từ bạn!",
-        "Cảm ơn bạn đã sử dụng dịch vụ, bạn có thể đánh giá trải nghiệm để shop phục vụ tốt hơn nhé!"
+        "Bạn có góp ý gì cho shop không? Shop rất mong nhận được phản hồi từ bạn!",
+        "Cảm ơn bạn đã sử dụng dịch vụ, bạn có thể đánh giá trải nghiệm để shop phục vụ tốt hơn nhé!",
+        "Bạn muốn gửi feedback về sản phẩm hay dịch vụ? Shop luôn lắng nghe!",
+        "Shop rất trân trọng mọi ý kiến đóng góp của bạn!",
+        "Bạn có thể để lại nhận xét trên fanpage hoặc Google Review giúp shop nhé!"
     ],
     "ask_combo": [
         "Shop có nhiều combo bánh tiết kiệm, bạn muốn tham khảo combo nào?",
-        "Bạn cần combo cho bao nhiêu người? Mình sẽ gợi ý phù hợp nhé!"
+        "Bạn cần combo cho bao nhiêu người? Shop sẽ gợi ý phù hợp nhé!",
+        "Bạn muốn combo bánh sinh nhật, tiệc hay quà tặng?",
+        "Shop có combo theo mùa, bạn muốn thử combo nào?",
+        "Bạn muốn biết giá combo hay thành phần combo?"
     ],
     "ask_ingredient": [
         "Bạn muốn biết thành phần của loại bánh nào ạ? Shop luôn dùng nguyên liệu tươi mới!",
-        "Bánh của shop làm từ nguyên liệu tự nhiên, không chất bảo quản. Bạn hỏi về loại bánh nào cụ thể nhé!"
+        "Bánh của shop làm từ nguyên liệu tự nhiên, không chất bảo quản. Bạn hỏi về loại bánh nào cụ thể nhé!",
+        "Bạn quan tâm đến thành phần nào trong bánh?",
+        "Shop có thể gửi bảng thành phần chi tiết nếu bạn cần!",
+        "Bạn muốn biết bánh có chứa trứng, sữa, gluten hay không? Shop sẽ kiểm tra giúp bạn!"
     ],
     "ask_special_event": [
         "Bạn cần bánh cho dịp đặc biệt nào? Shop có nhiều mẫu bánh cho các sự kiện khác nhau!",
-        "Bạn nói rõ dịp lễ/sự kiện để shop tư vấn mẫu bánh phù hợp nhé!"
+        "Bạn nói rõ dịp lễ/sự kiện để shop tư vấn mẫu bánh phù hợp nhé!",
+        "Shop có bánh cho sinh nhật, cưới hỏi, thôi nôi, bạn cần dịp nào?",
+        "Bạn muốn đặt bánh cho sự kiện công ty, gia đình hay cá nhân?",
+        "Shop có thể trang trí bánh theo chủ đề sự kiện bạn muốn!"
     ],
     "ask_preservation": [
         "Bánh nên được bảo quản trong ngăn mát tủ lạnh và dùng trong 2-3 ngày.",
-        "Bạn cần hướng dẫn bảo quản loại bánh nào? Shop sẽ tư vấn chi tiết nhé!"
+        "Bạn cần hướng dẫn bảo quản loại bánh nào? Shop sẽ tư vấn chi tiết nhé!",
+        "Shop có hướng dẫn bảo quản riêng cho từng loại bánh, bạn hỏi loại nào?",
+        "Bạn muốn biết cách bảo quản khi vận chuyển xa không?",
+        "Shop khuyên dùng bánh trong ngày để đảm bảo vị ngon nhất!"
     ],
     "ask_return": [
         "Shop hỗ trợ đổi trả nếu bánh có lỗi từ phía shop. Bạn vui lòng gửi hình ảnh và thông tin đơn hàng nhé!",
-        "Bạn gặp vấn đề gì với sản phẩm? Shop sẽ hỗ trợ đổi trả nhanh nhất có thể."
+        "Bạn gặp vấn đề gì với sản phẩm? Shop sẽ hỗ trợ đổi trả nhanh nhất có thể.",
+        "Bạn muốn đổi trả trong bao lâu sau khi nhận bánh? Shop sẽ kiểm tra chính sách cho bạn!",
+        "Shop cam kết hoàn tiền nếu sản phẩm không đúng cam kết!",
+        "Bạn cần hỗ trợ đổi trả, vui lòng liên hệ hotline hoặc inbox fanpage nhé!"
     ],
     "ask_contact": [
         "Bạn có thể liên hệ shop qua số hotline 0123 456 789 hoặc Zalo cùng số nhé!",
-        "Mọi thắc mắc bạn gọi trực tiếp 0123 456 789 hoặc inbox fanpage giúp shop nhé!"
-    ],
-    "ask_deposit": [
-        "Một số đơn hàng cần đặt cọc trước, bạn muốn đặt loại bánh nào để shop báo phí cọc nhé!",
-        "Bạn vui lòng chuyển khoản đặt cọc để shop giữ bánh cho bạn nhé!"
-    ],
-    "ask_minimum_order": [
-        "Tùy loại bánh sẽ có số lượng tối thiểu khác nhau, bạn hỏi loại nào để shop tư vấn nhé!",
-        "Bạn cần đặt tối thiểu bao nhiêu bánh? Shop sẽ kiểm tra và báo lại bạn nhé!"
+        "Mọi thắc mắc bạn gọi trực tiếp 0123 456 789 hoặc inbox fanpage giúp shop nhé!",
+        "Shop luôn sẵn sàng hỗ trợ bạn qua điện thoại, Zalo, Facebook!",
+        "Bạn muốn nhận tư vấn qua kênh nào? Shop sẽ liên hệ lại ngay!",
+        "Bạn có thể gửi email cho shop qua info@avocadocake.vn nếu cần hỗ trợ chi tiết!"
     ],
     "ask_invoice": [
         "Shop có hỗ trợ xuất hóa đơn VAT cho doanh nghiệp, bạn cần xuất hóa đơn cho đơn hàng nào?",
-        "Bạn vui lòng cung cấp thông tin công ty để shop xuất hóa đơn nhé!"
+        "Bạn vui lòng cung cấp thông tin công ty để shop xuất hóa đơn nhé!",
+        "Bạn muốn xuất hóa đơn điện tử hay giấy? Shop sẽ hỗ trợ theo yêu cầu!",
+        "Shop sẽ gửi hóa đơn qua email hoặc giao tận nơi cho bạn!",
+        "Bạn cần xuất hóa đơn cho đơn hàng cá nhân hay công ty?"
     ],
     "ask_loyalty": [
         "Shop có chương trình tích điểm cho khách hàng thân thiết, bạn đã đăng ký thành viên chưa?",
-        "Bạn muốn biết quyền lợi thẻ thành viên? Shop sẽ gửi thông tin chi tiết nhé!"
+        "Bạn muốn biết quyền lợi thẻ thành viên? Shop sẽ gửi thông tin chi tiết nhé!",
+        "Bạn có thể kiểm tra điểm tích lũy qua số điện thoại đăng ký!",
+        "Shop có ưu đãi riêng cho khách hàng thân thiết mỗi tháng!",
+        "Bạn muốn biết cách đổi điểm lấy quà tặng không?"
     ],
     "ask_purchase_history": [
         "Bạn cần tra cứu lịch sử mua hàng, vui lòng cung cấp số điện thoại đã đặt bánh nhé!",
-        "Shop sẽ kiểm tra đơn cũ cho bạn, bạn cho mình xin thông tin đặt hàng nhé!"
+        "Shop sẽ kiểm tra đơn cũ cho bạn, bạn cho mình xin thông tin đặt hàng nhé!",
+        "Bạn muốn biết các đơn hàng đã mua trong tháng này hay trước đó?",
+        "Shop có thể gửi danh sách đơn hàng qua email hoặc Zalo cho bạn!",
+        "Bạn cần hỗ trợ về đơn hàng nào cụ thể không?"
     ],
     "ask_nutrition": [
         "Bạn quan tâm đến thành phần dinh dưỡng của loại bánh nào? Shop sẽ gửi thông tin chi tiết nhé!",
-        "Bạn cần tư vấn về calo, chất béo hay thành phần nào? Shop luôn sẵn sàng hỗ trợ!"
+        "Bạn cần tư vấn về calo, chất béo hay thành phần nào? Shop luôn sẵn sàng hỗ trợ!",
+        "Shop có bảng dinh dưỡng cho từng loại bánh, bạn hỏi loại nào nhé!",
+        "Bạn muốn biết bánh có phù hợp cho người ăn kiêng không?",
+        "Bạn cần tư vấn về bánh cho trẻ em, người lớn tuổi hay người tiểu đường?"
     ],
     "ask_for_kids": [
         "Shop có nhiều loại bánh phù hợp cho trẻ em, bạn muốn bánh vị gì cho bé?",
-        "Bạn cần bánh cho bé dịp gì? Shop sẽ gợi ý mẫu phù hợp nhé!"
+        "Bạn cần bánh cho bé dịp gì? Shop sẽ gợi ý mẫu phù hợp nhé!",
+        "Bạn muốn bánh ít ngọt, nhiều màu sắc hay hình thú cho bé?",
+        "Shop có bánh sinh nhật, bánh mini cho bé, bạn muốn tham khảo không?",
+        "Bạn cần tư vấn về thành phần an toàn cho trẻ nhỏ không?"
     ],
     "ask_diet_cake": [
         "Shop có bánh ăn kiêng, ít đường, ít béo, bạn muốn thử loại nào?",

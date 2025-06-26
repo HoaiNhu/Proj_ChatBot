@@ -106,8 +106,16 @@ def get_dynamic_response(intent, user_message):
     # Fallback về INTENT_RESPONSES như cũ
     responses = INTENT_RESPONSES.get(intent_name)
     if responses:
-        return responses[0]
-    return "Xin lỗi, tôi chưa hiểu ý bạn. Bạn có thể nói rõ hơn không?"
+        return random.choice(responses)
+    # Nếu không có response mẫu, sinh câu trả lời động
+    fallback_templates = [
+        f"Shop hiện chưa có thông tin chi tiết về vấn đề này (intent: {intent_name}), bạn vui lòng để lại câu hỏi, shop sẽ hỗ trợ sau!",
+        f"Shop sẽ kiểm tra lại thông tin về \"{user_message}\" và phản hồi bạn sớm nhất!",
+        "Câu hỏi của bạn rất hay, shop sẽ bổ sung thông tin này sớm!",
+        "Hiện tại shop chưa có câu trả lời chính xác, bạn vui lòng liên hệ hotline để được hỗ trợ nhanh nhất!",
+        "Shop xin lỗi vì chưa hỗ trợ được câu hỏi này, bạn có thể hỏi lại theo cách khác hoặc để lại thông tin liên hệ nhé!"
+    ]
+    return random.choice(fallback_templates)
 
 # Nếu bạn dùng class ResponseService, hãy cập nhật lại hàm get_response:
 class ResponseService:
