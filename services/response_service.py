@@ -20,7 +20,18 @@ def get_dynamic_response(intent, user_message):
 
     # Trả lời động cho một số intent
     if intent_name == "suggest_cake":
-        # Gợi ý 3 sản phẩm nổi bật
+       # Tìm bánh theo từ khóa user hỏi
+        keyword = user_message.lower()
+        matched_cakes = list(store_db['products'].find({
+            "$or": [
+                {"productName": {"$regex": keyword, "$options": "i"}},
+                {"productDescription": {"$regex": keyword, "$options": "i"}}
+            ]
+        }))
+        if matched_cakes:
+            cake_names = ", ".join([cake["productName"] for cake in matched_cakes if "productName" in cake])
+            return f"Shop có các loại bánh phù hợp với yêu cầu của bạn: {cake_names}. Bạn muốn chọn loại nào?"
+        # Nếu không tìm thấy, fallback về 3 bánh nổi bật
         cakes = list(store_db['products'].find({}, {"productName": 1}).limit(3))
         if cakes:
             cake_names = ", ".join([cake["productName"] for cake in cakes if "productName" in cake])
