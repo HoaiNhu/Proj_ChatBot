@@ -88,7 +88,7 @@ async def root():
 @app.get("/health")
 async def health_check():
     try:
-        client.admin.command('ping')
+        chatbot_client.admin.command('ping')
         return {
             "status": "healthy",
             "timestamp": datetime.now().isoformat(),
