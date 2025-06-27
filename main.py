@@ -185,8 +185,28 @@ async def chat(request: ChatRequest):
         logger.error(f"Error processing chat: {e}")
         raise HTTPException(status_code=500, detail="Internal server error")
 
+@app.get("/webhook/facebook")
+async def facebook_webhook_verification(request: Request):
+    """Xác thực webhook Facebook"""
+    try:
+        query_params = dict(request.query_params)
+        mode = query_params.get('hub.mode')
+        token = query_params.get('hub.verify_token')
+        challenge = query_params.get('hub.challenge')
+        
+        if mode == 'subscribe' and token == ChatbotConfig.FACEBOOK_VERIFY_TOKEN:
+            logger.info("Facebook webhook verified successfully")
+            return int(challenge)
+        else:
+            logger.error("Facebook webhook verification failed")
+            raise HTTPException(status_code=403, detail="Forbidden")
+    except Exception as e:
+        logger.error(f"Facebook webhook verification error: {e}")
+        raise HTTPException(status_code=500, detail="Webhook verification failed")
+
 @app.post("/webhook/facebook")
 async def facebook_webhook(request: Request):
+    """Xử lý tin nhắn từ Facebook Messenger"""
     try:
         body = await request.json()
         if body.get('object') == 'page':
@@ -194,16 +214,70 @@ async def facebook_webhook(request: Request):
                 for messaging_event in entry.get('messaging', []):
                     sender_id = messaging_event['sender']['id']
                     message_text = messaging_event.get('message', {}).get('text', '')
+                    
                     if message_text:
-                        intent, confidence = nlp_service.predict_intent(message_text)
-                        response_text = response_service.get_response(intent, message_text)
+                        logger.info(f"Facebook message from {sender_id}: {message_text}")
+                        
+                        # Tạo hoặc lấy session cho user này
+                        session_id = f"fb_{sender_id}"
+                        
+                        # Lấy context (lịch sử hội thoại) từ MongoDB
+                        session = chatbot_db["conversations"].find_one({"sessionId": session_id})
+                        context = session["messages"] if session and "messages" in session else []
+
+                        # Lấy intent gần nhất của bot (nếu có)
+                        last_bot_intent = None
+                        for msg in reversed(context):
+                            if msg.get("sender") == "bot" and msg.get("intent"):
+                                last_bot_intent = msg["intent"]
+                                break
+
+                        # Xử lý context đơn giản
+                        if last_bot_intent == "ask_address" and "tại shop" in message_text.lower():
+                            shop_info = store_db['shop_info'].find_one()
+                            address = shop_info.get('address', 'Shop chưa cập nhật địa chỉ') if shop_info else "Shop chưa cập nhật địa chỉ"
+                            response_text = f"Địa chỉ shop: {address}"
+                            intent = "ask_address"
+                            confidence = 1.0
+                        else:
+                            # Xử lý như cũ
+                            intent, confidence = nlp_service.predict_intent(message_text)
+                            response_text = response_service.get_response(intent, message_text)
+
+                        # Lưu hội thoại mới vào messages array của session
+                        chatbot_db["conversations"].update_one(
+                            {"sessionId": session_id},
+                            {"$push": {"messages": {
+                                "text": message_text,
+                                "sender": "user",
+                                "timestamp": datetime.now(),
+                                "intent": None,
+                                "confidence": 0
+                            }}},
+                            upsert=True
+                        )
+                        chatbot_db["conversations"].update_one(
+                            {"sessionId": session_id},
+                            {"$push": {"messages": {
+                                "text": response_text,
+                                "sender": "bot",
+                                "timestamp": datetime.now(),
+                                "intent": intent,
+                                "confidence": confidence
+                            }}}
+                        )
+
+                        # Lưu vào collection conversation để training nếu cần
                         learning_system.collect_conversation_data(
                             user_input=message_text,
                             bot_response=response_text,
                             intent=intent,
                             confidence=confidence
                         )
+
+                        # Gửi phản hồi qua Facebook Messenger
                         messenger_integration.send_message('facebook', sender_id, response_text)
+                        
         return {"status": "ok"}
     except Exception as e:
         logger.error(f"Facebook webhook error: {e}")
