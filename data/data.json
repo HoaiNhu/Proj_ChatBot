@@ -730,5 +730,139 @@
     "text": "Shop có bánh ngày lao động không?",
     "intent": "ask_labour_day_cake"
   },
-  { "text": "Bánh 1/5 có không shop?", "intent": "ask_labour_day_cake" }
+  { "text": "Bánh 1/5 có không shop?", "intent": "ask_labour_day_cake" },
+  { "text": "Shop có bánh mousse vị dâu không?", "intent": "suggest_cake" },
+  { "text": "Có bánh nào ít béo không shop?", "intent": "suggest_cake" },
+  { "text": "Bánh nào hợp ăn sáng vậy shop?", "intent": "suggest_cake" },
+  { "text": "Shop có bánh kem bắp không?", "intent": "suggest_cake" },
+  { "text": "Bánh nào hợp làm quà tặng sinh nhật?", "intent": "suggest_cake" },
+  {
+    "text": "Có bánh nào cho người ăn kiêng không shop?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh nào không trứng không sữa không?",
+    "intent": "suggest_cake"
+  },
+  { "text": "Bánh nào hợp cho tiệc trà chiều?", "intent": "suggest_cake" },
+  { "text": "Shop có bánh kem mini không?", "intent": "suggest_cake" },
+  { "text": "Bánh nào hợp cho bé gái 10 tuổi?", "intent": "suggest_cake" },
+  { "text": "Bánh kem 3 tầng giá bao nhiêu?", "intent": "ask_price" },
+  { "text": "Shop báo giá bánh mousse đi", "intent": "ask_price" },
+  { "text": "Bánh kem bắp giá sao vậy shop?", "intent": "ask_price" },
+  { "text": "Bánh sinh nhật cho bé giá bao nhiêu?", "intent": "ask_price" },
+  { "text": "Bánh nào giá dưới 100k không shop?", "intent": "ask_price" },
+  { "text": "Bánh kem in hình giá thế nào?", "intent": "ask_price" },
+  { "text": "Bánh healthy giá bao nhiêu?", "intent": "ask_price" },
+  { "text": "Bánh kem mini giá sao shop?", "intent": "ask_price" },
+  { "text": "Bánh mousse vị trà xanh giá bao nhiêu?", "intent": "ask_price" },
+  { "text": "Bánh kem bắp size nhỏ giá bao nhiêu?", "intent": "ask_price" },
+  {
+    "text": "Shop có khuyến mãi gì cho bánh sinh nhật không?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Có giảm giá cho combo bánh không shop?",
+    "intent": "ask_promotion"
+  },
+  { "text": "Bánh kem đang có ưu đãi gì không?", "intent": "ask_promotion" },
+  {
+    "text": "Shop có chương trình tặng quà gì không?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Có mã giảm giá nào cho khách mới không shop?",
+    "intent": "ask_promotion"
+  },
+  { "text": "Bánh nào đang sale vậy shop?", "intent": "ask_promotion" },
+  {
+    "text": "Shop có ưu đãi gì dịp cuối tuần không?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Có chương trình tích điểm không shop?",
+    "intent": "ask_promotion"
+  },
+  { "text": "Bánh kem bắp làm từ gì vậy shop?", "intent": "ask_ingredient" },
+  { "text": "Nguyên liệu bánh mousse là gì?", "intent": "ask_ingredient" },
+  {
+    "text": "Bánh healthy có thành phần gì đặc biệt?",
+    "intent": "ask_ingredient"
+  },
+  { "text": "Bánh kem có dùng bột mì không?", "intent": "ask_ingredient" },
+  { "text": "Bánh mousse có chứa sữa không shop?", "intent": "ask_ingredient" },
+  { "text": "Bánh kem có chất bảo quản không?", "intent": "ask_ingredient" },
+  { "text": "Bánh nào không dùng trứng?", "intent": "ask_ingredient" },
+  { "text": "Shop ở đâu vậy?", "intent": "ask_address" },
+  { "text": "Địa chỉ cửa hàng ở quận 3 là gì?", "intent": "ask_address" },
+  { "text": "Shop có chi nhánh ở Thủ Đức không?", "intent": "ask_address" },
+  { "text": "Shop có giao hàng tận nơi không?", "intent": "ask_address" },
+  { "text": "Shop mở cửa lúc mấy giờ sáng?", "intent": "ask_opening_hours" },
+  { "text": "Shop có làm việc ngày lễ không?", "intent": "ask_opening_hours" },
+  { "text": "Shop đóng cửa lúc mấy giờ?", "intent": "ask_opening_hours" },
+  { "text": "Shop có mở cửa chủ nhật không?", "intent": "ask_opening_hours" },
+  {
+    "text": "Cho tui nói chuyện với nhân viên tư vấn",
+    "intent": "connect_staff"
+  },
+  { "text": "Shop cho xin số điện thoại nhân viên", "intent": "connect_staff" },
+  {
+    "text": "Tui cần hỗ trợ gấp, ai giúp được không?",
+    "intent": "connect_staff"
+  },
+  { "text": "Shop có Zalo không cho tui xin?", "intent": "connect_staff" },
+  { "text": "Shop giao hàng nhanh không?", "intent": "ask_delivery" },
+  { "text": "Phí ship tới quận 1 là bao nhiêu?", "intent": "ask_delivery" },
+  { "text": "Shop có giao hàng ngoài giờ không?", "intent": "ask_delivery" },
+  {
+    "text": "Có thể đặt giao hàng hẹn giờ không shop?",
+    "intent": "ask_delivery"
+  },
+  { "text": "Tôi muốn gửi feedback cho shop", "intent": "ask_feedback" },
+  {
+    "text": "Shop có nhận đánh giá khách hàng không?",
+    "intent": "ask_feedback"
+  },
+  { "text": "Làm sao để gửi nhận xét về dịch vụ?", "intent": "ask_feedback" },
+  { "text": "Shop có form góp ý online không?", "intent": "ask_feedback" },
+  { "text": "Tôi muốn đặt bánh theo yêu cầu riêng", "intent": "custom_cake" },
+  { "text": "Shop có nhận làm bánh custom không?", "intent": "custom_cake" },
+  { "text": "Bánh cá nhân hóa đặt thế nào?", "intent": "custom_cake" },
+  { "text": "Shop có làm bánh in hình không?", "intent": "custom_cake" },
+  { "text": "Shop có combo bánh sinh nhật không?", "intent": "ask_combo" },
+  {
+    "text": "Có set bánh cho nhóm 10 người không shop?",
+    "intent": "ask_combo"
+  },
+  { "text": "Combo bánh nào đang giảm giá vậy shop?", "intent": "ask_combo" },
+  {
+    "text": "Shop gợi ý combo bánh phù hợp cho tiệc nhỏ",
+    "intent": "ask_combo"
+  },
+  { "text": "Bánh healthy có bao nhiêu calo?", "intent": "ask_nutrition" },
+  { "text": "Bánh kem bắp có nhiều đường không?", "intent": "ask_nutrition" },
+  { "text": "Bánh mousse có chất béo không shop?", "intent": "ask_nutrition" },
+  { "text": "Bánh nào phù hợp cho người ăn kiêng?", "intent": "ask_nutrition" },
+  { "text": "Bánh nào hợp cho bé 5 tuổi?", "intent": "ask_for_kids" },
+  { "text": "Shop gợi ý bánh cho bé trai giúp mình", "intent": "ask_for_kids" },
+  {
+    "text": "Bánh nào ít ngọt cho trẻ em không shop?",
+    "intent": "ask_for_kids"
+  },
+  {
+    "text": "Bánh sinh nhật cho bé gái có mẫu nào đẹp?",
+    "intent": "ask_for_kids"
+  },
+  { "text": "Cảm ơn shop nhiều nha!", "intent": "thank_you" },
+  { "text": "Shop nhiệt tình quá, cảm ơn!", "intent": "thank_you" },
+  { "text": "Cảm ơn bạn đã tư vấn!", "intent": "thank_you" },
+  { "text": "Cảm ơn shop, mình sẽ quay lại!", "intent": "thank_you" },
+  { "text": "Chào shop buổi sáng!", "intent": "greeting" },
+  { "text": "Hi shop!", "intent": "greeting" },
+  { "text": "Shop ơi cho mình hỏi với!", "intent": "greeting" },
+  { "text": "Hello Avocado Cake!", "intent": "greeting" },
+  { "text": "Tạm biệt shop nhé!", "intent": "goodbye" },
+  { "text": "Bye bye shop!", "intent": "goodbye" },
+  { "text": "Cảm ơn shop, hẹn gặp lại!", "intent": "goodbye" },
+  { "text": "Mình đi đây, chào shop!", "intent": "goodbye" }
 ]

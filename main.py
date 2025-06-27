@@ -5,6 +5,7 @@ from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
 import uuid
 from datetime import datetime
+import random
 
 # Import local modules
 from config.config_chatbot import ChatbotConfig
@@ -13,6 +14,9 @@ from services.learning_system import LearningSystem
 from services.messenger_integration import MessengerIntegration
 from services.nlp_service import NLPService
 from services.response_service import ResponseService
+from logic.intent_list import INTENT_LIST
+from logic.context_rules import CONTEXT_RULES
+from logic.intent_rules import INTENT_RESPONSES
 
 # Đường dẫn model đã train
 MODEL_PATH = os.getenv("MODEL_PATH", "./models")
@@ -77,6 +81,18 @@ class ProductRequest(BaseModel):
 class RetrainRequest(BaseModel):
     force: bool = False
 
+def intent_index_to_name(idx):
+    if isinstance(idx, int) and 0 <= idx < len(INTENT_LIST):
+        return INTENT_LIST[idx]
+    return str(idx)
+
+def get_context_action(current_intent, last_bot_intent):
+    for rule in CONTEXT_RULES:
+        rule_intent, rule_last_bot_intent, rule_action = rule
+        if current_intent == rule_intent and (rule_last_bot_intent is None or last_bot_intent == rule_last_bot_intent):
+            return rule_action
+    return None
+
 @app.get("/")
 async def root():
     return {
@@ -102,48 +118,26 @@ async def health_check():
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     try:
-        # session_id = request.session_id or str(uuid.uuid4())
-        # intent, confidence = nlp_service.predict_intent(request.message)
-        # # Sử dụng response_service.get_response để trả lời động
-        # response_text = response_service.get_response(intent, request.message)
-        # # Lưu hội thoại để học hỏi
-        # learning_system.collect_conversation_data(
-        #     user_input=request.message,
-        #     bot_response=response_text,
-        #     intent=intent,
-        #     confidence=confidence
-        # )
-        # return ChatResponse(
-        #     text=response_text,
-        #     session_id=session_id,
-        #     intent=intent,
-        #     confidence=confidence
-        # )
         session_id = request.session_id or str(uuid.uuid4())
-
         # Lấy context (lịch sử hội thoại) từ MongoDB
         session = chatbot_db["conversations"].find_one({"sessionId": session_id})
         context = session["messages"] if session and "messages" in session else []
-
         # Lấy intent gần nhất của bot (nếu có)
         last_bot_intent = None
         for msg in reversed(context):
-            if msg.get("sender") == "bot" and msg.get("intent"):
-                last_bot_intent = msg["intent"]
+            if msg.get("sender") == "bot" and msg.get("intent") is not None:
+                last_bot_intent = intent_index_to_name(msg["intent"])
                 break
-
-        # Xử lý context đơn giản: ví dụ nếu vừa hỏi địa chỉ, user xác nhận "tại shop"
-        if last_bot_intent == "ask_address" and "tại shop" in request.message.lower():
-            shop_info = store_db['shop_info'].find_one()
-            address = shop_info.get('address', 'Shop chưa cập nhật địa chỉ') if shop_info else "Shop chưa cập nhật địa chỉ"
-            response_text = f"Địa chỉ shop: {address}"
-            intent = "ask_address"
-            confidence = 1.0
+        # Xác định intent, confidence cho message hiện tại
+        intent, confidence = nlp_service.predict_intent(request.message)
+        intent_name = intent_index_to_name(intent)
+        # Lấy context_action (flag/dict) theo rule context
+        context_action = get_context_action(intent_name, last_bot_intent)
+        # Nếu có context_action, truyền vào response_service.get_response
+        if context_action:
+            response_text = response_service.get_response(intent, request.message, context_action=context_action, last_bot_intent=last_bot_intent)
         else:
-            # Xử lý như cũ
-            intent, confidence = nlp_service.predict_intent(request.message)
             response_text = response_service.get_response(intent, request.message)
-
         # Lưu hội thoại mới vào messages array của session
         chatbot_db["conversations"].update_one(
             {"sessionId": session_id},
@@ -151,8 +145,8 @@ async def chat(request: ChatRequest):
                 "text": request.message,
                 "sender": "user",
                 "timestamp": datetime.now(),
-                "intent": None,
-                "confidence": 0
+                "intent": intent,
+                "confidence": confidence
             }}},
             upsert=True
         )
@@ -166,7 +160,6 @@ async def chat(request: ChatRequest):
                 "confidence": confidence
             }}}
         )
-
         # Lưu vào collection conversation để training nếu cần
         learning_system.collect_conversation_data(
             user_input=request.message,
@@ -174,7 +167,6 @@ async def chat(request: ChatRequest):
             intent=intent,
             confidence=confidence
         )
-
         return ChatResponse(
             text=response_text,
             session_id=session_id,

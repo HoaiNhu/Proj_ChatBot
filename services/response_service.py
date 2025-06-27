@@ -3,6 +3,14 @@ from logic.intent_rules import INTENT_RESPONSES  # chỉ import INTENT_RESPONSES
 from logic.intent_list import INTENT_LIST        # import INTENT_LIST từ intent_list
 from config.config_chatbot import ChatbotConfig
 from pymongo import MongoClient
+from .response_templates import (
+    SUGGEST_CAKE_TEMPLATES, ASK_PRICE_TEMPLATES, ASK_PROMO_TEMPLATES, ASK_INGREDIENT_TEMPLATES,
+    ASK_ADDRESS_TEMPLATES, ASK_OPENING_TEMPLATES, ASK_CONTACT_TEMPLATES, ASK_FEEDBACK_TEMPLATES,
+    ASK_COMBO_TEMPLATES, ASK_DELIVERY_TEMPLATES, ASK_NUTRITION_TEMPLATES, ASK_FOR_KIDS_TEMPLATES,
+    CUSTOM_CAKE_TEMPLATES, CONNECT_STAFF_TEMPLATES, CHECK_ORDER_TEMPLATES, ASK_PAYMENT_TEMPLATES,
+    ASK_PRESERVATION_TEMPLATES, ASK_RETURN_TEMPLATES, ASK_SPECIAL_EVENT_TEMPLATES, ASK_LOYALTY_TEMPLATES,
+    ASK_INVOICE_TEMPLATES, ASK_PURCHASE_HISTORY_TEMPLATES
+)
 
 # Kết nối MongoDB cửa hàng để lấy dữ liệu động
 store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
@@ -128,7 +136,148 @@ def get_dynamic_response(intent, user_message):
     ]
     return random.choice(fallback_templates)
 
-# Nếu bạn dùng class ResponseService, hãy cập nhật lại hàm get_response:
+def generate_template_response(intent, entities, templates):
+    if not templates:
+        return None
+    template = random.choice(templates)
+    try:
+        return template.format(**entities)
+    except Exception:
+        return None
+
 class ResponseService:
-    def get_response(self, intent, user_message):
+    def get_response(self, intent, user_message, context_action=None, last_bot_intent=None):
+        # Nếu có context_action (dict), sinh câu trả lời động dựa trên context
+        if context_action:
+            context_flag = context_action.get("context_flag")
+            # Ví dụ: nếu context_flag là promotion_price thì trả lời giá + khuyến mãi
+            if context_flag == "promotion_price":
+                # Lấy giá và khuyến mãi động
+                price_resp = self.get_price_response(user_message)
+                promo_resp = self.get_promo_response()
+                return f"Hiện tại shop đang có khuyến mãi! {price_resp} {promo_resp}"
+            elif context_flag == "ingredient_after_suggest":
+                return self.get_ingredient_response(user_message)
+            elif context_flag == "price_after_suggest":
+                return self.get_price_response(user_message)
+            elif context_flag == "promotion_ingredient":
+                promo_resp = self.get_promo_response()
+                ingredient_resp = self.get_ingredient_response(user_message)
+                return f"Bánh này đang có ưu đãi! {ingredient_resp} {promo_resp}"
+            # ... mở rộng các context_flag khác ...
+            # Nếu không match context_flag nào, fallback về intent hiện tại
+            return self.get_intent_template_response(intent, user_message)
+        # Nếu không có context_action, xử lý như cũ
+        return self.get_intent_template_response(intent, user_message)
+
+    def get_intent_template_response(self, intent, user_message):
+        # intent có thể là index hoặc tên
+        intent_name = intent
+        if isinstance(intent, int):
+            from logic.intent_list import INTENT_LIST
+            if 0 <= intent < len(INTENT_LIST):
+                intent_name = INTENT_LIST[intent]
+        # Lấy data động từ MongoDB
+        from config.config_chatbot import ChatbotConfig
+        from pymongo import MongoClient
+        store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
+        store_db = store_client[ChatbotConfig.STORE_DB_NAME]
+        # Tùy intent mà lấy data và template phù hợp
+        if intent_name == "suggest_cake":
+            cake = store_db['products'].find_one(sort=[("totalRatings", -1)])
+            entities = {
+                "cake_name": cake["productName"] if cake else "bánh ngon",
+                "flavor": "socola",  # TODO: extract từ user_message nếu có
+                "occasion": "sinh nhật"  # TODO: extract từ context nếu có
+            }
+            resp = generate_template_response("suggest_cake", entities, SUGGEST_CAKE_TEMPLATES)
+            if resp:
+                return resp
+        elif intent_name == "ask_price":
+            return self.get_price_response(user_message)
+        elif intent_name == "ask_promotion":
+            return self.get_promo_response()
+        elif intent_name == "ask_ingredient":
+            return self.get_ingredient_response(user_message)
+        elif intent_name == "ask_address":
+            shop_info = store_db['shop_info'].find_one() if 'shop_info' in store_db.list_collection_names() else None
+            entities = {"address": shop_info.get("address", "123 Đường Bánh Ngon") if shop_info else "123 Đường Bánh Ngon"}
+            resp = generate_template_response("ask_address", entities, ASK_ADDRESS_TEMPLATES)
+            if resp:
+                return resp
+        elif intent_name == "ask_opening_hours":
+            shop_info = store_db['shop_info'].find_one() if 'shop_info' in store_db.list_collection_names() else None
+            entities = {"open_hour": shop_info.get("openingHours", "7h-21h") if shop_info else "7h-21h"}
+            resp = generate_template_response("ask_opening_hours", entities, ASK_OPENING_TEMPLATES)
+            if resp:
+                return resp
+        elif intent_name == "ask_contact":
+            shop_info = store_db['shop_info'].find_one() if 'shop_info' in store_db.list_collection_names() else None
+            entities = {
+                "phone": shop_info.get("phone", "0123 456 789") if shop_info else "0123 456 789",
+                "email": shop_info.get("email", "info@avocadocake.vn") if shop_info else "info@avocadocake.vn"
+            }
+            resp = generate_template_response("ask_contact", entities, ASK_CONTACT_TEMPLATES)
+            if resp:
+                return resp
+        elif intent_name == "ask_feedback":
+            resp = generate_template_response("ask_feedback", {}, ASK_FEEDBACK_TEMPLATES)
+            if resp:
+                return resp
+        # ... có thể mở rộng cho các intent khác ...
+        # Fallback về get_dynamic_response như cũ
         return get_dynamic_response(intent, user_message)
+
+    def get_price_response(self, user_message):
+        from config.config_chatbot import ChatbotConfig
+        from pymongo import MongoClient
+        store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
+        store_db = store_client[ChatbotConfig.STORE_DB_NAME]
+        # Tìm tên sản phẩm trong user_message
+        for prod in store_db['products'].find():
+            if prod.get('productName') and prod['productName'].lower() in user_message.lower():
+                entities = {"cake_name": prod['productName'], "price": prod.get('productPrice', 'không rõ')}
+                resp = generate_template_response("ask_price", entities, ASK_PRICE_TEMPLATES)
+                if resp:
+                    return resp
+        # Nếu không tìm thấy, fallback về mẫu chung
+        cake = store_db['products'].find_one(sort=[("totalRatings", -1)])
+        entities = {"cake_name": cake["productName"] if cake else "bánh ngon", "price": cake.get("productPrice", "200.000") if cake else "200.000"}
+        resp = generate_template_response("ask_price", entities, ASK_PRICE_TEMPLATES)
+        if resp:
+            return resp
+        return "Bạn muốn hỏi giá loại bánh nào ạ?"
+
+    def get_promo_response(self):
+        from config.config_chatbot import ChatbotConfig
+        from pymongo import MongoClient
+        store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
+        store_db = store_client[ChatbotConfig.STORE_DB_NAME]
+        promo = store_db['discounts'].find_one(sort=[("createdAt", -1)])
+        entities = {
+            "promo_name": promo.get("discountName", "ưu đãi đặc biệt") if promo else "ưu đãi đặc biệt",
+            "promo_value": promo.get("discountValue", "10") if promo else "10"
+        }
+        resp = generate_template_response("ask_promotion", entities, ASK_PROMO_TEMPLATES)
+        if resp:
+            return resp
+        return "Hiện tại shop có nhiều chương trình khuyến mãi hấp dẫn, bạn muốn biết về ưu đãi nào?"
+
+    def get_ingredient_response(self, user_message):
+        from config.config_chatbot import ChatbotConfig
+        from pymongo import MongoClient
+        store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
+        store_db = store_client[ChatbotConfig.STORE_DB_NAME]
+        for prod in store_db['products'].find():
+            if prod.get('productName') and prod['productName'].lower() in user_message.lower():
+                entities = {"cake_name": prod['productName'], "ingredient": prod.get('productDescription', '')}
+                resp = generate_template_response("ask_ingredient", entities, ASK_INGREDIENT_TEMPLATES)
+                if resp:
+                    return resp
+        # Nếu không tìm thấy, fallback về mẫu chung
+        cake = store_db['products'].find_one(sort=[("totalRatings", -1)])
+        entities = {"cake_name": cake["productName"] if cake else "bánh ngon", "ingredient": cake.get("productDescription", "bơ, sữa, trứng") if cake else "bơ, sữa, trứng"}
+        resp = generate_template_response("ask_ingredient", entities, ASK_INGREDIENT_TEMPLATES)
+        if resp:
+            return resp
+        return "Bạn muốn hỏi thành phần của loại bánh nào ạ?"
