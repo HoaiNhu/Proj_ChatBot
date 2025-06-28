@@ -20,7 +20,6 @@ INTENT_RULES = [
     {"keywords": ["bảo quản", "giữ lạnh", "để được bao lâu", "hạn sử dụng"], "intent": "ask_preservation"},
     {"keywords": ["đổi trả", "bảo hành", "trả hàng", "đổi hàng"], "intent": "ask_return"},
     {"keywords": ["liên hệ", "số điện thoại", "hotline", "zalo"], "intent": "ask_contact"},
-    {"keywords": ["đặt cọc", "cọc trước", "giữ bánh", "giữ chỗ"], "intent": "ask_deposit"},
     {"keywords": ["số lượng tối thiểu", "mua tối thiểu", "ít nhất bao nhiêu", "đặt tối thiểu"], "intent": "ask_minimum_order"},
     {"keywords": ["xuất hóa đơn", "hóa đơn đỏ", "vat", "invoice"], "intent": "ask_invoice"},
     {"keywords": ["khách hàng thân thiết", "tích điểm", "thẻ thành viên", "chương trình khách hàng"], "intent": "ask_loyalty"},
@@ -67,6 +66,34 @@ INTENT_RULES = [
     {"keywords": ["bánh quốc tế tình yêu", "bánh ngày tình yêu", "bánh mừng tình yêu", "bánh 14/2"], "intent": "ask_love_day_cake"},
     {"keywords": ["bánh quốc tế hòa bình", "bánh ngày hòa bình", "bánh mừng hòa bình", "bánh 21/9"], "intent": "ask_peace_day_cake"},
     {"keywords": ["bánh quốc tế lao động", "bánh 1/5", "bánh ngày lao động", "bánh mừng lao động"], "intent": "ask_labour_day_cake"},
+    {"keywords": ["ăn kiêng", "ít đường", "giảm cân"], "intent": "ask_diet_cake"},
+    {"keywords": ["bánh chay", "vegan", "không trứng", "không sữa"], "intent": "ask_vegan_cake"},
+    {"keywords": ["bánh mini", "bánh nhỏ", "mini cake"], "intent": "ask_mini_cake"},
+    {"keywords": ["halloween", "bánh halloween"], "intent": "ask_halloween_cake"},
+    {"keywords": ["bánh màu", "bánh xanh", "bánh đỏ", "bánh vàng"], "intent": "ask_color_cake"},
+    {"keywords": ["bánh sinh nhật"], "intent": "ask_birthday_cake"},
+    {"keywords": ["bánh cưới"], "intent": "ask_wedding_cake"},
+    {"keywords": ["bánh thôi nôi"], "intent": "ask_baby_cake"},
+    {"keywords": ["giáng sinh"], "intent": "ask_christmas_cake"},
+    {"keywords": ["bánh tết"], "intent": "ask_tet_cake"},
+    {"keywords": ["bánh cho người lớn tuổi", "bánh cho ông bà", "bánh cho người già", "bánh cho người cao tuổi"], "intent": "ask_elderly_cake"},
+    {"keywords": ["bánh cho tiệc công ty", "bánh cho sự kiện", "bánh cho hội nghị", "bánh cho party"], "intent": "ask_company_party_cake"},
+    {"keywords": ["bánh baby shower", "bánh cho baby shower", "bánh tiệc baby shower", "bánh mừng baby shower"], "intent": "ask_baby_shower_cake"},
+    {"keywords": ["bánh valentine", "bánh cho valentine", "bánh tình yêu", "bánh ngày lễ tình nhân"], "intent": "ask_valentine_cake"},
+    {"keywords": ["bánh trung thu", "bánh cho trung thu", "bánh ngày trung thu", "bánh trung thu đặc biệt"], "intent": "ask_mid_autumn_cake"},
+    {"keywords": ["bánh 8/3", "bánh quốc tế phụ nữ", "bánh ngày 8/3", "bánh mùng 8 tháng 3"], "intent": "ask_womens_day_cake"},
+    {"keywords": ["bánh 20/10", "bánh phụ nữ việt nam", "bánh ngày 20/10", "bánh mùng 20 tháng 10"], "intent": "ask_vietnamese_womens_day_cake"},
+    {"keywords": ["bánh ngày của mẹ", "bánh mother's day", "bánh cho mẹ", "bánh mừng mẹ"], "intent": "ask_mothers_day_cake"},
+    {"keywords": ["bánh ngày của cha", "bánh father's day", "bánh cho cha", "bánh mừng cha"], "intent": "ask_fathers_day_cake"},
+    {"keywords": ["bánh ngày nhà giáo", "bánh 20/11", "bánh cho thầy cô", "bánh mừng thầy cô"], "intent": "ask_teachers_day_cake"},
+    {"keywords": ["bánh quốc tế thiếu nhi", "bánh 1/6", "bánh cho trẻ em", "bánh thiếu nhi"], "intent": "ask_childrens_day_cake"},
+    {"keywords": ["bánh quốc tế đàn ông", "bánh men's day", "bánh cho nam", "bánh mừng đàn ông"], "intent": "ask_mens_day_cake"},
+    {"keywords": ["bánh quốc tế hạnh phúc", "bánh ngày hạnh phúc", "bánh mừng hạnh phúc", "bánh 20/3"], "intent": "ask_happiness_day_cake"},
+    {"keywords": ["bánh quốc tế gia đình", "bánh ngày gia đình", "bánh mừng gia đình", "bánh 28/6"], "intent": "ask_family_day_cake"},
+    {"keywords": ["bánh quốc tế bạn bè", "bánh ngày bạn bè", "bánh mừng bạn bè", "bánh 30/7"], "intent": "ask_friends_day_cake"},
+    {"keywords": ["bánh quốc tế tình yêu", "bánh ngày tình yêu", "bánh mừng tình yêu", "bánh 14/2"], "intent": "ask_love_day_cake"},
+    {"keywords": ["bánh quốc tế hòa bình", "bánh ngày hòa bình", "bánh mừng hòa bình", "bánh 21/9"], "intent": "ask_peace_day_cake"},
+    {"keywords": ["bánh quốc tế lao động", "bánh 1/5", "bánh ngày lao động", "bánh mừng lao động"], "intent": "ask_labour_day_cake"}
 ]
 
 INTENT_RESPONSES = {
@@ -306,16 +333,22 @@ INTENT_RESPONSES = {
         "Bạn cần tư vấn bánh phù hợp cho người tiểu đường? Shop sẽ hỗ trợ nhé!"
     ],
     "ask_elderly_cake": [
-        "Shop có bánh phù hợp cho người lớn tuổi, ít ngọt, dễ tiêu hóa.",
-        "Bạn muốn đặt bánh cho ông bà dịp gì? Shop sẽ gợi ý mẫu phù hợp nhé!"
+        "Shop có bánh đặc biệt cho người lớn tuổi, ít đường và dễ ăn!",
+        "Bánh cho ông bà thường ít ngọt và mềm, bạn muốn thử loại nào?",
+        "Shop có bánh healthy phù hợp với người cao tuổi!",
+        "Bánh cho người già thường ít béo và ít đường, bạn quan tâm không?",
+        "Shop có thể làm bánh theo yêu cầu đặc biệt cho người lớn tuổi!"
     ],
     "ask_foreigner_cake": [
         "Shop có bánh kiểu Âu, bánh tây, phù hợp cho người nước ngoài.",
         "Bạn muốn đặt bánh cho khách nước ngoài dịp nào? Shop sẽ tư vấn nhé!"
     ],
     "ask_company_party_cake": [
-        "Shop có nhiều mẫu bánh cho tiệc công ty, hội nghị, party.",
-        "Bạn cần bánh cho bao nhiêu người? Shop sẽ gợi ý combo phù hợp nhé!"
+        "Shop có nhiều mẫu bánh cho tiệc công ty, bạn cần cho bao nhiêu người?",
+        "Bánh cho sự kiện công ty thường có logo hoặc chủ đề đặc biệt!",
+        "Shop có combo bánh cho hội nghị với giá ưu đãi!",
+        "Bánh cho party công ty có thể in logo công ty theo yêu cầu!",
+        "Shop có bánh mini phù hợp cho tiệc công ty!"
     ],
     "ask_birthday_cake": [
         "Bạn cần bánh sinh nhật cho bé, người lớn hay công ty? Shop có nhiều mẫu đẹp lắm!",
@@ -330,20 +363,29 @@ INTENT_RESPONSES = {
         "Bạn muốn đặt bánh thôi nôi trang trí hình gì? Shop sẽ tư vấn nhé!"
     ],
     "ask_baby_shower_cake": [
-        "Shop có bánh cho tiệc baby shower, bạn muốn trang trí theo chủ đề gì?",
-        "Bạn cần bánh baby shower cho bao nhiêu người? Shop sẽ gợi ý size phù hợp nhé!"
+        "Shop có bánh dễ thương cho baby shower, bạn muốn xem mẫu nào?",
+        "Bánh baby shower thường có chủ đề em bé, bạn thích màu gì?",
+        "Shop có thể làm bánh theo chủ đề baby shower theo yêu cầu!",
+        "Bánh cho tiệc baby shower thường nhỏ nhắn và dễ thương!",
+        "Shop có combo bánh mini cho baby shower!"
     ],
     "ask_valentine_cake": [
-        "Bạn muốn đặt bánh valentine tặng người yêu? Shop có nhiều mẫu lãng mạn!",
-        "Bạn thích bánh valentine vị socola, dâu hay vị đặc biệt nào? Shop sẽ tư vấn nhé!"
+        "Shop có bánh lãng mạn cho Valentine, bạn muốn thử loại nào?",
+        "Bánh Valentine thường có màu hồng đỏ và hình trái tim!",
+        "Shop có bánh chocolate đặc biệt cho ngày lễ tình nhân!",
+        "Bánh cho Valentine có thể in tên hoặc lời nhắn theo yêu cầu!",
+        "Shop có combo bánh Valentine với giá ưu đãi!"
     ],
     "ask_tet_cake": [
         "Shop có nhiều loại bánh cho dịp Tết, bạn muốn đặt loại nào?",
         "Bạn cần bánh tặng người thân hay đối tác dịp Tết? Shop sẽ gợi ý mẫu phù hợp nhé!"
     ],
     "ask_mid_autumn_cake": [
-        "Shop có bánh trung thu truyền thống và hiện đại, bạn muốn thử loại nào?",
-        "Bạn cần bánh trung thu cho gia đình hay làm quà tặng? Shop sẽ tư vấn nhé!"
+        "Shop có bánh trung thu truyền thống và hiện đại!",
+        "Bánh trung thu của shop có nhiều vị khác nhau, bạn thích vị gì?",
+        "Shop có bánh trung thu đặc biệt cho dịp này!",
+        "Bánh trung thu có thể làm theo yêu cầu với nhân đặc biệt!",
+        "Shop có set bánh trung thu tặng quà!"
     ],
     "ask_christmas_cake": [
         "Shop có bánh giáng sinh trang trí đẹp mắt, bạn muốn đặt loại nào?",
@@ -354,55 +396,94 @@ INTENT_RESPONSES = {
         "Bạn cần bánh halloween cho tiệc nhỏ hay sự kiện lớn? Shop sẽ tư vấn nhé!"
     ],
     "ask_womens_day_cake": [
-        "Bạn muốn đặt bánh cho ngày 8/3 tặng mẹ, vợ hay đồng nghiệp? Shop có nhiều mẫu đẹp!",
-        "Bạn cần bánh 8/3 trang trí hoa, trái cây hay kiểu nào? Shop sẽ gợi ý nhé!"
+        "Shop có bánh đặc biệt cho ngày Quốc tế Phụ nữ 8/3!",
+        "Bánh 8/3 thường có màu hồng và trang trí hoa!",
+        "Shop có bánh chocolate đặc biệt cho phụ nữ!",
+        "Bánh cho ngày 8/3 có thể in lời chúc theo yêu cầu!",
+        "Shop có combo bánh tặng mẹ và chị em!"
     ],
     "ask_vietnamese_womens_day_cake": [
-        "Shop có bánh cho ngày 20/10, bạn muốn đặt loại nào?",
-        "Bạn cần bánh 20/10 cho dịp gì? Shop sẽ tư vấn mẫu phù hợp nhé!"
+        "Shop có bánh đặc biệt cho ngày Phụ nữ Việt Nam 20/10!",
+        "Bánh 20/10 thường có chủ đề Việt Nam và hoa sen!",
+        "Shop có bánh truyền thống cho ngày phụ nữ Việt Nam!",
+        "Bánh cho 20/10 có thể làm theo phong cách Việt Nam!",
+        "Shop có combo bánh tặng phụ nữ Việt Nam!"
     ],
     "ask_mothers_day_cake": [
-        "Bạn muốn đặt bánh cho ngày của mẹ? Shop có nhiều mẫu ý nghĩa!",
-        "Bạn cần bánh mother's day trang trí như thế nào? Shop sẽ gợi ý nhé!"
+        "Shop có bánh đặc biệt cho ngày của Mẹ!",
+        "Bánh cho mẹ thường có màu hồng và hoa hồng!",
+        "Shop có bánh chocolate đặc biệt tặng mẹ!",
+        "Bánh cho ngày của Mẹ có thể in lời yêu thương!",
+        "Shop có combo bánh tặng mẹ với giá ưu đãi!"
     ],
     "ask_fathers_day_cake": [
-        "Shop có bánh cho ngày của cha, bạn muốn đặt loại nào?",
-        "Bạn cần bánh father's day cho dịp gì? Shop sẽ tư vấn mẫu phù hợp nhé!"
+        "Shop có bánh đặc biệt cho ngày của Cha!",
+        "Bánh cho cha thường có màu xanh và chủ đề nam tính!",
+        "Shop có bánh chocolate đặc biệt tặng cha!",
+        "Bánh cho ngày của Cha có thể in lời tri ân!",
+        "Shop có combo bánh tặng cha với giá ưu đãi!"
     ],
     "ask_teachers_day_cake": [
-        "Bạn muốn đặt bánh cho ngày nhà giáo Việt Nam? Shop có nhiều mẫu tri ân thầy cô!",
-        "Bạn cần bánh 20/11 trang trí như thế nào? Shop sẽ gợi ý nhé!"
+        "Shop có bánh đặc biệt cho ngày Nhà giáo Việt Nam 20/11!",
+        "Bánh cho thầy cô thường có chủ đề giáo dục!",
+        "Shop có bánh chocolate đặc biệt tặng thầy cô!",
+        "Bánh cho 20/11 có thể in lời tri ân thầy cô!",
+        "Shop có combo bánh tặng thầy cô!"
     ],
     "ask_childrens_day_cake": [
-        "Shop có bánh cho ngày quốc tế thiếu nhi, bạn muốn đặt loại nào cho bé?",
-        "Bạn cần bánh 1/6 cho bé trai hay bé gái? Shop sẽ tư vấn mẫu phù hợp nhé!"
+        "Shop có bánh đặc biệt cho ngày Quốc tế Thiếu nhi 1/6!",
+        "Bánh cho trẻ em thường có màu sắc vui nhộn!",
+        "Shop có bánh hình thú ngộ nghĩnh cho thiếu nhi!",
+        "Bánh cho 1/6 có thể làm theo chủ đề hoạt hình!",
+        "Shop có combo bánh mini cho trẻ em!"
     ],
     "ask_mens_day_cake": [
-        "Bạn muốn đặt bánh cho ngày quốc tế đàn ông? Shop có nhiều mẫu độc đáo!",
-        "Bạn cần bánh men's day cho dịp gì? Shop sẽ tư vấn mẫu phù hợp nhé!"
+        "Shop có bánh đặc biệt cho ngày Quốc tế Đàn ông!",
+        "Bánh cho nam giới thường có chủ đề thể thao hoặc xe hơi!",
+        "Shop có bánh chocolate đặc biệt cho đàn ông!",
+        "Bánh cho ngày đàn ông có thể in logo thể thao!",
+        "Shop có combo bánh tặng đàn ông!"
     ],
     "ask_happiness_day_cake": [
-        "Bạn muốn đặt bánh cho ngày quốc tế hạnh phúc? Shop có nhiều mẫu ý nghĩa!",
-        "Bạn cần bánh 20/3 trang trí như thế nào? Shop sẽ gợi ý nhé!"
+        "Shop có bánh đặc biệt cho ngày Quốc tế Hạnh phúc 20/3!",
+        "Bánh cho ngày hạnh phúc thường có màu vàng và nụ cười!",
+        "Shop có bánh chocolate đặc biệt cho ngày hạnh phúc!",
+        "Bánh cho 20/3 có thể in biểu tượng hạnh phúc!",
+        "Shop có combo bánh chia sẻ hạnh phúc!"
     ],
     "ask_family_day_cake": [
-        "Shop có bánh cho ngày quốc tế gia đình, bạn muốn đặt loại nào?",
-        "Bạn cần bánh 28/6 cho dịp gì? Shop sẽ tư vấn mẫu phù hợp nhé!"
+        "Shop có bánh đặc biệt cho ngày Quốc tế Gia đình 28/6!",
+        "Bánh cho gia đình thường có chủ đề sum vầy!",
+        "Shop có bánh chocolate đặc biệt cho gia đình!",
+        "Bánh cho ngày gia đình có thể in hình gia đình!",
+        "Shop có combo bánh cho cả gia đình!"
     ],
     "ask_friends_day_cake": [
-        "Bạn muốn đặt bánh cho ngày quốc tế bạn bè? Shop có nhiều mẫu đẹp!",
-        "Bạn cần bánh 30/7 cho dịp gì? Shop sẽ tư vấn mẫu phù hợp nhé!"
+        "Shop có bánh đặc biệt cho ngày Quốc tế Bạn bè 30/7!",
+        "Bánh cho bạn bè thường có chủ đề tình bạn!",
+        "Shop có bánh chocolate đặc biệt tặng bạn!",
+        "Bánh cho ngày bạn bè có thể in lời chúc!",
+        "Shop có combo bánh chia sẻ với bạn bè!"
     ],
     "ask_love_day_cake": [
-        "Bạn muốn đặt bánh cho ngày quốc tế tình yêu? Shop có nhiều mẫu lãng mạn!",
-        "Bạn cần bánh 14/2 trang trí như thế nào? Shop sẽ gợi ý nhé!"
+        "Shop có bánh đặc biệt cho ngày Quốc tế Tình yêu!",
+        "Bánh cho ngày tình yêu thường có màu đỏ và trái tim!",
+        "Shop có bánh chocolate đặc biệt cho tình yêu!",
+        "Bánh cho ngày tình yêu có thể in lời yêu thương!",
+        "Shop có combo bánh lãng mạn cho đôi lứa!"
     ],
     "ask_peace_day_cake": [
-        "Bạn muốn đặt bánh cho ngày quốc tế hòa bình? Shop có nhiều mẫu ý nghĩa!",
-        "Bạn cần bánh 21/9 trang trí như thế nào? Shop sẽ gợi ý nhé!"
+        "Shop có bánh đặc biệt cho ngày Quốc tế Hòa bình 21/9!",
+        "Bánh cho ngày hòa bình thường có màu trắng và chim bồ câu!",
+        "Shop có bánh chocolate đặc biệt cho hòa bình!",
+        "Bánh cho 21/9 có thể in biểu tượng hòa bình!",
+        "Shop có combo bánh chia sẻ hòa bình!"
     ],
     "ask_labour_day_cake": [
-        "Shop có bánh cho ngày quốc tế lao động, bạn muốn đặt loại nào?",
-        "Bạn cần bánh 1/5 cho dịp gì? Shop sẽ tư vấn mẫu phù hợp nhé!"
-    ],
+        "Shop có bánh đặc biệt cho ngày Quốc tế Lao động 1/5, bạn muốn tham khảo mẫu nào?",
+        "Bánh cho ngày Lao động thường có chủ đề công việc, bạn quan tâm không?",
+        "Shop có thể làm bánh theo chủ đề ngày Lao động theo yêu cầu của bạn!",
+        "Bánh cho ngày 1/5 thường được trang trí đặc biệt, bạn muốn xem mẫu không?",
+        "Shop có combo bánh cho ngày Lao động với giá ưu đãi!"
+    ]
 }

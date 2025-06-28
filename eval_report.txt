@@ -1,84 +1,72 @@
 Classification Report:
-                      precision    recall  f1-score   support
+                                precision    recall  f1-score   support
 
-            greeting       0.83      1.00      0.91         5
-           thank_you       1.00      1.00      1.00         4
-             goodbye       0.00      0.00      0.00         1
-        suggest_cake       1.00      0.95      0.98        65
-           ask_price       1.00      1.00      1.00        24
-       connect_staff       1.00      1.00      1.00        20
-       ask_promotion       0.98      0.96      0.97        45
-         check_order       1.00      1.00      1.00        29
-         custom_cake       1.00      1.00      1.00        14
-   ask_opening_hours       1.00      1.00      1.00        20
-         ask_address       0.90      1.00      0.95        18
-         ask_payment       1.00      1.00      1.00        17
-        ask_delivery       1.00      0.94      0.97        31
-        ask_feedback       0.90      0.95      0.92        19
-           ask_combo       0.96      1.00      0.98        26
-      ask_ingredient       1.00      1.00      1.00        26
-   ask_special_event       1.00      1.00      1.00         5
-    ask_preservation       1.00      1.00      1.00        17
-          ask_return       1.00      1.00      1.00        19
-         ask_contact       1.00      1.00      1.00        17
-         ask_invoice       1.00      1.00      1.00         4
-         ask_loyalty       1.00      1.00      1.00         3
-ask_purchase_history       1.00      1.00      1.00        14
-       ask_nutrition       1.00      1.00      1.00        26
-        ask_for_kids       0.93      1.00      0.96        25
+                      greeting       0.83      1.00      0.91         5
+                     thank_you       1.00      1.00      1.00         4
+                       goodbye       0.00      0.00      0.00         1
+                  suggest_cake       0.98      0.94      0.96        65
+                     ask_price       1.00      0.96      0.98        23
+                 connect_staff       0.87      1.00      0.93        20
+                 ask_promotion       1.00      0.98      0.99        45
+                   check_order       1.00      1.00      1.00        29
+                   custom_cake       1.00      1.00      1.00        14
+             ask_opening_hours       1.00      1.00      1.00        20
+                   ask_address       1.00      0.78      0.88        18
+                   ask_payment       1.00      1.00      1.00        17
+                  ask_delivery       0.89      1.00      0.94        31
+                  ask_feedback       1.00      0.95      0.97        19
+                     ask_combo       0.96      1.00      0.98        25
+                ask_ingredient       1.00      1.00      1.00        25
+             ask_special_event       1.00      1.00      1.00         5
+              ask_preservation       1.00      1.00      1.00        17
+                    ask_return       1.00      1.00      1.00        19
+                   ask_contact       1.00      0.94      0.97        17
+                   ask_invoice       1.00      1.00      1.00         4
+                   ask_loyalty       1.00      1.00      1.00         3
+          ask_purchase_history       1.00      1.00      1.00        14
+                 ask_nutrition       1.00      1.00      1.00        26
+                  ask_for_kids       0.93      1.00      0.96        25
+                  ask_new_cake       0.83      1.00      0.91         5
+               ask_best_seller       0.67      0.67      0.67         3
+                 ask_diet_cake       1.00      1.00      1.00        26
+                ask_vegan_cake       1.00      1.00      1.00        26
+                 ask_mini_cake       1.00      1.00      1.00        24
+             ask_festival_cake       1.00      1.00      1.00        18
+                ask_color_cake       1.00      1.00      1.00         7
+             ask_birthday_cake       1.00      1.00      1.00         5
+              ask_wedding_cake       1.00      1.00      1.00         5
+                 ask_baby_cake       1.00      1.00      1.00         5
+            ask_christmas_cake       1.00      1.00      1.00         5
+                  ask_tet_cake       1.00      1.00      1.00         7
+            ask_halloween_cake       1.00      1.00      1.00         7
+              ask_elderly_cake       1.00      1.00      1.00        38
+        ask_company_party_cake       1.00      1.00      1.00        46
+          ask_baby_shower_cake       1.00      1.00      1.00        46
+            ask_valentine_cake       1.00      1.00      1.00        48
+           ask_mid_autumn_cake       1.00      1.00      1.00        46
+           ask_womens_day_cake       1.00      1.00      1.00        48
+ask_vietnamese_womens_day_cake       1.00      1.00      1.00        48
+          ask_mothers_day_cake       1.00      1.00      1.00        47
+          ask_fathers_day_cake       1.00      1.00      1.00        47
+         ask_teachers_day_cake       1.00      1.00      1.00        49
+        ask_childrens_day_cake       1.00      1.00      1.00         4
+             ask_mens_day_cake       1.00      1.00      1.00         4
+        ask_happiness_day_cake       1.00      1.00      1.00         5
+           ask_family_day_cake       1.00      1.00      1.00         5
+          ask_friends_day_cake       1.00      1.00      1.00         6
+             ask_love_day_cake       1.00      1.00      1.00         5
+            ask_peace_day_cake       1.00      1.00      1.00         5
+           ask_labour_day_cake       1.00      1.00      1.00         5
 
-            accuracy                           0.98       494
-           macro avg       0.94      0.95      0.95       494
-        weighted avg       0.98      0.98      0.98       494
+                      accuracy                           0.99      1136
+                     macro avg       0.96      0.97      0.97      1136
+                  weighted avg       0.99      0.99      0.99      1136
 
 Confusion Matrix:
-[[ 5  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-   0]
- [ 0  4  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-   0]
- [ 1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-   0]
- [ 0  0  0 62  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0
-   2]
- [ 0  0  0  0 24  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0 20  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0 43  0  0  0  0  0  0  1  1  0  0  0  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  0 29  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  0  0 14  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  0  0  0 20  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  0  0  0  0 18  0  0  0  0  0  0  0  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  0  0  0  0  0 17  0  0  0  0  0  0  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  0  0  0  0  2  0 29  0  0  0  0  0  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  1  0  0  0  0  0  0 18  0  0  0  0  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0 26  0  0  0  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 26  0  0  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  5  0  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 17  0  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 19  0  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 17  0  0  0  0
-   0]
- [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  4  0  0  0
-   0]
- [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  3  0  0
-   0]
- [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 14  0
-   0]
- [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 26
-   0]
- [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-  25]]
+[[5 0 0 ... 0 0 0]
+ [0 4 0 ... 0 0 0]
+ [0 0 0 ... 0 0 0]
+ ...
+ [0 0 0 ... 5 0 0]
+ [0 0 0 ... 0 5 0]
+ [0 0 0 ... 0 0 5]]

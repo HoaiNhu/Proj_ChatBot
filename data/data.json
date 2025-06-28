@@ -864,5 +864,853 @@
   { "text": "Tạm biệt shop nhé!", "intent": "goodbye" },
   { "text": "Bye bye shop!", "intent": "goodbye" },
   { "text": "Cảm ơn shop, hẹn gặp lại!", "intent": "goodbye" },
-  { "text": "Mình đi đây, chào shop!", "intent": "goodbye" }
+  { "text": "Mình đi đây, chào shop!", "intent": "goodbye" },
+  { "text": "Shop có bánh ăn kiêng không?", "intent": "ask_diet_cake" },
+  { "text": "Có bánh chay không shop?", "intent": "ask_vegan_cake" },
+  { "text": "Bánh mini giá bao nhiêu?", "intent": "ask_mini_cake" },
+  { "text": "Có bánh cho lễ Halloween không?", "intent": "ask_halloween_cake" },
+  { "text": "Bánh màu xanh có không?", "intent": "ask_color_cake" },
+  { "text": "Bánh sinh nhật cho bé gái", "intent": "ask_birthday_cake" },
+  { "text": "Bánh cưới 2 tầng", "intent": "ask_wedding_cake" },
+  { "text": "Bánh thôi nôi cho bé trai", "intent": "ask_baby_cake" },
+  { "text": "Bánh giáng sinh năm nay", "intent": "ask_christmas_cake" },
+  { "text": "Có bánh tết không shop?", "intent": "ask_tet_cake" },
+  { "text": "Shop có bánh ăn kiêng không?", "intent": "ask_diet_cake" },
+  { "text": "Có bánh ít đường không shop?", "intent": "ask_diet_cake" },
+  { "text": "Bánh nào phù hợp cho người giảm cân?", "intent": "ask_diet_cake" },
+  { "text": "Tôi muốn mua bánh healthy", "intent": "ask_diet_cake" },
+  { "text": "Có bánh không đường không?", "intent": "ask_diet_cake" },
+  { "text": "Bánh nào ít calo vậy shop?", "intent": "ask_diet_cake" },
+  { "text": "Có bánh cho người tiểu đường không?", "intent": "ask_diet_cake" },
+  { "text": "Bánh nào không béo?", "intent": "ask_diet_cake" },
+  { "text": "Shop có bánh low carb không?", "intent": "ask_diet_cake" },
+  { "text": "Bánh nào ăn mà không sợ mập?", "intent": "ask_diet_cake" },
+  { "text": "Shop có bánh chay không?", "intent": "ask_vegan_cake" },
+  { "text": "Có bánh vegan không shop?", "intent": "ask_vegan_cake" },
+  {
+    "text": "Bánh không trứng không sữa có không?",
+    "intent": "ask_vegan_cake"
+  },
+  { "text": "Tôi muốn đặt bánh chay", "intent": "ask_vegan_cake" },
+  { "text": "Bánh nào phù hợp cho người ăn chay?", "intent": "ask_vegan_cake" },
+  {
+    "text": "Có bánh nào không dùng sản phẩm động vật không?",
+    "intent": "ask_vegan_cake"
+  },
+  { "text": "Bánh chay có vị gì ngon?", "intent": "ask_vegan_cake" },
+  {
+    "text": "Shop làm bánh chay theo yêu cầu được không?",
+    "intent": "ask_vegan_cake"
+  },
+  { "text": "Bánh chay có giao tận nơi không?", "intent": "ask_vegan_cake" },
+  { "text": "Bánh chay có giá bao nhiêu?", "intent": "ask_vegan_cake" },
+  { "text": "Shop có bánh mini không?", "intent": "ask_mini_cake" },
+  {
+    "text": "Bánh nhỏ nhỏ dễ thương có không shop?",
+    "intent": "ask_mini_cake"
+  },
+  { "text": "Bánh mini giá bao nhiêu?", "intent": "ask_mini_cake" },
+  { "text": "Có set bánh mini không?", "intent": "ask_mini_cake" },
+  { "text": "Bánh mini có vị gì?", "intent": "ask_mini_cake" },
+  { "text": "Bánh mini có giao tận nơi không?", "intent": "ask_mini_cake" },
+  {
+    "text": "Bánh mini phù hợp cho tiệc trà không?",
+    "intent": "ask_mini_cake"
+  },
+  { "text": "Có combo bánh mini không shop?", "intent": "ask_mini_cake" },
+  { "text": "Bánh mini có thể in hình không?", "intent": "ask_mini_cake" },
+  { "text": "Bánh mini có bán lẻ không?", "intent": "ask_mini_cake" },
+  { "text": "Shop có bánh cho dịp lễ không?", "intent": "ask_festival_cake" },
+  {
+    "text": "Có bánh cho ngày lễ đặc biệt không shop?",
+    "intent": "ask_festival_cake"
+  },
+  { "text": "Bánh nào hợp tặng dịp lễ?", "intent": "ask_festival_cake" },
+  { "text": "Bánh cho ngày 8/3 có không?", "intent": "ask_festival_cake" },
+  {
+    "text": "Bánh cho ngày 20/10 shop có không?",
+    "intent": "ask_festival_cake"
+  },
+  { "text": "Bánh cho ngày nhà giáo Việt Nam?", "intent": "ask_festival_cake" },
+  { "text": "Bánh cho ngày quốc tế thiếu nhi?", "intent": "ask_festival_cake" },
+  {
+    "text": "Bánh cho ngày valentine có không?",
+    "intent": "ask_festival_cake"
+  },
+  { "text": "Bánh cho ngày tết thiếu nhi?", "intent": "ask_festival_cake" },
+  { "text": "Bánh cho ngày quốc tế phụ nữ?", "intent": "ask_festival_cake" },
+
+  {
+    "text": "Shop có bánh cho người lớn tuổi không?",
+    "intent": "ask_elderly_cake"
+  },
+  { "text": "Bánh nào phù hợp cho ông bà?", "intent": "ask_elderly_cake" },
+  {
+    "text": "Có bánh ít đường cho người già không shop?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Bánh cho người cao tuổi có vị gì?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Shop có bánh mềm cho người lớn tuổi không?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Bánh nào dễ tiêu hóa cho người già?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Có bánh healthy cho người lớn tuổi không?",
+    "intent": "ask_elderly_cake"
+  },
+  { "text": "Bánh cho ông bà giá bao nhiêu?", "intent": "ask_elderly_cake" },
+  {
+    "text": "Shop có bánh ít béo cho người già không?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Bánh nào không ngọt cho người lớn tuổi?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho người cao tuổi không?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Bánh cho người già có thể giao tận nơi không?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Shop có bánh truyền thống cho người lớn tuổi không?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Bánh nào phù hợp cho người bị tiểu đường?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Có bánh ít calo cho người già không?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Bánh cho người lớn tuổi có thể đặt trước không?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Shop có bánh nhỏ cho người già không?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Bánh nào dễ ăn cho người cao tuổi?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho người lớn tuổi không?",
+    "intent": "ask_elderly_cake"
+  },
+  {
+    "text": "Bánh cho ông bà có thể làm theo yêu cầu không?",
+    "intent": "ask_elderly_cake"
+  },
+
+  {
+    "text": "Shop có bánh cho tiệc công ty không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Bánh cho sự kiện công ty giá bao nhiêu?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Có bánh cho hội nghị không shop?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Bánh cho party công ty có thể in logo không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Shop có combo bánh cho tiệc công ty không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Bánh cho sự kiện công ty có vị gì?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Có bánh mini cho tiệc công ty không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Bánh cho hội nghị có thể giao tận nơi không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Shop có bánh cho party công ty không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Bánh cho tiệc công ty có thể đặt trước không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho sự kiện công ty không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Bánh cho hội nghị có thể làm theo yêu cầu không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Shop có bánh cho party công ty không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Bánh cho tiệc công ty có thể in tên công ty không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Có bánh cho sự kiện công ty không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Bánh cho hội nghị có thể giao trong ngày không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Shop có bánh cho party công ty không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Bánh cho tiệc công ty có thể làm theo chủ đề không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho sự kiện công ty không?",
+    "intent": "ask_company_party_cake"
+  },
+  {
+    "text": "Bánh cho hội nghị có thể in thông điệp không?",
+    "intent": "ask_company_party_cake"
+  },
+
+  {
+    "text": "Shop có bánh baby shower không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Bánh cho baby shower có vị gì?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Có bánh dễ thương cho baby shower không shop?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Bánh baby shower có thể in tên em bé không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Shop có combo bánh cho baby shower không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Bánh cho tiệc baby shower giá bao nhiêu?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Có bánh mini cho baby shower không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Bánh baby shower có thể làm theo chủ đề không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Shop có bánh cho baby shower không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Bánh cho baby shower có thể giao tận nơi không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho baby shower không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Bánh baby shower có thể đặt trước không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Shop có bánh cho tiệc baby shower không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Bánh baby shower có thể in hình em bé không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Có bánh dễ thương cho baby shower không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Bánh cho baby shower có thể làm theo yêu cầu không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Shop có bánh cho baby shower không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Bánh baby shower có thể in lời chúc không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho tiệc baby shower không?",
+    "intent": "ask_baby_shower_cake"
+  },
+  {
+    "text": "Bánh cho baby shower có thể giao trong ngày không?",
+    "intent": "ask_baby_shower_cake"
+  },
+
+  { "text": "Shop có bánh valentine không?", "intent": "ask_valentine_cake" },
+  { "text": "Bánh cho valentine có vị gì?", "intent": "ask_valentine_cake" },
+  {
+    "text": "Có bánh lãng mạn cho valentine không shop?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Bánh valentine có thể in tên người yêu không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Shop có combo bánh cho valentine không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Bánh cho ngày lễ tình nhân giá bao nhiêu?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Có bánh chocolate cho valentine không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Bánh valentine có thể làm theo yêu cầu không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Shop có bánh cho valentine không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Bánh valentine có thể giao tận nơi không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho valentine không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Bánh valentine có thể đặt trước không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày lễ tình nhân không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Bánh valentine có thể in lời yêu thương không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Có bánh lãng mạn cho valentine không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Bánh cho valentine có thể làm theo chủ đề không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Shop có bánh cho valentine không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Bánh valentine có thể in hình trái tim không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho ngày lễ tình nhân không?",
+    "intent": "ask_valentine_cake"
+  },
+  {
+    "text": "Bánh valentine có thể giao trong ngày không?",
+    "intent": "ask_valentine_cake"
+  },
+
+  {
+    "text": "Shop có bánh trung thu không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  { "text": "Bánh trung thu có vị gì?", "intent": "ask_mid_autumn_cake" },
+  {
+    "text": "Có bánh trung thu truyền thống không shop?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Bánh trung thu có thể làm theo yêu cầu không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Shop có set bánh trung thu không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Bánh trung thu giá bao nhiêu?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Có bánh trung thu hiện đại không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Bánh trung thu có thể giao tận nơi không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Shop có bánh trung thu không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Bánh trung thu có thể đặt trước không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Có bánh trung thu đặc biệt không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Bánh trung thu có thể làm theo nhân đặc biệt không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Shop có bánh trung thu tặng quà không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Bánh trung thu có thể in hình không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Có bánh trung thu truyền thống không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Bánh trung thu có thể làm theo yêu cầu không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Shop có bánh trung thu không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Bánh trung thu có thể in lời chúc không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Có bánh trung thu đặc biệt không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+  {
+    "text": "Bánh trung thu có thể giao trong ngày không?",
+    "intent": "ask_mid_autumn_cake"
+  },
+
+  { "text": "Shop có bánh 8/3 không?", "intent": "ask_womens_day_cake" },
+  { "text": "Bánh cho ngày 8/3 có vị gì?", "intent": "ask_womens_day_cake" },
+  {
+    "text": "Có bánh đặc biệt cho ngày 8/3 không shop?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Bánh 8/3 có thể in lời chúc không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Shop có combo bánh cho ngày 8/3 không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Bánh cho ngày quốc tế phụ nữ giá bao nhiêu?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Có bánh chocolate cho ngày 8/3 không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Bánh 8/3 có thể làm theo yêu cầu không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày 8/3 không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Bánh 8/3 có thể giao tận nơi không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho ngày 8/3 không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Bánh 8/3 có thể đặt trước không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày quốc tế phụ nữ không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Bánh 8/3 có thể in tên người nhận không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho ngày 8/3 không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Bánh cho ngày 8/3 có thể làm theo chủ đề không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày 8/3 không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Bánh 8/3 có thể in hình hoa không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho ngày quốc tế phụ nữ không?",
+    "intent": "ask_womens_day_cake"
+  },
+  {
+    "text": "Bánh 8/3 có thể giao trong ngày không?",
+    "intent": "ask_womens_day_cake"
+  },
+
+  {
+    "text": "Shop có bánh 20/10 không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Bánh cho ngày 20/10 có vị gì?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho ngày 20/10 không shop?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Bánh 20/10 có thể làm theo phong cách Việt Nam không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Shop có combo bánh cho ngày 20/10 không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Bánh cho ngày phụ nữ Việt Nam giá bao nhiêu?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Có bánh truyền thống cho ngày 20/10 không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Bánh 20/10 có thể làm theo yêu cầu không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày 20/10 không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Bánh 20/10 có thể giao tận nơi không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho ngày 20/10 không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Bánh 20/10 có thể đặt trước không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày phụ nữ Việt Nam không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Bánh 20/10 có thể in lời chúc không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho ngày 20/10 không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Bánh cho ngày 20/10 có thể làm theo chủ đề không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày 20/10 không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Bánh 20/10 có thể in hình hoa sen không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho ngày phụ nữ Việt Nam không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+  {
+    "text": "Bánh 20/10 có thể giao trong ngày không?",
+    "intent": "ask_vietnamese_womens_day_cake"
+  },
+
+  {
+    "text": "Shop có bánh cho ngày của mẹ không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  { "text": "Bánh cho mẹ có vị gì?", "intent": "ask_mothers_day_cake" },
+  {
+    "text": "Có bánh đặc biệt cho ngày của mẹ không shop?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Bánh cho mẹ có thể in lời yêu thương không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Shop có combo bánh cho ngày của mẹ không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  { "text": "Bánh cho mẹ giá bao nhiêu?", "intent": "ask_mothers_day_cake" },
+  {
+    "text": "Có bánh chocolate cho mẹ không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Bánh cho mẹ có thể làm theo yêu cầu không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày của mẹ không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Bánh cho mẹ có thể giao tận nơi không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho mẹ không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Bánh cho mẹ có thể đặt trước không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho mother's day không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Bánh cho mẹ có thể in tên mẹ không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho ngày của mẹ không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Bánh cho mẹ có thể làm theo chủ đề không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày của mẹ không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Bánh cho mẹ có thể in hình hoa hồng không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho mẹ không?",
+    "intent": "ask_mothers_day_cake"
+  },
+  {
+    "text": "Bánh cho mẹ có thể giao trong ngày không?",
+    "intent": "ask_mothers_day_cake"
+  },
+
+  {
+    "text": "Shop có bánh cho ngày của cha không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  { "text": "Bánh cho cha có vị gì?", "intent": "ask_fathers_day_cake" },
+  {
+    "text": "Có bánh đặc biệt cho ngày của cha không shop?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Bánh cho cha có thể in lời tri ân không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Shop có combo bánh cho ngày của cha không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  { "text": "Bánh cho cha giá bao nhiêu?", "intent": "ask_fathers_day_cake" },
+  {
+    "text": "Có bánh chocolate cho cha không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Bánh cho cha có thể làm theo yêu cầu không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày của cha không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Bánh cho cha có thể giao tận nơi không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho cha không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Bánh cho cha có thể đặt trước không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho father's day không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Bánh cho cha có thể in tên cha không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho ngày của cha không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Bánh cho cha có thể làm theo chủ đề không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày của cha không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Bánh cho cha có thể in logo thể thao không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho cha không?",
+    "intent": "ask_fathers_day_cake"
+  },
+  {
+    "text": "Bánh cho cha có thể giao trong ngày không?",
+    "intent": "ask_fathers_day_cake"
+  },
+
+  {
+    "text": "Shop có bánh cho ngày nhà giáo không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  { "text": "Bánh cho thầy cô có vị gì?", "intent": "ask_teachers_day_cake" },
+  {
+    "text": "Có bánh đặc biệt cho ngày 20/11 không shop?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Bánh cho thầy cô có thể in lời tri ân không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Shop có combo bánh cho ngày nhà giáo không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Bánh cho thầy cô giá bao nhiêu?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Có bánh chocolate cho thầy cô không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Bánh cho thầy cô có thể làm theo yêu cầu không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày 20/11 không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Bánh cho thầy cô có thể giao tận nơi không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho thầy cô không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Bánh cho thầy cô có thể đặt trước không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày nhà giáo Việt Nam không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Bánh cho thầy cô có thể in tên thầy cô không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho ngày 20/11 không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Bánh cho thầy cô có thể làm theo chủ đề không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Shop có bánh cho ngày nhà giáo không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Bánh cho thầy cô có thể in hình hoa không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Có bánh đặc biệt cho thầy cô không?",
+    "intent": "ask_teachers_day_cake"
+  },
+  {
+    "text": "Bánh cho thầy cô có thể giao trong ngày không?",
+    "intent": "ask_teachers_day_cake"
+  }
 ]

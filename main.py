@@ -14,6 +14,7 @@ from services.learning_system import LearningSystem
 from services.messenger_integration import MessengerIntegration
 from services.nlp_service import NLPService
 from services.response_service import ResponseService
+from services.conversation_service import ConversationService
 from logic.intent_list import INTENT_LIST
 from logic.context_rules import CONTEXT_RULES
 from logic.intent_rules import INTENT_RESPONSES
@@ -24,6 +25,7 @@ MODEL_PATH = os.getenv("MODEL_PATH", "./models")
 # Khởi tạo các service
 nlp_service = NLPService(model_path=MODEL_PATH)
 response_service = ResponseService()
+conversation_service = ConversationService(model_path=MODEL_PATH)
 
 # Khởi tạo database cho LearningSystem
 from pymongo import MongoClient
@@ -119,25 +121,53 @@ async def health_check():
 async def chat(request: ChatRequest):
     try:
         session_id = request.session_id or str(uuid.uuid4())
+        
+        # Kiểm tra nếu là session mới, xóa context cũ
+        if not request.session_id:
+            conversation_service.clear_context()
+        
         # Lấy context (lịch sử hội thoại) từ MongoDB
         session = chatbot_db["conversations"].find_one({"sessionId": session_id})
         context = session["messages"] if session and "messages" in session else []
+        
         # Lấy intent gần nhất của bot (nếu có)
         last_bot_intent = None
         for msg in reversed(context):
             if msg.get("sender") == "bot" and msg.get("intent") is not None:
                 last_bot_intent = intent_index_to_name(msg["intent"])
                 break
+        
         # Xác định intent, confidence cho message hiện tại
-        intent, confidence = nlp_service.predict_intent(request.message)
-        intent_name = intent_index_to_name(intent)
-        # Lấy context_action (flag/dict) theo rule context
-        context_action = get_context_action(intent_name, last_bot_intent)
+        intent, confidence = conversation_service.detect_intent(request.message)
+        
+        # Chuyển đổi intent về dạng integer nếu cần
+        intent_index = intent
+        intent_name = intent
+        if isinstance(intent, str):
+            # Nếu intent là string, tìm index trong INTENT_LIST
+            try:
+                intent_index = INTENT_LIST.index(intent)
+            except ValueError:
+                # Nếu không tìm thấy, sử dụng index 0 (greeting) làm fallback
+                intent_index = 0
+                intent_name = INTENT_LIST[0] if INTENT_LIST else "greeting"
+                logger.warning(f"Intent '{intent}' not found in INTENT_LIST, using fallback: {intent_name}")
+        else:
+            # Nếu intent là integer, lấy tên
+            intent_name = intent_index_to_name(intent)
+        
+        # Lấy context_action từ conversation service
+        context_action = conversation_service.get_context_action(intent_name)
+        
         # Nếu có context_action, truyền vào response_service.get_response
         if context_action:
-            response_text = response_service.get_response(intent, request.message, context_action=context_action, last_bot_intent=last_bot_intent)
+            response_text = response_service.get_response(intent_index, request.message, context_action=context_action, last_bot_intent=last_bot_intent)
         else:
-            response_text = response_service.get_response(intent, request.message)
+            response_text = response_service.get_response(intent_index, request.message)
+        
+        # Cập nhật context trong conversation service
+        conversation_service.update_context(request.message, intent_name, response_text)
+        
         # Lưu hội thoại mới vào messages array của session
         chatbot_db["conversations"].update_one(
             {"sessionId": session_id},
@@ -145,7 +175,7 @@ async def chat(request: ChatRequest):
                 "text": request.message,
                 "sender": "user",
                 "timestamp": datetime.now(),
-                "intent": intent,
+                "intent": intent_index,
                 "confidence": confidence
             }}},
             upsert=True
@@ -156,21 +186,23 @@ async def chat(request: ChatRequest):
                 "text": response_text,
                 "sender": "bot",
                 "timestamp": datetime.now(),
-                "intent": intent,
+                "intent": intent_index,
                 "confidence": confidence
             }}}
         )
+        
         # Lưu vào collection conversation để training nếu cần
         learning_system.collect_conversation_data(
             user_input=request.message,
             bot_response=response_text,
-            intent=intent,
+            intent=intent_index,
             confidence=confidence
         )
+        
         return ChatResponse(
             text=response_text,
             session_id=session_id,
-            intent=intent,
+            intent=intent_index,
             confidence=confidence
         )
     except Exception as e:
@@ -318,6 +350,16 @@ async def retrain_model(request: RetrainRequest):
     except Exception as e:
         logger.error(f"Error retraining model: {e}")
         raise HTTPException(status_code=500, detail="Error retraining model")
+
+@app.post("/clear-context")
+async def clear_context():
+    """Xóa context của cuộc hội thoại hiện tại"""
+    try:
+        conversation_service.clear_context()
+        return {"message": "Context cleared successfully"}
+    except Exception as e:
+        logger.error(f"Error clearing context: {e}")
+        raise HTTPException(status_code=500, detail="Internal server error")
 
 if __name__ == "__main__":
     import uvicorn
