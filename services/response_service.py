@@ -16,7 +16,28 @@ from .response_templates import (
 store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
 store_db = store_client[ChatbotConfig.STORE_DB_NAME]
 
-def get_dynamic_response(intent, user_message):
+def normalize_text(text):
+    """Chuẩn hóa text để so sánh, loại bỏ dấu và khoảng trắng thừa"""
+    if not text:
+        return ""
+    import unicodedata
+    # Loại bỏ dấu tiếng Việt
+    text = unicodedata.normalize('NFD', text)
+    text = ''.join(c for c in text if not unicodedata.combining(c))
+    # Chuyển về lowercase và loại bỏ khoảng trắng thừa
+    return text.lower().strip()
+
+def fix_duplicate_cake_name(response):
+    """Sửa lỗi lặp từ 'Bánh' trong response"""
+    if not response:
+        return response
+    # Sửa "Bánh Bánh" thành "Bánh"
+    response = response.replace("Bánh Bánh", "Bánh")
+    # Sửa "bánh Bánh" thành "bánh"
+    response = response.replace("bánh Bánh", "bánh")
+    return response
+
+def get_dynamic_response(intent, user_message, context_action=None):
     # Nếu intent là index, chuyển sang intent name
     if isinstance(intent, int):
         if 0 <= intent < len(INTENT_LIST):
@@ -60,11 +81,24 @@ def get_dynamic_response(intent, user_message):
         return "Hiện tại shop đang cập nhật menu, bạn vui lòng liên hệ hotline để được tư vấn nhé!"
         
     elif intent_name == "ask_price":
-        # Tìm tên sản phẩm trong user_message
+        # LUÔN kiểm tra tên bánh trong user_message trước (chuẩn hóa)
+        msg_norm = normalize_text(user_message)
         for prod in store_db['products'].find():
-            if prod.get('productName') and prod['productName'].lower() in user_message.lower():
-                price = prod.get('productPrice', 'không rõ')
-                return f"Bánh {prod['productName']} có giá {price:,}đ."
+            if prod.get('productName'):
+                cake_name_norm = normalize_text(prod['productName'])
+                if cake_name_norm in msg_norm:
+                    price = prod.get('productPrice', 'không rõ')
+                    return fix_duplicate_cake_name(f"Bánh {prod['productName']} có giá {price:,}đ.")
+        
+        # Nếu không tìm thấy trong message, mới dùng context_action
+        if context_action and context_action.get("cake_name"):
+            cake_name = context_action.get("cake_name", "")
+            if cake_name:
+                cake = store_db['products'].find_one({"productName": cake_name})
+                if cake:
+                    price = cake.get('productPrice', 'không rõ')
+                    return fix_duplicate_cake_name(f"Bánh {cake_name} có giá {price:,}đ.")
+        
         return "Bạn muốn hỏi giá loại bánh nào ạ?"
         
     elif intent_name == "ask_promotion":
@@ -122,21 +156,21 @@ def get_dynamic_response(intent, user_message):
         for prod in store_db['products'].find():
             if prod.get('productName') and prod['productName'].lower() in user_message.lower():
                 desc = prod.get('productDescription', '')
-                return f"Thành phần bánh {prod['productName']}: {desc}"
+                return fix_duplicate_cake_name(f"Thành phần bánh {prod['productName']}: {desc}")
         return "Bạn muốn hỏi thành phần của loại bánh nào ạ?"
         
     elif intent_name == "ask_new_cake":
         # Lấy sản phẩm mới nhất
         cake = store_db['products'].find_one(sort=[("createdAt", -1)])
         if cake and cake.get('productName'):
-            return f"Bánh mới nhất của shop là: {cake['productName']}."
+            return fix_duplicate_cake_name(f"Bánh mới nhất của shop là: {cake['productName']}.")
         return "Shop thường xuyên cập nhật menu mới, bạn có thể ghé shop để thưởng thức!"
         
     elif intent_name == "ask_best_seller":
         # Lấy sản phẩm bán chạy nhất
         cake = store_db['products'].find_one(sort=[("totalRatings", -1)])
         if cake and cake.get('productName'):
-            return f"Bánh bán chạy nhất hiện nay là: {cake['productName']}."
+            return fix_duplicate_cake_name(f"Bánh bán chạy nhất hiện nay là: {cake['productName']}.")
         return "Shop có nhiều loại bánh được khách hàng yêu thích, bạn muốn thử loại nào?"
         
     elif intent_name == "ask_for_kids":
@@ -152,7 +186,7 @@ def get_dynamic_response(intent, user_message):
             if prod.get('productName') and prod['productName'].lower() in user_message.lower():
                 nutrition = prod.get('nutrition') or prod.get('productDescription')
                 if nutrition:
-                    return f"Thông tin dinh dưỡng bánh {prod['productName']}: {nutrition}"
+                    return fix_duplicate_cake_name(f"Thông tin dinh dưỡng bánh {prod['productName']}: {nutrition}")
         return "Bạn muốn hỏi dinh dưỡng của loại bánh nào ạ?"
         
     elif intent_name == "ask_address":
@@ -195,9 +229,25 @@ def generate_template_response(intent, entities, templates):
         return None
 
 class ResponseService:
+
+    def get_cake_name_from_message(self, user_message):
+        if not user_message:
+            return None
+        text_lower = user_message.lower()
+
+        for prod in store_db['products'].find():
+            if prod.get('productName'):
+                cake_name_lower = prod['productName'].lower()
+                if cake_name_lower in text_lower:
+                    return prod['productName']
+        return None
+
     def get_response(self, intent, user_message, context_action=None, last_bot_intent=None):
-        # Nếu có context_action (dict), sinh câu trả lời động dựa trên context
         if context_action:
+            # Ưu tiên lấy tên bánh từ message hiện tại nếu có
+            cake_name_in_msg = self.get_cake_name_from_message(user_message)
+            if cake_name_in_msg:
+                context_action['cake_name'] = cake_name_in_msg
             context_flag = context_action.get("context_flag")
             
             # Xử lý combo với số người
@@ -209,37 +259,34 @@ class ResponseService:
             elif context_flag == "ingredient_after_suggest":
                 cake_name = context_action.get("cake_name", "")
                 if cake_name:
-                    from config.config_chatbot import ChatbotConfig
-                    from pymongo import MongoClient
-                    store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
-                    store_db = store_client[ChatbotConfig.STORE_DB_NAME]
                     cake = store_db['products'].find_one({"productName": cake_name})
                     if cake:
                         desc = cake.get('productDescription', '')
-                        return f"Thành phần bánh {cake_name}: {desc}"
+                        return fix_duplicate_cake_name(f"Thành phần bánh {cake_name}: {desc}")
                 return self.get_ingredient_response(user_message)
             
             # Xử lý giá sau khi gợi ý bánh
             elif context_flag == "price_after_suggest":
+                # Ưu tiên lấy tên bánh từ context_action['cake_name'] nếu có
                 cake_name = context_action.get("cake_name", "")
                 if cake_name:
-                    from config.config_chatbot import ChatbotConfig
-                    from pymongo import MongoClient
-                    store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
-                    store_db = store_client[ChatbotConfig.STORE_DB_NAME]
                     cake = store_db['products'].find_one({"productName": cake_name})
                     if cake:
                         price = cake.get('productPrice', 'không rõ')
-                        return f"Bánh {cake_name} có giá {price:,}đ."
+                        return fix_duplicate_cake_name(f"Bánh {cake_name} có giá {price:,}đ.")
+                # Nếu không tìm thấy, fallback về lấy tên bánh từ user_message
                 return self.get_price_response(user_message)
+            elif context_flag == "ingredient_after_suggest":
+                cake_name = context_action.get("cake_name", "")
+                if cake_name:
+                    cake = store_db['products'].find_one({"productName": cake_name})
+                    if cake:
+                        desc = cake.get('productDescription', '')
+                        return fix_duplicate_cake_name(f"Thành phần bánh {cake_name}: {desc}")
+                return self.get_ingredient_response(user_message)
             
             # Xử lý gợi ý thêm bánh khác
             elif context_flag == "suggest_more_cakes":
-                from config.config_chatbot import ChatbotConfig
-                from pymongo import MongoClient
-                store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
-                store_db = store_client[ChatbotConfig.STORE_DB_NAME]
-                
                 # Lấy 3 bánh khác ngẫu nhiên từ top 10
                 top_cakes = list(store_db['products'].find({}, {"productName": 1, "productPrice": 1, "averageRating": 1}).sort([("averageRating", -1)]).limit(10))
                 if len(top_cakes) >= 3:
@@ -276,12 +323,12 @@ class ResponseService:
                 return f"Bánh này đang có ưu đãi! {ingredient_resp} {promo_resp}"
             
             # Nếu không match context_flag nào, fallback về intent hiện tại
-            return self.get_intent_template_response(intent, user_message)
+            return self.get_intent_template_response(intent, user_message, context_action)
         
         # Nếu không có context_action, xử lý như cũ
         return self.get_intent_template_response(intent, user_message)
 
-    def get_intent_template_response(self, intent, user_message):
+    def get_intent_template_response(self, intent, user_message, context_action=None):
         # intent có thể là index hoặc tên
         intent_name = intent
         if isinstance(intent, int):
@@ -290,15 +337,11 @@ class ResponseService:
                 intent_name = INTENT_LIST[intent]
         
         # Sử dụng get_dynamic_response để tránh lặp lại logic
-        dynamic_response = get_dynamic_response(intent, user_message)
+        dynamic_response = get_dynamic_response(intent, user_message, context_action)
         if dynamic_response:
             return dynamic_response
-            
-        # Nếu không có dynamic response, sử dụng template
-        from config.config_chatbot import ChatbotConfig
-        from pymongo import MongoClient
-        store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
-        store_db = store_client[ChatbotConfig.STORE_DB_NAME]
+  
+
         
         # Tùy intent mà lấy data và template phù hợp
         if intent_name == "ask_address":
@@ -332,17 +375,14 @@ class ResponseService:
         return get_dynamic_response(intent, user_message)
 
     def get_price_response(self, user_message):
-        from config.config_chatbot import ChatbotConfig
-        from pymongo import MongoClient
-        store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
-        store_db = store_client[ChatbotConfig.STORE_DB_NAME]
+
         # Tìm tên sản phẩm trong user_message
         for prod in store_db['products'].find():
             if prod.get('productName') and prod['productName'].lower() in user_message.lower():
                 entities = {"cake_name": prod['productName'], "price": f"{prod.get('productPrice', 'không rõ'):,}"}
                 resp = generate_template_response("ask_price", entities, ASK_PRICE_TEMPLATES)
                 if resp:
-                    return resp
+                    return fix_duplicate_cake_name(resp)
         # Nếu không tìm thấy, lấy bánh ngẫu nhiên từ top 5
         top_cakes = list(store_db['products'].find({}, {"productName": 1, "productPrice": 1}).sort([("averageRating", -1)]).limit(5))
         if top_cakes:
@@ -350,14 +390,10 @@ class ResponseService:
             entities = {"cake_name": cake.get("productName", "bánh ngon"), "price": f"{cake.get('productPrice', 200000):,}"}
             resp = generate_template_response("ask_price", entities, ASK_PRICE_TEMPLATES)
             if resp:
-                return resp
+                return fix_duplicate_cake_name(resp)
         return "Bạn muốn hỏi giá loại bánh nào ạ?"
 
     def get_promo_response(self):
-        from config.config_chatbot import ChatbotConfig
-        from pymongo import MongoClient
-        store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
-        store_db = store_client[ChatbotConfig.STORE_DB_NAME]
         promo = store_db['discounts'].find_one(sort=[("createdAt", -1)])
         entities = {
             "promo_name": promo.get("discountName", "ưu đãi đặc biệt") if promo else "ưu đãi đặc biệt",
@@ -369,16 +405,12 @@ class ResponseService:
         return "Hiện tại shop có nhiều chương trình khuyến mãi hấp dẫn, bạn muốn biết về ưu đãi nào?"
 
     def get_ingredient_response(self, user_message):
-        from config.config_chatbot import ChatbotConfig
-        from pymongo import MongoClient
-        store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
-        store_db = store_client[ChatbotConfig.STORE_DB_NAME]
         for prod in store_db['products'].find():
             if prod.get('productName') and prod['productName'].lower() in user_message.lower():
                 entities = {"cake_name": prod['productName'], "ingredient": prod.get('productDescription', '')}
                 resp = generate_template_response("ask_ingredient", entities, ASK_INGREDIENT_TEMPLATES)
                 if resp:
-                    return resp
+                    return fix_duplicate_cake_name(resp)
         # Nếu không tìm thấy, lấy bánh ngẫu nhiên từ top 5
         top_cakes = list(store_db['products'].find({}, {"productName": 1, "productDescription": 1}).sort([("averageRating", -1)]).limit(5))
         if top_cakes:
@@ -386,5 +418,5 @@ class ResponseService:
             entities = {"cake_name": cake.get("productName", "bánh ngon"), "ingredient": cake.get("productDescription", "bơ, sữa, trứng")}
             resp = generate_template_response("ask_ingredient", entities, ASK_INGREDIENT_TEMPLATES)
             if resp:
-                return resp
+                return fix_duplicate_cake_name(resp)
         return "Bạn muốn hỏi thành phần của loại bánh nào ạ?"

@@ -3,6 +3,11 @@ from logic.context_rules import SHORT_QUESTION_RULES
 from logic.intent_list import INTENT_LIST
 from services.nlp_service import NLPService
 import re
+from config.config_chatbot import ChatbotConfig
+from pymongo import MongoClient
+
+store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
+store_db = store_client[ChatbotConfig.STORE_DB_NAME]
 
 class ConversationService:
     def __init__(self, model_path):
@@ -24,20 +29,16 @@ class ConversationService:
         return None, None
 
     def check_context_rules(self, text_lower):
-        """Kiểm tra context rules cho câu hỏi ngắn gọn"""
-        # Chỉ áp dụng context rules nếu có context trước đó
+        if self.has_different_cake_name(text_lower):
+            return None
         if not self.conversation_context.get('current_cake'):
             return None
-            
         for rule in SHORT_QUESTION_RULES:
             if rule.get('requires_context', False):
-                # Kiểm tra xem text có chứa pattern không
                 pattern_matches = 0
                 for pattern_word in rule["pattern"]:
                     if pattern_word in text_lower:
                         pattern_matches += 1
-                
-                # Nếu match được ít nhất 1 từ trong pattern
                 if pattern_matches > 0:
                     return rule["context_intent"]
         return None
@@ -63,7 +64,8 @@ class ConversationService:
         # Lưu thông tin về câu hỏi và trả lời gần nhất
         self.conversation_context['last_user_message'] = user_message
         self.conversation_context['last_intent'] = detected_intent
-        self.conversation_context['last_bot_response'] = bot_response
+        if bot_response:
+            self.conversation_context['last_bot_response'] = bot_response
         
         # Extract thông tin từ user_message
         self.extract_entities(user_message)
@@ -72,91 +74,120 @@ class ConversationService:
         if 'message_history' not in self.conversation_context:
             self.conversation_context['message_history'] = []
         
-        self.conversation_context['message_history'].append({
-            'user': user_message,
-            'intent': detected_intent,
-            'bot': bot_response
-        })
-        
-        # Giữ chỉ 5 câu gần nhất
-        if len(self.conversation_context['message_history']) > 5:
-            self.conversation_context['message_history'] = self.conversation_context['message_history'][-5:]
+        # Chỉ thêm vào history nếu có bot_response
+        if bot_response:
+            self.conversation_context['message_history'].append({
+                'user': user_message,
+                'intent': detected_intent,
+                'bot': bot_response
+            })
+            
+            # Giữ chỉ 5 câu gần nhất
+            if len(self.conversation_context['message_history']) > 5:
+                self.conversation_context['message_history'] = self.conversation_context['message_history'][-5:]
 
     def extract_entities(self, user_message):
-        """Trích xuất thông tin từ user_message"""
         text_lower = user_message.lower()
+
         
-        # Extract tên bánh
-        from config.config_chatbot import ChatbotConfig
-        from pymongo import MongoClient
-        store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
-        store_db = store_client[ChatbotConfig.STORE_DB_NAME]
-        
+        # LUÔN tìm và cập nhật tên bánh nếu có trong message
+        found_cake = None
         for prod in store_db['products'].find():
-            if prod.get('productName') and prod['productName'].lower() in text_lower:
-                self.conversation_context['current_cake'] = prod['productName']
-                self.conversation_context['current_cake_info'] = prod
-                break
+            if prod.get('productName'):
+                cake_name_lower = prod['productName'].lower()
+                if cake_name_lower in text_lower:
+                    found_cake = prod
+                    break
         
-        # Extract số lượng người
+        # Nếu tìm thấy bánh mới, LUÔN cập nhật context
+        if found_cake:
+            self.conversation_context['current_cake'] = found_cake['productName']
+            self.conversation_context['current_cake_info'] = found_cake
+            print(f"DEBUG - extract_entities: Updated context to: {found_cake['productName']}")
+        
+        # Các extract khác giữ nguyên
         number_match = re.search(r'(\d+)\s*người', text_lower)
         if number_match:
             self.conversation_context['people_count'] = int(number_match.group(1))
-        
-        # Extract dịp lễ
         occasions = ['sinh nhật', 'cưới', 'tiệc', 'giáng sinh', 'tết', 'valentine']
         for occasion in occasions:
             if occasion in text_lower:
                 self.conversation_context['occasion'] = occasion
                 break
-        
-        # Extract loại bánh
         cake_types = ['bánh kem', 'bánh ngọt', 'bánh mặn', 'combo', 'bánh trái cây']
         for cake_type in cake_types:
             if cake_type in text_lower:
                 self.conversation_context['cake_type'] = cake_type
                 break
 
-    def get_context_action(self, current_intent):
-        """Xác định action dựa trên context"""
-        context_action = {}
+    def is_short_question(self, text_lower):
+        """Kiểm tra xem có phải câu hỏi ngắn gọn không"""
+        short_patterns = [
+            ['giá', 'bao nhiêu'],
+            ['thành phần', 'gì'],
+            ['vị', 'gì'],
+            ['còn', 'khác'],
+            ['combo', 'nào'],
+            ['khuyến mãi', 'gì'],
+            ['giao', 'không']
+        ]
         
-        # Nếu user hỏi về combo sau khi đã hỏi số người
+        for pattern in short_patterns:
+            if any(word in text_lower for word in pattern):
+                return True
+        return False
+
+    def get_context_action(self, current_intent, user_message=None):
+        context_action = {}
+        msg = user_message if user_message is not None else self.conversation_context.get('last_user_message', '')
+        cake_name_in_msg = self.get_cake_name_from_message(msg)
+        if cake_name_in_msg:
+            context_action['cake_name'] = cake_name_in_msg  # ƯU TIÊN tên bánh trong message
+        elif self.conversation_context.get('current_cake'):
+            context_action['cake_name'] = self.conversation_context['current_cake']
+        if current_intent == "ask_price" and context_action.get('cake_name'):
+            context_action['context_flag'] = 'price_after_suggest'
+        if current_intent == "ask_ingredient" and context_action.get('cake_name'):
+            context_action['context_flag'] = 'ingredient_after_suggest'
         if current_intent == "ask_combo" and 'people_count' in self.conversation_context:
             context_action['context_flag'] = 'combo_with_people'
             context_action['people_count'] = self.conversation_context['people_count']
-        
-        # Nếu user hỏi thành phần sau khi đã được gợi ý bánh
-        elif current_intent == "ask_ingredient" and 'current_cake' in self.conversation_context:
-            context_action['context_flag'] = 'ingredient_after_suggest'
-            context_action['cake_name'] = self.conversation_context['current_cake']
-        
-        # Nếu user hỏi giá sau khi đã được gợi ý bánh
-        elif current_intent == "ask_price" and 'current_cake' in self.conversation_context:
-            context_action['context_flag'] = 'price_after_suggest'
-            context_action['cake_name'] = self.conversation_context['current_cake']
-        
-        # Nếu user hỏi "còn bánh khác không"
-        elif "còn" in self.conversation_context.get('last_user_message', '').lower() and "khác" in self.conversation_context.get('last_user_message', '').lower():
-            context_action['context_flag'] = 'suggest_more_cakes'
-        
-        # Nếu user hỏi về combo sau khi đã hỏi về bánh
-        elif current_intent == "ask_combo" and 'current_cake' in self.conversation_context:
+        elif current_intent == "ask_combo" and context_action.get('cake_name'):
             context_action['context_flag'] = 'combo_with_cake'
-            context_action['cake_name'] = self.conversation_context['current_cake']
-        
-        # Xử lý câu hỏi ngắn gọn dựa trên context
-        elif current_intent == "ask_price" and 'current_cake' in self.conversation_context:
-            # Nếu user chỉ hỏi "giá bao nhiêu" mà không nhắc tên bánh
-            context_action['context_flag'] = 'price_after_suggest'
-            context_action['cake_name'] = self.conversation_context['current_cake']
-        
-        elif current_intent == "ask_ingredient" and 'current_cake' in self.conversation_context:
-            # Nếu user chỉ hỏi "thành phần gì" mà không nhắc tên bánh
-            context_action['context_flag'] = 'ingredient_after_suggest'
-            context_action['cake_name'] = self.conversation_context['current_cake']
-        
+        if "còn" in msg.lower() and "khác" in msg.lower():
+            context_action['context_flag'] = 'suggest_more_cakes'
         return context_action if context_action else None
+
+    def get_cake_name_from_message(self, user_message):
+        """Trích xuất tên bánh cụ thể từ user_message nếu có"""
+        if not user_message:
+            return None
+        text_lower = user_message.lower()
+
+        for prod in store_db['products'].find():
+            if prod.get('productName'):
+                cake_name_lower = prod['productName'].lower()
+                if cake_name_lower in text_lower:
+                    return prod['productName']
+        return None
+
+    def has_different_cake_name(self, user_message):
+        if not user_message or not self.conversation_context.get('current_cake'):
+            return False
+        text_lower = user_message.lower()
+        current_cake = self.conversation_context['current_cake'].lower()
+
+        
+        for prod in store_db['products'].find():
+            if prod.get('productName'):
+                cake_name_lower = prod['productName'].lower()
+                if cake_name_lower in text_lower and cake_name_lower != current_cake:
+                    # Cập nhật context ngay lập tức khi phát hiện bánh khác
+                    self.conversation_context['current_cake'] = prod['productName']
+                    self.conversation_context['current_cake_info'] = prod
+                    print(f"DEBUG - has_different_cake_name: Updated context to: {prod['productName']}")
+                    return True
+        return False
 
     def clear_context(self):
         """Xóa context khi bắt đầu cuộc hội thoại mới"""

@@ -3,4 +3,4 @@
 /__pycache__
 .env
 /results
-.test_chatbot
+test_chatbot.py

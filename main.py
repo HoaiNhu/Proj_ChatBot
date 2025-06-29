@@ -137,6 +137,9 @@ async def chat(request: ChatRequest):
                 last_bot_intent = intent_index_to_name(msg["intent"])
                 break
         
+        # Cập nhật context entities TRƯỚC khi detect intent để context luôn mới nhất
+        conversation_service.extract_entities(request.message)
+        
         # Xác định intent, confidence cho message hiện tại
         intent, confidence = conversation_service.detect_intent(request.message)
         
@@ -156,8 +159,13 @@ async def chat(request: ChatRequest):
             # Nếu intent là integer, lấy tên
             intent_name = intent_index_to_name(intent)
         
-        # Lấy context_action từ conversation service
-        context_action = conversation_service.get_context_action(intent_name)
+        # Lấy context_action từ conversation service (lúc này context đã mới nhất)
+        context_action = conversation_service.get_context_action(intent_name, request.message)
+        
+        # Debug: In ra context_action
+        print(f"DEBUG - Message: {request.message}")
+        print(f"DEBUG - Current cake in context: {conversation_service.conversation_context.get('current_cake', 'None')}")
+        print(f"DEBUG - Context Action: {context_action}")
         
         # Nếu có context_action, truyền vào response_service.get_response
         if context_action:
@@ -165,7 +173,11 @@ async def chat(request: ChatRequest):
         else:
             response_text = response_service.get_response(intent_index, request.message)
         
-        # Cập nhật context trong conversation service
+        # Debug: In ra response_text
+        print(f"DEBUG - Response: {response_text}")
+        print("-" * 50)
+        
+        # Sau khi có response, mới update_context
         conversation_service.update_context(request.message, intent_name, response_text)
         
         # Lưu hội thoại mới vào messages array của session
