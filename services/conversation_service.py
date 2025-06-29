@@ -1,4 +1,5 @@
 from logic.intent_rules import INTENT_RULES
+from logic.context_rules import SHORT_QUESTION_RULES
 from logic.intent_list import INTENT_LIST
 from services.nlp_service import NLPService
 import re
@@ -10,10 +11,36 @@ class ConversationService:
 
     def detect_intent_logic(self, text):
         text_lower = text.lower()
+        
+        # Kiểm tra context rules trước (cho câu hỏi ngắn gọn)
+        context_intent = self.check_context_rules(text_lower)
+        if context_intent:
+            return context_intent, 0.9  # Context intent, confidence 0.9
+        
+        # Kiểm tra intent rules thông thường
         for rule in INTENT_RULES:
             if any(keyword in text_lower for keyword in rule["keywords"]):
                 return rule["intent"], 1.0  # Logic intent, confidence 1.0
         return None, None
+
+    def check_context_rules(self, text_lower):
+        """Kiểm tra context rules cho câu hỏi ngắn gọn"""
+        # Chỉ áp dụng context rules nếu có context trước đó
+        if not self.conversation_context.get('current_cake'):
+            return None
+            
+        for rule in SHORT_QUESTION_RULES:
+            if rule.get('requires_context', False):
+                # Kiểm tra xem text có chứa pattern không
+                pattern_matches = 0
+                for pattern_word in rule["pattern"]:
+                    if pattern_word in text_lower:
+                        pattern_matches += 1
+                
+                # Nếu match được ít nhất 1 từ trong pattern
+                if pattern_matches > 0:
+                    return rule["context_intent"]
+        return None
 
     def detect_intent(self, text):
         # Ưu tiên luật logic trước, nếu không có thì dùng mô hình
@@ -116,6 +143,17 @@ class ConversationService:
         # Nếu user hỏi về combo sau khi đã hỏi về bánh
         elif current_intent == "ask_combo" and 'current_cake' in self.conversation_context:
             context_action['context_flag'] = 'combo_with_cake'
+            context_action['cake_name'] = self.conversation_context['current_cake']
+        
+        # Xử lý câu hỏi ngắn gọn dựa trên context
+        elif current_intent == "ask_price" and 'current_cake' in self.conversation_context:
+            # Nếu user chỉ hỏi "giá bao nhiêu" mà không nhắc tên bánh
+            context_action['context_flag'] = 'price_after_suggest'
+            context_action['cake_name'] = self.conversation_context['current_cake']
+        
+        elif current_intent == "ask_ingredient" and 'current_cake' in self.conversation_context:
+            # Nếu user chỉ hỏi "thành phần gì" mà không nhắc tên bánh
+            context_action['context_flag'] = 'ingredient_after_suggest'
             context_action['cake_name'] = self.conversation_context['current_cake']
         
         return context_action if context_action else None

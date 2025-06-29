@@ -1,5 +1,5 @@
-# (intent hiện tại, intent bot trước đó, context_action)
-CONTEXT_RULES = [
+# Context rules cho intent transitions (intent hiện tại, intent bot trước đó, context_action)
+INTENT_TRANSITION_RULES = [
     # Hỏi giá sau khi bot vừa gợi ý bánh
     ("ask_price", "suggest_cake", {"context_flag": "price_after_suggest"}),
     # Hỏi thành phần sau khi bot vừa gợi ý bánh
@@ -50,5 +50,46 @@ CONTEXT_RULES = [
     ("ask_feedback", "ask_ingredient", {"context_flag": "feedback_after_ingredient"}),
     # Hỏi feedback sau khi hỏi suggest_cake
     ("ask_feedback", "suggest_cake", {"context_flag": "feedback_after_suggest"}),
-    # ... có thể bổ sung thêm các rule context khác nếu cần ...
 ]
+
+# Context rules cho câu hỏi ngắn gọn (pattern matching)
+SHORT_QUESTION_RULES = [
+    # Khi user hỏi "giá bao nhiêu" sau khi đã nói về bánh cụ thể
+    {"pattern": ["giá", "bao nhiêu"], "context_intent": "ask_price", "requires_context": True},
+    {"pattern": ["bao nhiêu", "tiền"], "context_intent": "ask_price", "requires_context": True},
+    {"pattern": ["bao nhiêu", "đ"], "context_intent": "ask_price", "requires_context": True},
+    {"pattern": ["chi phí", "bao nhiêu"], "context_intent": "ask_price", "requires_context": True},
+    
+    # Khi user hỏi về thành phần
+    {"pattern": ["thành phần", "gì"], "context_intent": "ask_ingredient", "requires_context": True},
+    {"pattern": ["làm từ", "gì"], "context_intent": "ask_ingredient", "requires_context": True},
+    {"pattern": ["nguyên liệu", "gì"], "context_intent": "ask_ingredient", "requires_context": True},
+    
+    # Khi user hỏi về vị
+    {"pattern": ["vị", "gì"], "context_intent": "ask_ingredient", "requires_context": True},
+    {"pattern": ["hương vị", "gì"], "context_intent": "ask_ingredient", "requires_context": True},
+    {"pattern": ["mùi vị", "gì"], "context_intent": "ask_ingredient", "requires_context": True},
+    
+    # Khi user hỏi về bánh khác
+    {"pattern": ["còn", "khác"], "context_intent": "suggest_cake", "requires_context": True},
+    {"pattern": ["bánh", "khác"], "context_intent": "suggest_cake", "requires_context": True},
+    {"pattern": ["loại", "khác"], "context_intent": "suggest_cake", "requires_context": True},
+    
+    # Khi user hỏi về combo
+    {"pattern": ["combo", "nào"], "context_intent": "ask_combo", "requires_context": True},
+    {"pattern": ["gói", "nào"], "context_intent": "ask_combo", "requires_context": True},
+    {"pattern": ["set", "nào"], "context_intent": "ask_combo", "requires_context": True},
+    
+    # Khi user hỏi về khuyến mãi
+    {"pattern": ["khuyến mãi", "gì"], "context_intent": "ask_promotion", "requires_context": True},
+    {"pattern": ["ưu đãi", "gì"], "context_intent": "ask_promotion", "requires_context": True},
+    {"pattern": ["giảm giá", "gì"], "context_intent": "ask_promotion", "requires_context": True},
+    
+    # Khi user hỏi về giao hàng
+    {"pattern": ["giao", "không"], "context_intent": "ask_delivery", "requires_context": True},
+    {"pattern": ["ship", "không"], "context_intent": "ask_delivery", "requires_context": True},
+    {"pattern": ["vận chuyển", "không"], "context_intent": "ask_delivery", "requires_context": True},
+]
+
+# Giữ lại CONTEXT_RULES cũ để tương thích ngược
+CONTEXT_RULES = INTENT_TRANSITION_RULES + SHORT_QUESTION_RULES
