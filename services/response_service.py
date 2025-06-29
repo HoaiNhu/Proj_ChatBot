@@ -49,6 +49,43 @@ def get_dynamic_response(intent, user_message, context_action=None):
 
     # Trả lời động cho một số intent
     if intent_name == "suggest_cake":
+        # Kiểm tra xem có phải hỏi bánh theo giá không
+        text_lower = user_message.lower()
+        
+        # Tìm bánh theo khoảng giá
+        price_match = None
+        if "dưới" in text_lower and any(char.isdigit() for char in text_lower):
+            # Tìm số trong câu
+            import re
+            numbers = re.findall(r'\d+', text_lower)
+            if numbers:
+                max_price = int(numbers[0]) * 1000  # Chuyển k thành nghìn
+                if "k" in text_lower or "nghìn" in text_lower:
+                    max_price = int(numbers[0]) * 1000
+                elif "tr" in text_lower or "triệu" in text_lower:
+                    max_price = int(numbers[0]) * 1000000
+                else:
+                    max_price = int(numbers[0])
+                
+                # Tìm bánh trong khoảng giá
+                affordable_cakes = list(store_db['products'].find({
+                    "productPrice": {"$lte": max_price}
+                }, {"productName": 1, "productPrice": 1, "averageRating": 1}).sort([("averageRating", -1)]).limit(5))
+                
+                if affordable_cakes:
+                    cake_info = []
+                    for cake in affordable_cakes:
+                        name = cake.get("productName", "")
+                        price = cake.get("productPrice", 0)
+                        rating = cake.get("averageRating", 0)
+                        if name:
+                            cake_info.append(f"{name} ({price:,}đ, ⭐{rating})")
+                    
+                    cake_list = ", ".join(cake_info)
+                    return f"Shop có các loại bánh dưới {max_price:,}đ: {cake_list}. Bạn thích loại nào?"
+                else:
+                    return f"Hiện tại shop chưa có bánh nào dưới {max_price:,}đ. Bạn có thể tham khảo các loại bánh khác nhé!"
+        
         # Tìm bánh theo từ khóa user hỏi
         keyword = user_message.lower()
         matched_cakes = list(store_db['products'].find({
@@ -79,6 +116,10 @@ def get_dynamic_response(intent, user_message, context_action=None):
         
         # Fallback nếu không có bánh nào
         return "Hiện tại shop đang cập nhật menu, bạn vui lòng liên hệ hotline để được tư vấn nhé!"
+        
+    elif intent_name == "ask_preservation":
+        # Trả lời về cách bảo quản bánh
+        return "Cách bảo quản bánh: Bánh kem nên để trong tủ lạnh từ 2-4°C, có thể bảo quản được 3-5 ngày. Bánh ngọt để ở nhiệt độ phòng được 2-3 ngày. Khi vận chuyển xa, shop sẽ đóng gói đặc biệt với đá khô để giữ lạnh."
         
     elif intent_name == "ask_price":
         # LUÔN kiểm tra tên bánh trong user_message trước (chuẩn hóa)
@@ -211,7 +252,7 @@ def get_dynamic_response(intent, user_message, context_action=None):
         return random.choice(responses)
     # Nếu không có response mẫu, sinh câu trả lời động
     fallback_templates = [
-        f"Shop hiện chưa có thông tin chi tiết về vấn đề này (intent: {intent_name}), bạn vui lòng để lại câu hỏi, shop sẽ hỗ trợ sau!",
+        f"Shop hiện chưa có thông tin chi tiết về vấn đề này, bạn vui lòng để lại câu hỏi, shop sẽ hỗ trợ sau!",
         f"Shop sẽ kiểm tra lại thông tin về \"{user_message}\" và phản hồi bạn sớm nhất!",
         "Câu hỏi của bạn rất hay, shop sẽ bổ sung thông tin này sớm!",
         "Hiện tại shop chưa có câu trả lời chính xác, bạn vui lòng liên hệ hotline để được hỗ trợ nhanh nhất!",
@@ -243,90 +284,80 @@ class ResponseService:
         return None
 
     def get_response(self, intent, user_message, context_action=None, last_bot_intent=None):
-        if context_action:
-            # Ưu tiên lấy tên bánh từ message hiện tại nếu có
-            cake_name_in_msg = self.get_cake_name_from_message(user_message)
-            if cake_name_in_msg:
-                context_action['cake_name'] = cake_name_in_msg
-            context_flag = context_action.get("context_flag")
-            
-            # Xử lý combo với số người
-            if context_flag == "combo_with_people":
-                people_count = context_action.get("people_count", 5)
-                return f"Với {people_count} người, shop gợi ý combo bánh kem + bánh ngọt nhỏ, tổng giá khoảng 500.000đ. Bạn có muốn đặt không?"
-            
-            # Xử lý thành phần sau khi gợi ý bánh
-            elif context_flag == "ingredient_after_suggest":
-                cake_name = context_action.get("cake_name", "")
-                if cake_name:
-                    cake = store_db['products'].find_one({"productName": cake_name})
-                    if cake:
-                        desc = cake.get('productDescription', '')
-                        return fix_duplicate_cake_name(f"Thành phần bánh {cake_name}: {desc}")
-                return self.get_ingredient_response(user_message)
-            
-            # Xử lý giá sau khi gợi ý bánh
-            elif context_flag == "price_after_suggest":
-                # Ưu tiên lấy tên bánh từ context_action['cake_name'] nếu có
-                cake_name = context_action.get("cake_name", "")
-                if cake_name:
-                    cake = store_db['products'].find_one({"productName": cake_name})
-                    if cake:
-                        price = cake.get('productPrice', 'không rõ')
-                        return fix_duplicate_cake_name(f"Bánh {cake_name} có giá {price:,}đ.")
-                # Nếu không tìm thấy, fallback về lấy tên bánh từ user_message
-                return self.get_price_response(user_message)
-            elif context_flag == "ingredient_after_suggest":
-                cake_name = context_action.get("cake_name", "")
-                if cake_name:
-                    cake = store_db['products'].find_one({"productName": cake_name})
-                    if cake:
-                        desc = cake.get('productDescription', '')
-                        return fix_duplicate_cake_name(f"Thành phần bánh {cake_name}: {desc}")
-                return self.get_ingredient_response(user_message)
-            
-            # Xử lý gợi ý thêm bánh khác
-            elif context_flag == "suggest_more_cakes":
-                # Lấy 3 bánh khác ngẫu nhiên từ top 10
-                top_cakes = list(store_db['products'].find({}, {"productName": 1, "productPrice": 1, "averageRating": 1}).sort([("averageRating", -1)]).limit(10))
-                if len(top_cakes) >= 3:
-                    selected_cakes = random.sample(top_cakes, 3)
-                    cake_info = []
-                    for cake in selected_cakes:
-                        name = cake.get("productName", "")
-                        price = cake.get("productPrice", "")
-                        rating = cake.get("averageRating", 0)
-                        if name:
-                            cake_info.append(f"{name} ({price:,}đ, ⭐{rating})")
-                    
-                    cake_list = ", ".join(cake_info)
-                    return f"Shop còn có các loại bánh khác: {cake_list}. Bạn thích loại nào?"
-                
-                return "Shop có nhiều loại bánh khác, bạn muốn tham khảo loại nào?"
-            
-            # Xử lý combo với bánh cụ thể
-            elif context_flag == "combo_with_cake":
-                cake_name = context_action.get("cake_name", "")
-                if cake_name:
-                    return f"Shop có thể tạo combo từ {cake_name} kết hợp với bánh ngọt nhỏ hoặc đồ uống. Bạn quan tâm combo nào?"
-                return "Shop có thể tạo combo theo yêu cầu của bạn, bạn muốn combo gì ạ?"
-            
-            # Các context cũ
-            elif context_flag == "promotion_price":
-                # Lấy giá và khuyến mãi động
-                price_resp = self.get_price_response(user_message)
-                promo_resp = self.get_promo_response()
-                return f"Hiện tại shop đang có khuyến mãi! {price_resp} {promo_resp}"
-            elif context_flag == "promotion_ingredient":
-                promo_resp = self.get_promo_response()
-                ingredient_resp = self.get_ingredient_response(user_message)
-                return f"Bánh này đang có ưu đãi! {ingredient_resp} {promo_resp}"
-            
-            # Nếu không match context_flag nào, fallback về intent hiện tại
-            return self.get_intent_template_response(intent, user_message, context_action)
+        """Cải thiện logic xử lý response với context tốt hơn"""
+        # Nếu intent là index, chuyển sang intent name
+        if isinstance(intent, int):
+            if 0 <= intent < len(INTENT_LIST):
+                intent_name = INTENT_LIST[intent]
+            else:
+                intent_name = "suggest_cake"
+        else:
+            intent_name = intent
+
+        # Xử lý các câu hỏi ngắn gọn với context
+        if self.is_short_question_with_context(intent_name, user_message, context_action):
+            return self.handle_short_question_with_context(intent_name, user_message, context_action)
         
-        # Nếu không có context_action, xử lý như cũ
-        return self.get_intent_template_response(intent, user_message)
+        # Xử lý response động cho các intent
+        dynamic_response = get_dynamic_response(intent_name, user_message, context_action)
+        if dynamic_response:
+            return fix_duplicate_cake_name(dynamic_response)
+        
+        # Fallback về template response
+        return self.get_intent_template_response(intent, user_message, context_action)
+
+    def is_short_question_with_context(self, intent_name, user_message, context_action):
+        """Kiểm tra xem có phải câu hỏi ngắn gọn cần context không"""
+        short_questions = ["ask_price", "ask_ingredient", "ask_combo", "ask_promotion"]
+        return intent_name in short_questions and context_action and context_action.get('cake_name')
+
+    def handle_short_question_with_context(self, intent_name, user_message, context_action):
+        """Xử lý câu hỏi ngắn gọn với context"""
+        cake_name = context_action.get('cake_name')
+        if not cake_name:
+            return self.get_fallback_response(intent_name)
+        
+        # Tìm thông tin bánh từ database
+        cake = store_db['products'].find_one({"productName": cake_name})
+        if not cake:
+            return self.get_fallback_response(intent_name)
+        
+        if intent_name == "ask_price":
+            price = cake.get('productPrice', 'không rõ')
+            return f"{cake_name} có giá {price:,}đ."
+        
+        elif intent_name == "ask_ingredient":
+            desc = cake.get('productDescription', '')
+            if desc:
+                return f"Thành phần {cake_name}: {desc}"
+            else:
+                return f"Thành phần {cake_name}: Bột mì, đường, trứng, sữa tươi và các nguyên liệu tự nhiên khác."
+        
+        elif intent_name == "ask_combo":
+            # Gợi ý combo với bánh hiện tại
+            return f"Shop có thể tạo combo với {cake_name} và các loại bánh khác. Bạn muốn combo gì ạ?"
+        
+        elif intent_name == "ask_promotion":
+            # Kiểm tra khuyến mãi cho bánh cụ thể
+            promo = store_db['discounts'].find_one(sort=[("createdAt", -1)])
+            if promo and promo.get('discountName'):
+                return f"Hiện tại {cake_name} đang có khuyến mãi: {promo['discountName']} giảm {promo.get('discountValue', '')}%."
+            else:
+                return f"{cake_name} hiện tại chưa có khuyến mãi, nhưng shop có nhiều ưu đãi khác. Bạn quan tâm không?"
+        
+        return self.get_fallback_response(intent_name)
+
+    def get_fallback_response(self, intent_name):
+        """Trả về response fallback cho từng intent"""
+        fallback_responses = {
+            "ask_price": "Bạn muốn hỏi giá loại bánh nào ạ?",
+            "ask_ingredient": "Bạn muốn hỏi thành phần của loại bánh nào ạ?",
+            "ask_combo": "Shop có nhiều combo hấp dẫn, bạn muốn tham khảo combo nào?",
+            "ask_promotion": "Shop có nhiều chương trình khuyến mãi, bạn muốn biết về ưu đãi nào?",
+            "ask_delivery": "Shop có dịch vụ giao hàng, bạn muốn biết thông tin gì?",
+            "ask_feedback": "Shop luôn cố gắng cải thiện chất lượng, bạn có thể để lại đánh giá nhé!"
+        }
+        return fallback_responses.get(intent_name, "Bạn cần tư vấn gì thêm không?")
 
     def get_intent_template_response(self, intent, user_message, context_action=None):
         # intent có thể là index hoặc tên

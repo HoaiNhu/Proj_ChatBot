@@ -20,7 +20,14 @@ class ConversationService:
         # Kiểm tra context rules trước (cho câu hỏi ngắn gọn)
         context_intent = self.check_context_rules(text_lower)
         if context_intent:
-            return context_intent, 0.9  # Context intent, confidence 0.9
+            return context_intent, 0.95  # Context intent, confidence cao
+        
+        # Kiểm tra các pattern đặc biệt trước
+        if "giá dưới" in text_lower or "giá trên" in text_lower or "giá từ" in text_lower:
+            return "suggest_cake", 1.0
+        
+        if "bảo quản" in text_lower or "giữ lạnh" in text_lower or "để được bao lâu" in text_lower:
+            return "ask_preservation", 1.0
         
         # Kiểm tra intent rules thông thường
         for rule in INTENT_RULES:
@@ -29,18 +36,26 @@ class ConversationService:
         return None, None
 
     def check_context_rules(self, text_lower):
-        if self.has_different_cake_name(text_lower):
+        """Cải thiện logic kiểm tra context rules"""
+        # Nếu có tên bánh mới trong message, cập nhật context trước
+        self.has_different_cake_name(text_lower)
+        
+        # Kiểm tra xem có phải câu hỏi ngắn gọn không
+        if not self.is_short_question(text_lower):
             return None
-        if not self.conversation_context.get('current_cake'):
-            return None
+            
+        # Nếu là câu hỏi ngắn gọn và có context, trả về intent tương ứng
         for rule in SHORT_QUESTION_RULES:
             if rule.get('requires_context', False):
                 pattern_matches = 0
                 for pattern_word in rule["pattern"]:
                     if pattern_word in text_lower:
                         pattern_matches += 1
-                if pattern_matches > 0:
+                
+                # Nếu match được pattern và có context, trả về intent
+                if pattern_matches > 0 and self.conversation_context.get('current_cake'):
                     return rule["context_intent"]
+        
         return None
 
     def detect_intent(self, text):
@@ -89,7 +104,6 @@ class ConversationService:
     def extract_entities(self, user_message):
         text_lower = user_message.lower()
 
-        
         # LUÔN tìm và cập nhật tên bánh nếu có trong message
         found_cake = None
         for prod in store_db['products'].find():
@@ -121,41 +135,65 @@ class ConversationService:
                 break
 
     def is_short_question(self, text_lower):
-        """Kiểm tra xem có phải câu hỏi ngắn gọn không"""
+        """Cải thiện logic kiểm tra câu hỏi ngắn gọn"""
         short_patterns = [
             ['giá', 'bao nhiêu'],
+            ['bao nhiêu', 'tiền'],
+            ['bao nhiêu', 'đ'],
+            ['chi phí', 'bao nhiêu'],
             ['thành phần', 'gì'],
+            ['làm từ', 'gì'],
+            ['nguyên liệu', 'gì'],
             ['vị', 'gì'],
+            ['hương vị', 'gì'],
+            ['mùi vị', 'gì'],
             ['còn', 'khác'],
+            ['bánh', 'khác'],
+            ['loại', 'khác'],
             ['combo', 'nào'],
+            ['gói', 'nào'],
+            ['set', 'nào'],
             ['khuyến mãi', 'gì'],
-            ['giao', 'không']
+            ['ưu đãi', 'gì'],
+            ['giảm giá', 'gì'],
+            ['giao', 'không'],
+            ['ship', 'không'],
+            ['vận chuyển', 'không']
         ]
         
+        # Kiểm tra xem có match pattern nào không
         for pattern in short_patterns:
             if any(word in text_lower for word in pattern):
                 return True
         return False
 
     def get_context_action(self, current_intent, user_message=None):
+        """Cải thiện logic lấy context action"""
         context_action = {}
         msg = user_message if user_message is not None else self.conversation_context.get('last_user_message', '')
+        
+        # Ưu tiên tên bánh trong message hiện tại
         cake_name_in_msg = self.get_cake_name_from_message(msg)
         if cake_name_in_msg:
-            context_action['cake_name'] = cake_name_in_msg  # ƯU TIÊN tên bánh trong message
+            context_action['cake_name'] = cake_name_in_msg
         elif self.conversation_context.get('current_cake'):
             context_action['cake_name'] = self.conversation_context['current_cake']
+        
+        # Xử lý các intent cụ thể với context
         if current_intent == "ask_price" and context_action.get('cake_name'):
             context_action['context_flag'] = 'price_after_suggest'
-        if current_intent == "ask_ingredient" and context_action.get('cake_name'):
+        elif current_intent == "ask_ingredient" and context_action.get('cake_name'):
             context_action['context_flag'] = 'ingredient_after_suggest'
-        if current_intent == "ask_combo" and 'people_count' in self.conversation_context:
+        elif current_intent == "ask_combo" and 'people_count' in self.conversation_context:
             context_action['context_flag'] = 'combo_with_people'
             context_action['people_count'] = self.conversation_context['people_count']
         elif current_intent == "ask_combo" and context_action.get('cake_name'):
             context_action['context_flag'] = 'combo_with_cake'
+        
+        # Xử lý câu hỏi về bánh khác
         if "còn" in msg.lower() and "khác" in msg.lower():
             context_action['context_flag'] = 'suggest_more_cakes'
+        
         return context_action if context_action else None
 
     def get_cake_name_from_message(self, user_message):
@@ -172,12 +210,13 @@ class ConversationService:
         return None
 
     def has_different_cake_name(self, user_message):
-        if not user_message or not self.conversation_context.get('current_cake'):
+        """Cải thiện logic kiểm tra bánh khác"""
+        if not user_message:
             return False
+            
         text_lower = user_message.lower()
-        current_cake = self.conversation_context['current_cake'].lower()
+        current_cake = self.conversation_context.get('current_cake', '').lower()
 
-        
         for prod in store_db['products'].find():
             if prod.get('productName'):
                 cake_name_lower = prod['productName'].lower()

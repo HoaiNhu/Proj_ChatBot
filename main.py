@@ -166,6 +166,7 @@ async def chat(request: ChatRequest):
         print(f"DEBUG - Message: {request.message}")
         print(f"DEBUG - Current cake in context: {conversation_service.conversation_context.get('current_cake', 'None')}")
         print(f"DEBUG - Context Action: {context_action}")
+        print(f"DEBUG - Intent: {intent_name}")
         
         # Nếu có context_action, truyền vào response_service.get_response
         if context_action:
