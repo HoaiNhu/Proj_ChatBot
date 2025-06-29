@@ -44,7 +44,6 @@ def get_dynamic_response(intent, user_message):
         top_cakes = list(store_db['products'].find({}, {"productName": 1, "productPrice": 1, "averageRating": 1}).sort([("averageRating", -1)]).limit(10))
         if top_cakes:
             # Chọn ngẫu nhiên 3-5 bánh từ top 10
-            import random
             selected_cakes = random.sample(top_cakes, min(3, len(top_cakes)))
             cake_info = []
             for cake in selected_cakes:
@@ -244,7 +243,6 @@ class ResponseService:
                 # Lấy 3 bánh khác ngẫu nhiên từ top 10
                 top_cakes = list(store_db['products'].find({}, {"productName": 1, "productPrice": 1, "averageRating": 1}).sort([("averageRating", -1)]).limit(10))
                 if len(top_cakes) >= 3:
-                    import random
                     selected_cakes = random.sample(top_cakes, 3)
                     cake_info = []
                     for cake in selected_cakes:
@@ -348,7 +346,6 @@ class ResponseService:
         # Nếu không tìm thấy, lấy bánh ngẫu nhiên từ top 5
         top_cakes = list(store_db['products'].find({}, {"productName": 1, "productPrice": 1}).sort([("averageRating", -1)]).limit(5))
         if top_cakes:
-            import random
             cake = random.choice(top_cakes)
             entities = {"cake_name": cake.get("productName", "bánh ngon"), "price": f"{cake.get('productPrice', 200000):,}"}
             resp = generate_template_response("ask_price", entities, ASK_PRICE_TEMPLATES)
@@ -385,7 +382,6 @@ class ResponseService:
         # Nếu không tìm thấy, lấy bánh ngẫu nhiên từ top 5
         top_cakes = list(store_db['products'].find({}, {"productName": 1, "productDescription": 1}).sort([("averageRating", -1)]).limit(5))
         if top_cakes:
-            import random
             cake = random.choice(top_cakes)
             entities = {"cake_name": cake.get("productName", "bánh ngon"), "ingredient": cake.get("productDescription", "bơ, sữa, trứng")}
             resp = generate_template_response("ask_ingredient", entities, ASK_INGREDIENT_TEMPLATES)
