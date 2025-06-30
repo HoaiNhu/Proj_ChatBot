@@ -18,6 +18,7 @@ from services.conversation_service import ConversationService
 from logic.intent_list import INTENT_LIST
 from logic.context_rules import CONTEXT_RULES
 from logic.intent_rules import INTENT_RESPONSES
+from schemas import ChatRequest, ChatResponse, FeedbackRequest, ProductRequest, RetrainRequest
 
 # Đường dẫn model đã train
 MODEL_PATH = os.getenv("MODEL_PATH", "./models")
@@ -57,31 +58,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Pydantic models
-class ChatRequest(BaseModel):
-    message: str
-    session_id: Optional[str] = None
-    user_id: Optional[str] = None
-    platform: str = "web"
-
-class ChatResponse(BaseModel):
-    text: str
-    session_id: str
-    intent: int
-    confidence: float
-    quick_replies: Optional[List[str]] = None
-    attachments: Optional[List[Dict[str, Any]]] = None
-
-class FeedbackRequest(BaseModel):
-    session_id: str
-    rating: int
-    comment: Optional[str] = None
-
-class ProductRequest(BaseModel):
-    product_name: str
-
-class RetrainRequest(BaseModel):
-    force: bool = False
+# Thay thế các model Pydantic bằng import từ schemas.py
 
 def intent_index_to_name(idx):
     if isinstance(idx, int) and 0 <= idx < len(INTENT_LIST):
@@ -147,17 +124,34 @@ async def chat(request: ChatRequest):
         intent_index = intent
         intent_name = intent
         if isinstance(intent, str):
-            # Nếu intent là string, tìm index trong INTENT_LIST
             try:
                 intent_index = INTENT_LIST.index(intent)
             except ValueError:
-                # Nếu không tìm thấy, sử dụng index 0 (greeting) làm fallback
                 intent_index = 0
                 intent_name = INTENT_LIST[0] if INTENT_LIST else "greeting"
                 logger.warning(f"Intent '{intent}' not found in INTENT_LIST, using fallback: {intent_name}")
         else:
-            # Nếu intent là integer, lấy tên
             intent_name = intent_index_to_name(intent)
+        
+        # --- Handoff staff logic ---
+        # Nếu intent là connect_staff thì cập nhật status escalated
+        if intent_name == "connect_staff":
+            chatbot_db["conversations"].update_one(
+                {"sessionId": session_id},
+                {"$set": {"status": "escalated", "updatedAt": datetime.now()}},
+                upsert=True
+            )
+        
+        # Kiểm tra nếu status là escalated thì chỉ trả lời 1 câu chờ nhân viên
+        session = chatbot_db["conversations"].find_one({"sessionId": session_id})
+        if session and session.get("status") == "escalated" and intent_name != "connect_staff":
+            return ChatResponse(
+                text="Bạn vui lòng chờ một chút, nhân viên sẽ hỗ trợ bạn ngay lập tức!",
+                session_id=session_id,
+                intent=INTENT_LIST.index("connect_staff"),
+                confidence=1.0
+            )
+        # --- End handoff staff logic ---
         
         # Lấy context_action từ conversation service (lúc này context đã mới nhất)
         context_action = conversation_service.get_context_action(intent_name, request.message)
@@ -279,7 +273,25 @@ async def facebook_webhook(request: Request):
                         else:
                             # Xử lý như cũ
                             intent, confidence = nlp_service.predict_intent(message_text)
-                            response_text = response_service.get_response(intent, message_text)
+                            # Chuyển intent index về intent name nếu cần
+                            intent_name = intent
+                            if isinstance(intent, int) and 0 <= intent < len(INTENT_LIST):
+                                intent_name = INTENT_LIST[intent]
+                            # Nếu intent là connect_staff thì cập nhật status escalated
+                            if intent_name == "connect_staff":
+                                chatbot_db["conversations"].update_one(
+                                    {"sessionId": session_id},
+                                    {"$set": {"status": "escalated", "updatedAt": datetime.now()}},
+                                    upsert=True
+                                )
+                            # Kiểm tra nếu status escalated thì chỉ trả lời 1 câu chờ nhân viên
+                            session = chatbot_db["conversations"].find_one({"sessionId": session_id})
+                            if session and session.get("status") == "escalated" and intent_name != "connect_staff":
+                                response_text = "Bạn vui lòng chờ một chút, nhân viên sẽ hỗ trợ bạn ngay lập tức!"
+                                intent = INTENT_LIST.index("connect_staff")
+                                confidence = 1.0
+                            else:
+                                response_text = response_service.get_response(intent, message_text)
 
                         # Lưu hội thoại mới vào messages array của session
                         chatbot_db["conversations"].update_one(

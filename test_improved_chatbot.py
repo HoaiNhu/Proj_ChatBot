@@ -140,6 +140,40 @@ def test_special_cases():
             print(f"   Error: {response.status_code} - {response.text}")
         time.sleep(0.5)
 
+def test_handoff_staff():
+    """Test logic handoff staff: khi user nhắn gặp nhân viên thì bot ngưng trả lời tự động"""
+    print("\n=== TESTING HANDOFF STAFF LOGIC ===")
+    print("=" * 50)
+    test_sequence = [
+        "hi",
+        "tôi muốn gặp nhân viên",
+        "bánh kem mâm xôi giá nhiêu",  # Bot phải không trả lời intent này, chỉ nhắc chờ nhân viên
+        "có khuyến mãi gì không",      # Bot cũng không trả lời intent này
+        "alo shop ơi"                   # Vẫn chỉ nhắc chờ nhân viên
+    ]
+    session_id = None
+    for i, message in enumerate(test_sequence, 1):
+        print(f"\n{i}. User: {message}")
+        response = requests.post(
+            f"{BASE_URL}/chat",
+            json={
+                "message": message,
+                "session_id": session_id,
+                "platform": "test"
+            }
+        )
+        if response.status_code == 200:
+            data = response.json()
+            bot_response = data.get("text", "")
+            intent = data.get("intent", "")
+            confidence = data.get("confidence", 0)
+            session_id = data.get("session_id", session_id)
+            print(f"   Bot: {bot_response}")
+            print(f"   Intent: {intent}, Confidence: {confidence:.2f}")
+        else:
+            print(f"   Error: {response.status_code} - {response.text}")
+        time.sleep(0.5)
+
 if __name__ == "__main__":
     try:
         # Test 1: Cuộc hội thoại tổng quát
@@ -150,6 +184,9 @@ if __name__ == "__main__":
         
         # Test 3: Các trường hợp đặc biệt
         test_special_cases()
+        
+        # Test 4: Handoff staff
+        test_handoff_staff()
         
     except requests.exceptions.ConnectionError:
         print("Error: Không thể kết nối đến chatbot API.")
