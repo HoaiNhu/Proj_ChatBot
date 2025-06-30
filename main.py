@@ -244,6 +244,13 @@ async def facebook_webhook(request: Request):
             for entry in body.get('entry', []):
                 for messaging_event in entry.get('messaging', []):
                     sender_id = messaging_event['sender']['id']
+                    recipient_id = messaging_event['recipient']['id']
+                    
+                    # Bỏ qua tin nhắn "echo" (tin nhắn do chính page gửi)
+                    if sender_id == recipient_id:
+                        logger.info(f"Ignoring echo message from page {sender_id}")
+                        continue
+
                     message_text = messaging_event.get('message', {}).get('text', '')
                     
                     if message_text:
