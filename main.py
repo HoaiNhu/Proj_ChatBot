@@ -309,11 +309,38 @@ async def facebook_webhook(request: Request):
                         )
                     
                     response_text = response_service.get_response(intent, message_text)
-                    # --- End handoff logic ---
+                   
 
                     # Lưu hội thoại và gửi tin nhắn
-                    conversation_service.save_conversation(session_id, message_text, response_text, intent, confidence)
-                    learning_system.collect_conversation_data(message_text, response_text, intent, confidence)
+                    chatbot_db["conversations"].update_one(
+                        {"sessionId": session_id},
+                        {"$push": {"messages": {
+                            "text": message_text,
+                            "sender": "user",
+                            "timestamp": datetime.now(),
+                            "intent": intent,
+                            "confidence": confidence
+                        }}},
+                        upsert=True
+                    )
+                    chatbot_db["conversations"].update_one(
+                        {"sessionId": session_id},
+                        {"$push": {"messages": {
+                            "text": response_text,
+                            "sender": "bot",
+                            "timestamp": datetime.now(),
+                            "intent": intent,
+                            "confidence": confidence
+                        }}}
+                    )
+
+                    learning_system.collect_conversation_data(
+                        user_input=message_text,
+                        bot_response=response_text,
+                        intent=intent,
+                        confidence=confidence
+                    )
+                    
                     messenger_integration.send_message('facebook', sender_id, response_text)
                         
         return {"status": "ok"}
