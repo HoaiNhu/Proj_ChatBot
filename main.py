@@ -133,18 +133,38 @@ async def chat(request: ChatRequest):
         else:
             intent_name = intent_index_to_name(intent)
         
-        # --- Handoff staff logic ---
-        # Nếu intent là connect_staff thì cập nhật status escalated
+        # --- Handoff staff logic with Timeout ---
+        session = chatbot_db["conversations"].find_one({"sessionId": session_id})
+        
+        # Check if session is currently escalated and if it has timed out
+        if session and session.get("status") == "escalated":
+            escalation_time = session.get("updatedAt")
+            timeout_seconds = 600  # 10 minutes
+
+            if escalation_time and (datetime.now() - escalation_time).total_seconds() > timeout_seconds:
+                # Timeout has occurred, reset status to active
+                chatbot_db["conversations"].update_one(
+                    {"sessionId": session_id},
+                    {"$set": {"status": "active"}}
+                )
+                logger.info(f"Handoff for session {session_id} timed out. Status reset to 'active'.")
+            elif intent_name != "connect_staff":
+                # Still escalated and not timed out, give waiting message
+                return ChatResponse(
+                    text="Bạn vui lòng chờ một chút, nhân viên sẽ hỗ trợ bạn ngay lập tức!",
+                    session_id=session_id,
+                    intent=INTENT_LIST.index("connect_staff"),
+                    confidence=1.0
+                )
+
+        # If the new intent is to connect staff, set status to escalated
         if intent_name == "connect_staff":
             chatbot_db["conversations"].update_one(
                 {"sessionId": session_id},
                 {"$set": {"status": "escalated", "updatedAt": datetime.now()}},
                 upsert=True
             )
-        
-        # Kiểm tra nếu status là escalated thì chỉ trả lời 1 câu chờ nhân viên
-        session = chatbot_db["conversations"].find_one({"sessionId": session_id})
-        if session and session.get("status") == "escalated" and intent_name != "connect_staff":
+            # Also return the waiting message immediately
             return ChatResponse(
                 text="Bạn vui lòng chờ một chút, nhân viên sẽ hỗ trợ bạn ngay lập tức!",
                 session_id=session_id,
@@ -244,95 +264,57 @@ async def facebook_webhook(request: Request):
             for entry in body.get('entry', []):
                 for messaging_event in entry.get('messaging', []):
                     sender_id = messaging_event['sender']['id']
-                    recipient_id = messaging_event['recipient']['id']
                     
-                    # Bỏ qua tin nhắn "echo" (tin nhắn do chính page gửi)
-                    if sender_id == recipient_id:
-                        logger.info(f"Ignoring echo message from page {sender_id}")
+                    # Bỏ qua tin nhắn "echo" (tin nhắn do chính page gửi) và các sự kiện không phải tin nhắn
+                    if 'message' not in messaging_event or 'text' not in messaging_event['message']:
+                        logger.info(f"Ignoring non-text event from {sender_id}: {messaging_event}")
                         continue
 
-                    message_text = messaging_event.get('message', {}).get('text', '')
+                    message_text = messaging_event['message'].get('text', '')
+                    if not message_text:
+                        continue
+
+                    logger.info(f"Facebook message from {sender_id}: {message_text}")
                     
-                    if message_text:
-                        logger.info(f"Facebook message from {sender_id}: {message_text}")
-                        
-                        # Tạo hoặc lấy session cho user này
-                        session_id = f"fb_{sender_id}"
-                        
-                        # Lấy context (lịch sử hội thoại) từ MongoDB
-                        session = chatbot_db["conversations"].find_one({"sessionId": session_id})
-                        context = session["messages"] if session and "messages" in session else []
+                    # Tạo hoặc lấy session cho user này
+                    session_id = f"fb_{sender_id}"
+                    
+                    # --- Handoff logic with timeout for Facebook ---
+                    session = chatbot_db["conversations"].find_one({"sessionId": session_id})
+                    
+                    intent, confidence = nlp_service.predict_intent(message_text)
+                    intent_name = intent
+                    if isinstance(intent, int) and 0 <= intent < len(INTENT_LIST):
+                        intent_name = INTENT_LIST[intent]
 
-                        # Lấy intent gần nhất của bot (nếu có)
-                        last_bot_intent = None
-                        for msg in reversed(context):
-                            if msg.get("sender") == "bot" and msg.get("intent"):
-                                last_bot_intent = msg["intent"]
-                                break
+                    if session and session.get("status") == "escalated":
+                        escalation_time = session.get("updatedAt")
+                        timeout_seconds = 600  # 10 minutes
 
-                        # Xử lý context đơn giản
-                        if last_bot_intent == "ask_address" and "tại shop" in message_text.lower():
-                            shop_info = store_db['shop_info'].find_one()
-                            address = shop_info.get('address', 'Shop chưa cập nhật địa chỉ') if shop_info else "Shop chưa cập nhật địa chỉ"
-                            response_text = f"Địa chỉ shop: {address}"
-                            intent = "ask_address"
-                            confidence = 1.0
-                        else:
-                            # Xử lý như cũ
-                            intent, confidence = nlp_service.predict_intent(message_text)
-                            # Chuyển intent index về intent name nếu cần
-                            intent_name = intent
-                            if isinstance(intent, int) and 0 <= intent < len(INTENT_LIST):
-                                intent_name = INTENT_LIST[intent]
-                            # Nếu intent là connect_staff thì cập nhật status escalated
-                            if intent_name == "connect_staff":
-                                chatbot_db["conversations"].update_one(
-                                    {"sessionId": session_id},
-                                    {"$set": {"status": "escalated", "updatedAt": datetime.now()}},
-                                    upsert=True
-                                )
-                            # Kiểm tra nếu status escalated thì chỉ trả lời 1 câu chờ nhân viên
-                            session = chatbot_db["conversations"].find_one({"sessionId": session_id})
-                            if session and session.get("status") == "escalated" and intent_name != "connect_staff":
-                                response_text = "Bạn vui lòng chờ một chút, nhân viên sẽ hỗ trợ bạn ngay lập tức!"
-                                intent = INTENT_LIST.index("connect_staff")
-                                confidence = 1.0
-                            else:
-                                response_text = response_service.get_response(intent, message_text)
+                        if escalation_time and (datetime.now() - escalation_time).total_seconds() > timeout_seconds:
+                            chatbot_db["conversations"].update_one(
+                                {"sessionId": session_id}, {"$set": {"status": "active"}}
+                            )
+                            logger.info(f"Handoff for FB session {session_id} timed out. Reset to 'active'.")
+                        elif intent_name != "connect_staff":
+                            response_text = "Bạn vui lòng chờ một chút, nhân viên sẽ hỗ trợ bạn ngay lập tức!"
+                            messenger_integration.send_message('facebook', sender_id, response_text)
+                            continue
 
-                        # Lưu hội thoại mới vào messages array của session
+                    if intent_name == "connect_staff":
                         chatbot_db["conversations"].update_one(
                             {"sessionId": session_id},
-                            {"$push": {"messages": {
-                                "text": message_text,
-                                "sender": "user",
-                                "timestamp": datetime.now(),
-                                "intent": None,
-                                "confidence": 0
-                            }}},
+                            {"$set": {"status": "escalated", "updatedAt": datetime.now()}},
                             upsert=True
                         )
-                        chatbot_db["conversations"].update_one(
-                            {"sessionId": session_id},
-                            {"$push": {"messages": {
-                                "text": response_text,
-                                "sender": "bot",
-                                "timestamp": datetime.now(),
-                                "intent": intent,
-                                "confidence": confidence
-                            }}}
-                        )
+                    
+                    response_text = response_service.get_response(intent, message_text)
+                    # --- End handoff logic ---
 
-                        # Lưu vào collection conversation để training nếu cần
-                        learning_system.collect_conversation_data(
-                            user_input=message_text,
-                            bot_response=response_text,
-                            intent=intent,
-                            confidence=confidence
-                        )
-
-                        # Gửi phản hồi qua Facebook Messenger
-                        messenger_integration.send_message('facebook', sender_id, response_text)
+                    # Lưu hội thoại và gửi tin nhắn
+                    conversation_service.save_conversation(session_id, message_text, response_text, intent, confidence)
+                    learning_system.collect_conversation_data(message_text, response_text, intent, confidence)
+                    messenger_integration.send_message('facebook', sender_id, response_text)
                         
         return {"status": "ok"}
     except Exception as e:
