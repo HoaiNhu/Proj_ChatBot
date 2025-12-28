@@ -42,8 +42,8 @@ class ChatbotConfig:
     MAX_LENGTH = 512
 
     # Training config
-    TRAINING_EPOCHS = int(os.getenv("TRAINING_EPOCHS", 10))
-    BATCH_SIZE = int(os.getenv("BATCH_SIZE", 8))
+    TRAINING_EPOCHS = int(os.getenv("TRAINING_EPOCHS", 5))
+    BATCH_SIZE = int(os.getenv("BATCH_SIZE", 16))
     LEARNING_RATE = float(os.getenv("LEARNING_RATE", 5e-5))
     
     # Logging

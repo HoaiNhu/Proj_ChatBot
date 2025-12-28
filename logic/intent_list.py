@@ -54,5 +54,9 @@ INTENT_LIST = [
     "ask_friends_day_cake",
     "ask_love_day_cake",
     "ask_peace_day_cake",
-    "ask_labour_day_cake"
+    "ask_labour_day_cake",
+    "ask_create_account",
+    "ask_refund",
+    "ask_create_order",
+    "ask_preserve_cake"
 ]
