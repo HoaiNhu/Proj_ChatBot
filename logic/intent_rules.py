@@ -486,5 +486,17 @@ INTENT_RESPONSES = {
         "Shop có thể làm bánh theo chủ đề ngày Lao động theo yêu cầu của bạn!",
         "Bánh cho ngày 1/5 thường được trang trí đặc biệt, bạn muốn xem mẫu không?",
         "Shop có combo bánh cho ngày Lao động với giá ưu đãi!"
+    ],
+    "ask_create_account": [
+        "Để tạo tài khoản, bạn truy cập vào trang đăng ký trên website của shop và điền đầy đủ thông tin cần thiết hoặc liên kết tài khoản email của bạn",
+    ],
+    "ask_create_order":[
+        "Để tạo đơn hàng, bạn chọn sản phẩm mong muốn trên website, thêm vào giỏ hàng và tiến hành thanh toán theo hướng dẫn, đảm bảo nhập đúng số tài khoản và nội dung được cung cấp. AVOCADO chỉ nhận thanh toán bằng hình thức chuyển khoản khi mua online nhằm đảm bảo đơn hàng. Mong quý khách hàng thông cảm.",
+    ],
+    "ask_refund":[
+        "AVOCADO hỗ trợ đổi/trả hàng trong vòng 6 giờ kể từ khi nhận hàng nếu sản phẩm bị hư hỏng trong quá trình vận chuyển hay hương vị không đúng như mô tả. Vui lòng liên hệ ngay với chúng tôi qua số hotline hoặc email để được hỗ trợ nhanh nhất.",
+    ],
+        "ask_preserve_cake": [
+        "Để bảo quản bánh, bạn nên để bánh trong ngăn mát tủ lạnh và tránh để bánh ở nhiệt độ phòng quá lâu. Bánh kem nên được sử dụng trong vòng trong ngày (1-2 ngày nếu bảo quản đúng cách) để đảm bảo hương vị và chất lượng tốt nhất.",
     ]
 }

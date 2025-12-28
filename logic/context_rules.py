@@ -50,6 +50,7 @@ INTENT_TRANSITION_RULES = [
     ("ask_feedback", "ask_ingredient", {"context_flag": "feedback_after_ingredient"}),
     # Hỏi feedback sau khi hỏi suggest_cake
     ("ask_feedback", "suggest_cake", {"context_flag": "feedback_after_suggest"}),
+    
 ]
 
 # Context rules cho câu hỏi ngắn gọn (pattern matching)
@@ -89,6 +90,26 @@ SHORT_QUESTION_RULES = [
     {"pattern": ["giao", "không"], "context_intent": "ask_delivery", "requires_context": True},
     {"pattern": ["ship", "không"], "context_intent": "ask_delivery", "requires_context": True},
     {"pattern": ["vận chuyển", "không"], "context_intent": "ask_delivery", "requires_context": True},
+
+    # Tạo tài khoản
+    {"pattern": ["tạo", "tài khoản"], "context_intent": "ask_create_account", "requires_context": False},
+    {"pattern": ["mở", "tài khoản"], "context_intent": "ask_create_account", "requires_context": False},
+    {"pattern": ["đăng ký", "tài khoản"], "context_intent": "ask_create_account", "requires_context": False},
+
+    # Hoàn tiền
+    {"pattern": ["hoàn tiền"], "context_intent": "ask_refund", "requires_context": True},
+    {"pattern": ["đổi", "trả"], "context_intent": "ask_refund", "requires_context": True},
+    {"pattern": ["refund"], "context_intent": "ask_refund", "requires_context": True},
+
+    # Đặt hàng
+    {"pattern": ["đặt", "hàng"], "context_intent": "ask_create_order", "requires_context": True},
+    {"pattern": ["đặt", "ngay"], "context_intent": "ask_create_order", "requires_context": True},
+    {"pattern": ["mua", "ngay"], "context_intent": "ask_create_order", "requires_context": True},
+
+    # Bảo quản bánh
+    {"pattern": ["bảo quản", "thế nào"], "context_intent": "ask_preserve_cake", "requires_context": True},
+    {"pattern": ["bảo quản", "bánh"], "context_intent": "ask_preserve_cake", "requires_context": True},
+    {"pattern": ["giữ", "bánh"], "context_intent": "ask_preserve_cake", "requires_context": True},
 ]
 
 # Giữ lại CONTEXT_RULES cũ để tương thích ngược

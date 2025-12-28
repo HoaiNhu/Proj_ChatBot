@@ -95,6 +95,25 @@ ASK_CONTACT_TEMPLATES = [
     "Shop luôn lắng nghe ý kiến khách hàng qua {phone} hoặc {email}."
 ]
 
+# Templates for account creation, refunds and order creation
+ASK_CREATE_ACCOUNT_TEMPLATES = [
+    "Bạn có thể tạo tài khoản dễ dàng: vào mục Đăng ký hoặc cho mình số điện thoại để mình hỗ trợ.",
+    "Để tạo tài khoản, vui lòng cung cấp số điện thoại và email, mình sẽ hướng dẫn chi tiết.",
+    "Bạn muốn mình gửi link đăng ký hay hướng dẫn tạo tài khoản ngay tại đây?",
+]
+
+ASK_REFUND_TEMPLATES = [
+    "Bạn muốn yêu cầu hoàn tiền chứ? Vui lòng cung cấp mã đơn hàng và lý do để shop xử lý.",
+    "Shop hỗ trợ hoàn tiền theo chính sách. Bạn gửi ảnh sản phẩm và mã đơn, shop sẽ phản hồi sớm.",
+    "Mình sẽ hướng dẫn quy trình hoàn tiền: gửi ảnh + mã đơn, shop xử lý trong 3-5 ngày làm việc.",
+]
+
+ASK_CREATE_ORDER_TEMPLATES = [
+    "Bạn muốn đặt bánh? Cho mình biết loại, kích thước, ngày nhận và địa chỉ giao nhé.",
+    "Để đặt hàng nhanh, bạn cung cấp mẫu bánh, kích thước và phương thức thanh toán mong muốn.",
+    "Bạn muốn đặt ngay bây giờ hay cần tư vấn thêm về mẫu và giá?",
+]
+
 ASK_FEEDBACK_TEMPLATES = [
     "Bạn có góp ý gì cho shop không? Shop rất mong nhận được phản hồi từ bạn!",
     "Cảm ơn bạn đã sử dụng dịch vụ, bạn có thể đánh giá trải nghiệm để shop phục vụ tốt hơn nhé!",
@@ -200,7 +219,7 @@ CHECK_ORDER_TEMPLATES = [
 ]
 
 ASK_PAYMENT_TEMPLATES = [
-    "Shop hỗ trợ thanh toán tiền mặt, chuyển khoản và ví điện tử.",
+    "Shop hỗ trợ thanh toán chuyển khoản và ví điện tử.",
     "Bạn muốn thanh toán bằng phương thức nào? Shop có Momo, ZaloPay, VNPay nhé!",
     "Bạn cần xuất hoá đơn VAT, shop sẽ hỗ trợ khi thanh toán.",
     "Bạn muốn thanh toán trước hay khi nhận bánh?",
