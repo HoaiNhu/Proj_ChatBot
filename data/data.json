@@ -1,1716 +1,4582 @@
 [
-  { "text": "Tôi muốn bánh ngọt", "intent": "suggest_cake" },
-  { "text": "Gợi ý bánh nào ngon?", "intent": "suggest_cake" },
-  { "text": "Shop có bánh nào ngon ngon không?", "intent": "suggest_cake" },
-  { "text": "Gợi ý bánh sinh nhật cho bé 5 tuổi đi", "intent": "suggest_cake" },
-  { "text": "Bánh gì hot nhất shop bây giờ?", "intent": "suggest_cake" },
   {
-    "text": "Tui muốn bánh kem cho tiệc cưới, tư vấn đi",
-    "intent": "suggest_cake"
-  },
-  { "text": "Có bánh vị trà xanh ko shop?", "intent": "suggest_cake" },
-  { "text": "Bánh nào ngọt ít ăn hợp?", "intent": "suggest_cake" },
-  { "text": "Shop có bánh socola ngon ko?", "intent": "suggest_cake" },
-  { "text": "Bánh gì để tặng bạn gái đây?", "intent": "suggest_cake" },
-  { "text": "Cho xin vài loại bánh mới nha shop", "intent": "suggest_cake" },
-  { "text": "Bánh kem trái cây có ko?", "intent": "suggest_cake" },
-  {
-    "text": "Tui cần bánh cho tiệc công ty, gợi ý đi",
-    "intent": "suggest_cake"
-  },
-  { "text": "Bánh nào hợp với người lớn tuổi?", "intent": "suggest_cake" },
-  { "text": "Có bánh tiramisu hay mousse ko?", "intent": "suggest_cake" },
-  { "text": "Shop có bánh ít đường ko?", "intent": "suggest_cake" },
-  { "text": "Bánh gì ăn sáng ngon shop?", "intent": "suggest_cake" },
-  { "text": "Tui thích vani, shop có bánh gì hay?", "intent": "suggest_cake" },
-  { "text": "Bánh nào chụp hình đẹp cho tiệc?", "intent": "suggest_cake" },
-  { "text": "Có bánh red velvet ko shop?", "intent": "suggest_cake" },
-  { "text": "Bánh gì lạ lạ thử cho vui?", "intent": "suggest_cake" },
-  { "text": "Shop có bánh chay ko?", "intent": "suggest_cake" },
-  { "text": "Bánh nào ăn với trà ngon?", "intent": "suggest_cake" },
-  {
-    "text": "Tui muốn bánh xinh xinh tặng bạn, tư vấn nha",
-    "intent": "suggest_cake"
-  },
-  { "text": "Có bánh kiểu Nhật hay Hàn ko?", "intent": "suggest_cake" },
-  { "text": "Bánh gì hợp mùa Giáng sinh vậy shop?", "intent": "suggest_cake" },
-  { "text": "Gợi ý bánh cho người thích socola đi", "intent": "suggest_cake" },
-  { "text": "Bánh nào best seller vậy bà", "intent": "suggest_cake" },
-  {
-    "text": "Bà thấy bánh nào đẹp mà ngon cho tiệc cưới",
-    "intent": "suggest_cake"
-  },
-  { "text": "Shop có bánh nào cho Tết không?", "intent": "suggest_cake" },
-  { "text": "Bánh gì hợp tặng mẹ ngày 8/3 vậy?", "intent": "suggest_cake" },
-  {
-    "text": "Tui muốn bánh kem cho Valentine, gợi ý nha",
+    "text": "Tôi muốn bánh Bánh hoa xuân",
     "intent": "suggest_cake"
   },
   {
-    "text": "Có bánh nào dễ thương cho tiệc baby shower ko?",
-    "intent": "suggest_cake"
-  },
-  { "text": "Bánh gì ngon mà không ngán shop?", "intent": "suggest_cake" },
-  {
-    "text": "Shop có bánh bông lan kiểu Đài Loan ko?",
-    "intent": "suggest_cake"
-  },
-  { "text": "Bánh nào hợp cho người thích matcha?", "intent": "suggest_cake" },
-  {
-    "text": "Tui cần bánh cho tiệc thôi nôi, tư vấn đi",
-    "intent": "suggest_cake"
-  },
-  { "text": "Có bánh nào nhẹ nhẹ ăn chiều ko?", "intent": "suggest_cake" },
-  { "text": "Bánh gì hợp cho người mê cà phê?", "intent": "suggest_cake" },
-  { "text": "Shop có bánh kiểu Âu sang chảnh ko?", "intent": "suggest_cake" },
-  { "text": "Bánh nào ngon cho tiệc ngoài trời?", "intent": "suggest_cake" },
-  { "text": "Tui muốn bánh in hình, shop gợi ý nha", "intent": "suggest_cake" },
-  { "text": "Có bánh nào cho người ăn kiêng ko?", "intent": "suggest_cake" },
-  { "text": "Bánh gì hợp làm quà tặng sếp?", "intent": "suggest_cake" },
-  { "text": "Shop có bánh kiểu mini dễ ăn ko?", "intent": "suggest_cake" },
-  { "text": "Bánh nào ngon mà ship nhanh được?", "intent": "suggest_cake" },
-  { "text": "Tui thích bánh mặn, shop có ko?", "intent": "suggest_cake" },
-  { "text": "Bánh gì hợp cho tiệc chia tay lớp?", "intent": "suggest_cake" },
-  { "text": "Shop có bánh nào độc lạ ko thử?", "intent": "suggest_cake" },
-  { "text": "Bánh gì ngon mà giá ổn ổn vậy?", "intent": "suggest_cake" },
-  { "text": "Bánh này giá bao nhiêu?", "intent": "ask_price" },
-  { "text": "Bánh rẻ nhất giá bao nhiu?", "intent": "ask_price" },
-  { "text": "Bánh kem size nhỏ bao nhiêu tiền?", "intent": "ask_price" },
-  { "text": "Shop báo giá bánh sinh nhật đi", "intent": "ask_price" },
-  { "text": "Bánh này bao nhiu 1 cái?", "intent": "ask_price" },
-  { "text": "Combo bánh có giá thế nào shop?", "intent": "ask_price" },
-  { "text": "Bánh socola giá sao vậy?", "intent": "ask_price" },
-  { "text": "Giá bánh mousse trái cây là bao nhiu?", "intent": "ask_price" },
-  { "text": "Bánh tiramisu bao nhiêu tiền vậy shop?", "intent": "ask_price" },
-  { "text": "Có bánh nào dưới 200k ko?", "intent": "ask_price" },
-  { "text": "Bánh cỡ lớn giá bao nhiu?", "intent": "ask_price" },
-  { "text": "Shop có ưu đãi gì ko, giá sao?", "intent": "ask_price" },
-  { "text": "Bánh Red Velvet giá nhiêu shop?", "intent": "ask_price" },
-  { "text": "Giá bánh cho tiệc 20 người là bao nhiu?", "intent": "ask_price" },
-  { "text": "Bánh ngọt nhỏ nhỏ giá sao shop?", "intent": "ask_price" },
-  { "text": "Bánh kem in hình giá bao nhiu?", "intent": "ask_price" },
-  { "text": "Bánh kem nào rẻ rẻ hơn khum?", "intent": "ask_price" },
-  { "text": "Bánh nào giá tầm 300k đổ lại không?", "intent": "ask_price" },
-  { "text": "Bánh bông lan trứng muối giá sao?", "intent": "ask_price" },
-  { "text": "Giá bánh cho tiệc cưới là bao nhiu?", "intent": "ask_price" },
-  { "text": "Bánh mini bao nhiêu 1 hộp shop?", "intent": "ask_price" },
-  { "text": "Bánh kem 2 tầng giá thế nào?", "intent": "ask_price" },
-  { "text": "Shop có combo Tết giá bao nhiu?", "intent": "ask_price" },
-  { "text": "Bánh mousse trà xanh giá nhiêu?", "intent": "ask_price" },
-  { "text": "Bánh nào rẻ mà ngon dưới 150k?", "intent": "ask_price" },
-  { "text": "Giá bánh cupcake 6 cái là bao nhiu?", "intent": "ask_price" },
-  { "text": "Bánh sinh nhật size lớn giá sao shop?", "intent": "ask_price" },
-  { "text": "Bánh chay giá bao nhiu vậy?", "intent": "ask_price" },
-  { "text": "Bánh ngọt combo 10 cái giá sao?", "intent": "ask_price" },
-  { "text": "Giá bánh in chữ tùy chỉnh là bao nhiu?", "intent": "ask_price" },
-  { "text": "Tôi cần nói chuyện với nhân viên", "intent": "connect_staff" },
-  { "text": "Cho tui nói chuyện với nhân viên nha", "intent": "connect_staff" },
-  { "text": "Shop có số hotline ko?", "intent": "connect_staff" },
-  { "text": "Tui cần hỏi thêm, gọi ai được?", "intent": "connect_staff" },
-  { "text": "Cho xin sđt shop đi", "intent": "connect_staff" },
-  {
-    "text": "Tui muốn đặt bánh đặc biệt, gặp ai đây?",
-    "intent": "connect_staff"
-  },
-  { "text": "Có nhân viên tư vấn trực tiếp ko?", "intent": "connect_staff" },
-  { "text": "Shop ơi, gọi người trả lời tui nha", "intent": "connect_staff" },
-  { "text": "Tui cần hỏi gấp, liên hệ ai?", "intent": "connect_staff" },
-  { "text": "Cho tui gặp người phụ trách đặt hàng", "intent": "connect_staff" },
-  { "text": "Có ai hỗ trợ tui ngay được ko?", "intent": "connect_staff" },
-  { "text": "Shop cho xin Zalo để hỏi thêm nha", "intent": "connect_staff" },
-  { "text": "Tui cần đặt gấp, ai hỗ trợ được?", "intent": "connect_staff" },
-  { "text": "Cho tui gặp người làm bánh luôn nha", "intent": "connect_staff" },
-  { "text": "Shop có ai tư vấn bánh cưới ko?", "intent": "connect_staff" },
-  { "text": "Tui muốn hỏi chi tiết, gọi sđt nào?", "intent": "connect_staff" },
-  { "text": "Có nhân viên nào rảnh giúp tui ko?", "intent": "connect_staff" },
-  { "text": "Shop ơi, cho tui xin info liên hệ", "intent": "connect_staff" },
-  { "text": "Tui cần check đơn, ai hỗ trợ đây?", "intent": "connect_staff" },
-  { "text": "Gọi quản lý giùm tui nha shop", "intent": "connect_staff" },
-  { "text": "Shop có khuyến mãi gì không?", "intent": "ask_promotion" },
-  { "text": "Có deal nào hot không shop?", "intent": "ask_promotion" },
-  { "text": "Đơn hàng của tui tới đâu rồi?", "intent": "check_order" },
-  { "text": "Check giúp tui đơn hàng nha", "intent": "check_order" },
-  {
-    "text": "Tui muốn bánh in hình riêng, làm được không?",
-    "intent": "custom_cake"
-  },
-  { "text": "Shop làm bánh theo yêu cầu được ko?", "intent": "custom_cake" },
-  { "text": "Shop có khuyến mãi gì không?", "intent": "ask_promotion" },
-  { "text": "Có deal nào hot không shop?", "intent": "ask_promotion" },
-  { "text": "Ưu đãi hôm nay là gì vậy?", "intent": "ask_promotion" },
-  { "text": "Có giảm giá gì không chị ơi?", "intent": "ask_promotion" },
-  { "text": "Shop đang sale gì không?", "intent": "ask_promotion" },
-
-  { "text": "Shop mở cửa lúc mấy giờ?", "intent": "ask_opening_hours" },
-  {
-    "text": "Giờ làm việc của shop là khi nào?",
-    "intent": "ask_opening_hours"
-  },
-  { "text": "Shop có mở cửa cuối tuần không?", "intent": "ask_opening_hours" },
-  { "text": "Bao giờ shop đóng cửa vậy?", "intent": "ask_opening_hours" },
-
-  { "text": "Địa chỉ shop ở đâu vậy?", "intent": "ask_address" },
-  { "text": "Shop có chi nhánh nào ở quận 1 không?", "intent": "ask_address" },
-  { "text": "Cho xin địa chỉ cửa hàng gần nhất", "intent": "ask_address" },
-
-  {
-    "text": "Shop nhận thanh toán qua những hình thức nào?",
-    "intent": "ask_payment"
-  },
-  { "text": "Có chuyển khoản không shop?", "intent": "ask_payment" },
-  { "text": "Shop có nhận ví điện tử không?", "intent": "ask_payment" },
-
-  { "text": "Shop có giao hàng tận nơi không?", "intent": "ask_delivery" },
-  { "text": "Phí ship là bao nhiêu vậy shop?", "intent": "ask_delivery" },
-  {
-    "text": "Giao hàng trong bao lâu thì nhận được?",
-    "intent": "ask_delivery"
-  },
-
-  { "text": "Tôi muốn gửi phản hồi cho shop", "intent": "ask_feedback" },
-  {
-    "text": "Shop có nhận đánh giá khách hàng không?",
-    "intent": "ask_feedback"
-  },
-
-  { "text": "Shop có combo bánh nào không?", "intent": "ask_combo" },
-  { "text": "Có set bánh tiết kiệm nào không shop?", "intent": "ask_combo" },
-
-  { "text": "Bánh này làm từ gì vậy shop?", "intent": "ask_ingredient" },
-  { "text": "Nguyên liệu bánh kem là gì?", "intent": "ask_ingredient" },
-
-  { "text": "Shop có bánh cho ngày lễ không?", "intent": "ask_special_event" },
-  {
-    "text": "Có bánh cho sinh nhật, cưới hỏi không shop?",
-    "intent": "ask_special_event"
-  },
-
-  {
-    "text": "Bánh này bảo quản thế nào vậy shop?",
-    "intent": "ask_preservation"
-  },
-  { "text": "Để bánh ngoài tủ lạnh được không?", "intent": "ask_preservation" },
-
-  { "text": "Nếu bánh bị hỏng có được đổi không?", "intent": "ask_return" },
-  {
-    "text": "Chính sách đổi trả của shop như thế nào?",
-    "intent": "ask_return"
-  },
-
-  { "text": "Cho xin số điện thoại shop", "intent": "ask_contact" },
-  { "text": "Shop có zalo không?", "intent": "ask_contact" },
-
-  { "text": "Shop có xuất hóa đơn đỏ không?", "intent": "ask_invoice" },
-  {
-    "text": "Tôi cần hóa đơn VAT, shop hỗ trợ không?",
-    "intent": "ask_invoice"
-  },
-
-  { "text": "Shop có chương trình tích điểm không?", "intent": "ask_loyalty" },
-  {
-    "text": "Làm sao để thành khách hàng thân thiết?",
-    "intent": "ask_loyalty"
-  },
-
-  { "text": "Tôi muốn xem lại đơn hàng cũ", "intent": "ask_purchase_history" },
-  {
-    "text": "Shop kiểm tra giúp lịch sử mua hàng của tôi nhé",
-    "intent": "ask_purchase_history"
-  },
-
-  { "text": "Bánh này có bao nhiêu calo vậy shop?", "intent": "ask_nutrition" },
-  {
-    "text": "Thành phần dinh dưỡng của bánh là gì?",
-    "intent": "ask_nutrition"
-  },
-
-  {
-    "text": "Có bánh nào phù hợp cho trẻ em không shop?",
-    "intent": "ask_for_kids"
-  },
-  { "text": "Bánh cho bé 3 tuổi nên chọn loại nào?", "intent": "ask_for_kids" },
-
-  { "text": "Tôi muốn kiểm tra đơn hàng của mình", "intent": "check_order" },
-  { "text": "Đơn hàng số 12345 đã giao chưa shop?", "intent": "check_order" },
-  {
-    "text": "Shop kiểm tra giúp tình trạng đơn hàng nhé",
-    "intent": "check_order"
-  },
-  { "text": "Đơn hàng của tôi đang ở đâu rồi?", "intent": "check_order" },
-
-  {
-    "text": "Làm sao để xem lại các đơn đã mua?",
-    "intent": "ask_purchase_history"
-  },
-  {
-    "text": "Tôi muốn biết mình đã đặt những bánh gì trước đây",
-    "intent": "ask_purchase_history"
-  },
-  {
-    "text": "Shop gửi lịch sử mua hàng cho tôi nhé",
-    "intent": "ask_purchase_history"
-  },
-  {
-    "text": "Có thể xem lại đơn cũ không shop?",
-    "intent": "ask_purchase_history"
-  },
-
-  { "text": "Bánh này có bao nhiêu calo vậy?", "intent": "ask_nutrition" },
-  {
-    "text": "Shop cho biết thành phần dinh dưỡng của bánh này",
-    "intent": "ask_nutrition"
-  },
-  { "text": "Bánh này có nhiều đường không?", "intent": "ask_nutrition" },
-  { "text": "Bánh này có chất béo không shop?", "intent": "ask_nutrition" },
-
-  {
-    "text": "Bánh này để ngoài tủ lạnh được bao lâu?",
-    "intent": "ask_preservation"
-  },
-  {
-    "text": "Cách bảo quản bánh kem như thế nào?",
-    "intent": "ask_preservation"
-  },
-  { "text": "Bánh này có cần giữ lạnh không?", "intent": "ask_preservation" },
-  {
-    "text": "Shop hướng dẫn bảo quản bánh giúp tôi",
-    "intent": "ask_preservation"
-  },
-
-  { "text": "Shop cho xin số điện thoại liên hệ", "intent": "ask_contact" },
-  { "text": "Có thể gọi điện cho shop qua số nào?", "intent": "ask_contact" },
-  { "text": "Shop có zalo không cho mình xin", "intent": "ask_contact" },
-  { "text": "Liên hệ với shop bằng cách nào?", "intent": "ask_contact" },
-
-  { "text": "Nếu bánh bị lỗi có được đổi không?", "intent": "ask_return" },
-  {
-    "text": "Chính sách trả hàng của shop như thế nào?",
-    "intent": "ask_return"
-  },
-  { "text": "Tôi muốn đổi bánh, shop hỗ trợ không?", "intent": "ask_return" },
-  { "text": "Shop có nhận đổi trả bánh không?", "intent": "ask_return" },
-
-  {
-    "text": "Có bánh nào phù hợp cho bé 5 tuổi không?",
-    "intent": "ask_for_kids"
-  },
-  { "text": "Bánh cho trẻ nhỏ nên chọn loại nào?", "intent": "ask_for_kids" },
-  { "text": "Shop gợi ý bánh cho bé gái giúp mình", "intent": "ask_for_kids" },
-  {
-    "text": "Bánh sinh nhật cho trẻ em có mẫu nào đẹp?",
-    "intent": "ask_for_kids"
-  },
-  {
-    "text": "Tôi muốn biết đơn hàng của tôi đã được giao chưa?",
-    "intent": "check_order"
-  },
-  {
-    "text": "Shop kiểm tra giúp đơn hàng mã 56789 nhé",
-    "intent": "check_order"
-  },
-  {
-    "text": "Đơn hàng của tôi bị trễ, kiểm tra giúp với",
-    "intent": "check_order"
-  },
-  {
-    "text": "Tôi chưa nhận được bánh, đơn hàng đâu rồi?",
-    "intent": "check_order"
-  },
-  {
-    "text": "Shop báo tình trạng đơn hàng cho tôi nhé",
-    "intent": "check_order"
-  },
-  {
-    "text": "Tôi muốn xem lại các đơn đã đặt trước đây",
-    "intent": "ask_purchase_history"
-  },
-  {
-    "text": "Shop có thể gửi danh sách các đơn hàng tôi đã mua không?",
-    "intent": "ask_purchase_history"
-  },
-  {
-    "text": "Làm sao để kiểm tra lịch sử mua bánh của mình?",
-    "intent": "ask_purchase_history"
-  },
-  {
-    "text": "Tôi muốn biết mình đã từng đặt những loại bánh nào",
-    "intent": "ask_purchase_history"
-  },
-  {
-    "text": "Có thể gửi lịch sử đặt hàng qua email không shop?",
-    "intent": "ask_purchase_history"
-  },
-  {
-    "text": "Bánh này có bao nhiêu protein vậy shop?",
-    "intent": "ask_nutrition"
-  },
-  { "text": "Bánh có chất bảo quản không?", "intent": "ask_nutrition" },
-  {
-    "text": "Bánh này có phù hợp cho người ăn kiêng không?",
-    "intent": "ask_nutrition"
-  },
-  { "text": "Bánh có chứa gluten không shop?", "intent": "ask_nutrition" },
-  { "text": "Bánh này có nhiều calo không?", "intent": "ask_nutrition" },
-  {
-    "text": "Bánh này để ngoài trời được bao lâu?",
-    "intent": "ask_preservation"
-  },
-  {
-    "text": "Bánh có cần bảo quản trong tủ đông không?",
-    "intent": "ask_preservation"
-  },
-  {
-    "text": "Nếu không ăn hết thì bảo quản thế nào?",
-    "intent": "ask_preservation"
-  },
-  { "text": "Bánh này có thể để qua đêm không?", "intent": "ask_preservation" },
-  {
-    "text": "Shop hướng dẫn bảo quản bánh khi vận chuyển xa",
-    "intent": "ask_preservation"
-  },
-  { "text": "Shop có facebook không cho mình xin", "intent": "ask_contact" },
-  { "text": "Có thể liên hệ shop qua email không?", "intent": "ask_contact" },
-  { "text": "Shop có số điện thoại nào khác không?", "intent": "ask_contact" },
-  {
-    "text": "Mình muốn liên hệ trực tiếp với quản lý, số nào vậy shop?",
-    "intent": "ask_contact"
-  },
-  {
-    "text": "Shop có fanpage không gửi link giúp mình",
-    "intent": "ask_contact"
-  },
-  {
-    "text": "Nếu bánh bị hỏng khi giao thì xử lý sao?",
-    "intent": "ask_return"
-  },
-  {
-    "text": "Shop có hoàn tiền nếu bánh không đúng yêu cầu không?",
-    "intent": "ask_return"
-  },
-  { "text": "Tôi muốn trả lại bánh vì không đúng mẫu", "intent": "ask_return" },
-  {
-    "text": "Bánh bị lỗi trang trí có được đổi không?",
-    "intent": "ask_return"
-  },
-  {
-    "text": "Shop hỗ trợ đổi trả trong bao lâu sau khi nhận bánh?",
-    "intent": "ask_return"
-  },
-  {
-    "text": "Có bánh nào cho bé trai 7 tuổi không shop?",
-    "intent": "ask_for_kids"
-  },
-  {
-    "text": "Bánh cho bé dị ứng sữa có loại nào không?",
-    "intent": "ask_for_kids"
-  },
-  {
-    "text": "Shop gợi ý bánh sinh nhật cho bé trai giúp mình",
-    "intent": "ask_for_kids"
-  },
-  {
-    "text": "Bánh cho bé thích hoạt hình có mẫu nào không?",
-    "intent": "ask_for_kids"
-  },
-  {
-    "text": "Có bánh nào ít ngọt cho trẻ em không shop?",
-    "intent": "ask_for_kids"
-  },
-  {
-    "text": "Tôi muốn gửi nhận xét về dịch vụ của shop",
-    "intent": "ask_feedback"
-  },
-  {
-    "text": "Shop có nhận góp ý từ khách hàng không?",
-    "intent": "ask_feedback"
-  },
-  { "text": "Tôi muốn đánh giá chất lượng bánh", "intent": "ask_feedback" },
-  { "text": "Shop có form feedback online không?", "intent": "ask_feedback" },
-  { "text": "Làm sao để gửi phản hồi cho shop?", "intent": "ask_feedback" },
-  {
-    "text": "Shop có combo bánh sinh nhật và nước uống không?",
-    "intent": "ask_combo"
-  },
-  { "text": "Có set bánh cho nhóm 5 người không shop?", "intent": "ask_combo" },
-  { "text": "Combo bánh nào đang giảm giá vậy shop?", "intent": "ask_combo" },
-  {
-    "text": "Shop gợi ý combo bánh phù hợp cho tiệc nhỏ",
-    "intent": "ask_combo"
-  },
-  { "text": "Có combo bánh ngọt và bánh mặn không?", "intent": "ask_combo" },
-  { "text": "Bánh kem này có trứng không shop?", "intent": "ask_ingredient" },
-  { "text": "Bánh mousse làm từ nguyên liệu gì?", "intent": "ask_ingredient" },
-  { "text": "Bánh này có chứa hạt điều không?", "intent": "ask_ingredient" },
-  { "text": "Bánh có dùng bột mì không shop?", "intent": "ask_ingredient" },
-  { "text": "Bánh này có chất bảo quản không?", "intent": "ask_ingredient" },
-  {
-    "text": "Shop có nhận thanh toán qua thẻ tín dụng không?",
-    "intent": "ask_payment"
-  },
-  {
-    "text": "Có thể trả tiền khi nhận hàng không shop?",
-    "intent": "ask_payment"
-  },
-  {
-    "text": "Shop có hỗ trợ thanh toán qua VNPay không?",
-    "intent": "ask_payment"
-  },
-  {
-    "text": "Có thể chuyển khoản ngân hàng không shop?",
-    "intent": "ask_payment"
-  },
-  {
-    "text": "Shop có nhận tiền mặt khi giao hàng không?",
-    "intent": "ask_payment"
-  },
-  { "text": "Shop giao hàng trong ngày được không?", "intent": "ask_delivery" },
-  { "text": "Phí ship đến quận 7 là bao nhiêu?", "intent": "ask_delivery" },
-  {
-    "text": "Shop có giao hàng ngoài giờ hành chính không?",
-    "intent": "ask_delivery"
-  },
-  {
-    "text": "Có thể đặt giao hàng hẹn giờ không shop?",
-    "intent": "ask_delivery"
-  },
-  { "text": "Shop có giao hàng qua app không?", "intent": "ask_delivery" },
-  {
-    "text": "Shop có mở cửa vào ngày lễ không?",
-    "intent": "ask_opening_hours"
-  },
-  {
-    "text": "Giờ đóng cửa của shop là mấy giờ?",
-    "intent": "ask_opening_hours"
-  },
-  {
-    "text": "Shop có làm việc vào chủ nhật không?",
-    "intent": "ask_opening_hours"
-  },
-  { "text": "Shop có mở cửa buổi tối không?", "intent": "ask_opening_hours" },
-  { "text": "Shop có nghỉ trưa không?", "intent": "ask_opening_hours" },
-  { "text": "Shop có chi nhánh ở Hà Nội không?", "intent": "ask_address" },
-  { "text": "Địa chỉ cửa hàng ở Sài Gòn là gì?", "intent": "ask_address" },
-  { "text": "Shop có cửa hàng ở gần đây không?", "intent": "ask_address" },
-  { "text": "Shop có giao hàng từ chi nhánh nào?", "intent": "ask_address" },
-  {
-    "text": "Shop có cửa hàng ở trung tâm thành phố không?",
-    "intent": "ask_address"
-  },
-  { "text": "Xin chào", "intent": "greeting" },
-  { "text": "Chào bạn", "intent": "greeting" },
-  { "text": "Hello", "intent": "greeting" },
-  { "text": "Hi shop", "intent": "greeting" },
-  { "text": "Shop ơi", "intent": "greeting" },
-  { "text": "Có ai không?", "intent": "greeting" },
-  { "text": "Cảm ơn bạn", "intent": "thank_you" },
-  { "text": "Cảm ơn shop", "intent": "thank_you" },
-  { "text": "Cảm ơn nhiều nha", "intent": "thank_you" },
-  { "text": "Thanks", "intent": "thank_you" },
-  { "text": "Tạm biệt", "intent": "goodbye" },
-  { "text": "Hẹn gặp lại", "intent": "goodbye" },
-  { "text": "Bye bye", "intent": "goodbye" },
-  { "text": "Bánh này giá bao nhiêu?", "intent": "ask_price" },
-  { "text": "Cho mình hỏi giá bánh này", "intent": "ask_price" },
-  { "text": "Bánh kem bao nhiêu tiền?", "intent": "ask_price" },
-  { "text": "Shop có bánh gì ngon?", "intent": "suggest_cake" },
-  { "text": "Gợi ý giúp mình loại bánh bán chạy", "intent": "suggest_cake" },
-  { "text": "Có loại bánh nào đặc biệt không?", "intent": "suggest_cake" },
-  { "text": "Tôi muốn gặp nhân viên", "intent": "connect_staff" },
-  { "text": "Kết nối với nhân viên giúp mình", "intent": "connect_staff" },
-  { "text": "Cho mình gặp tư vấn viên", "intent": "connect_staff" },
-  { "text": "Địa chỉ shop ở đâu?", "intent": "ask_address" },
-  { "text": "Shop nằm ở đâu vậy?", "intent": "ask_address" },
-  { "text": "Cho xin địa chỉ cửa hàng", "intent": "ask_address" },
-  { "text": "Shop mở cửa lúc mấy giờ?", "intent": "ask_opening_hours" },
-  { "text": "Giờ làm việc của shop thế nào?", "intent": "ask_opening_hours" },
-  { "text": "Shop đóng cửa lúc mấy giờ?", "intent": "ask_opening_hours" },
-  { "text": "Tôi muốn đánh giá dịch vụ", "intent": "ask_feedback" },
-  { "text": "Cho mình gửi feedback", "intent": "ask_feedback" },
-  { "text": "Mình muốn nhận xét về shop", "intent": "ask_feedback" },
-  { "text": "Bánh này làm từ gì?", "intent": "ask_ingredient" },
-  { "text": "Thành phần của bánh này là gì?", "intent": "ask_ingredient" },
-  { "text": "Bánh có nguyên liệu gì?", "intent": "ask_ingredient" },
-  { "text": "Tôi muốn đặt bánh theo yêu cầu", "intent": "custom_cake" },
-  { "text": "Shop có nhận làm bánh custom không?", "intent": "custom_cake" },
-  { "text": "Mình muốn đặt bánh cá nhân hóa", "intent": "custom_cake" },
-  { "text": "Shop có khuyến mãi gì không?", "intent": "ask_promotion" },
-  { "text": "Có ưu đãi nào không shop?", "intent": "ask_promotion" },
-  { "text": "Có chương trình giảm giá không?", "intent": "ask_promotion" },
-  { "text": "Shop có giao hàng không?", "intent": "ask_delivery" },
-  { "text": "Có ship tận nơi không?", "intent": "ask_delivery" },
-  { "text": "Phí giao hàng bao nhiêu?", "intent": "ask_delivery" },
-  { "text": "Có combo bánh nào không?", "intent": "ask_combo" },
-  { "text": "Shop có set bánh tiết kiệm không?", "intent": "ask_combo" },
-  { "text": "Có gói combo nào không shop?", "intent": "ask_combo" },
-  { "text": "Có bánh cho trẻ em không?", "intent": "ask_for_kids" },
-  { "text": "Bánh nào phù hợp cho bé?", "intent": "ask_for_kids" },
-  { "text": "Có bánh cho con nít không?", "intent": "ask_for_kids" },
-  { "text": "Bánh này bao nhiêu calo?", "intent": "ask_nutrition" },
-  { "text": "Thông tin dinh dưỡng của bánh này?", "intent": "ask_nutrition" },
-  { "text": "Bánh này có nhiều chất béo không?", "intent": "ask_nutrition" },
-  { "text": "Shop có bánh ăn kiêng không?", "intent": "ask_diet_cake" },
-  { "text": "Có bánh ít đường không shop?", "intent": "ask_diet_cake" },
-  { "text": "Bánh healthy có không?", "intent": "ask_diet_cake" },
-  { "text": "Shop có bánh chay không?", "intent": "ask_vegan_cake" },
-  { "text": "Có bánh không trứng không?", "intent": "ask_vegan_cake" },
-  { "text": "Bánh vegan có không shop?", "intent": "ask_vegan_cake" },
-  { "text": "Có bánh mới nào không?", "intent": "ask_new_cake" },
-  { "text": "Bánh nào vừa ra mắt vậy shop?", "intent": "ask_new_cake" },
-  { "text": "Có bánh hot trend không?", "intent": "ask_new_cake" },
-  { "text": "Bánh nào bán chạy nhất?", "intent": "ask_best_seller" },
-  { "text": "Top bánh được yêu thích là gì?", "intent": "ask_best_seller" },
-  { "text": "Bánh nổi bật nhất là loại nào?", "intent": "ask_best_seller" },
-  { "text": "Có bánh theo mùa không?", "intent": "ask_seasonal_cake" },
-  { "text": "Bánh mùa hè có gì đặc biệt?", "intent": "ask_seasonal_cake" },
-  { "text": "Có bánh cho dịp lễ không?", "intent": "ask_festival_cake" },
-  { "text": "Bánh lễ tết có không shop?", "intent": "ask_festival_cake" },
-  { "text": "Có bánh mini không?", "intent": "ask_mini_cake" },
-  { "text": "Bánh nhỏ xinh có không shop?", "intent": "ask_mini_cake" },
-  {
-    "text": "Shop có giao bánh đi tỉnh xa không?",
-    "intent": "ask_long_distance_delivery"
-  },
-  {
-    "text": "Có ship tỉnh không shop?",
-    "intent": "ask_long_distance_delivery"
-  },
-  { "text": "Shop có nhận trang trí bánh không?", "intent": "ask_decor_cake" },
-  { "text": "Bánh decor có không shop?", "intent": "ask_decor_cake" },
-  { "text": "Có bánh in hình không?", "intent": "ask_printed_cake" },
-  { "text": "Bánh in chữ có không shop?", "intent": "ask_printed_cake" },
-  { "text": "Có bánh nhiều màu không?", "intent": "ask_color_cake" },
-  { "text": "Bánh phối màu có không shop?", "intent": "ask_color_cake" },
-  {
-    "text": "Shop có bánh không đường không?",
-    "intent": "ask_sugar_free_cake"
-  },
-  { "text": "Bánh sugar free có không shop?", "intent": "ask_sugar_free_cake" },
-  { "text": "Có bánh ít béo không?", "intent": "ask_low_fat_cake" },
-  { "text": "Bánh low fat có không shop?", "intent": "ask_low_fat_cake" },
-  {
-    "text": "Shop có bánh không gluten không?",
-    "intent": "ask_gluten_free_cake"
-  },
-  {
-    "text": "Bánh gluten free có không shop?",
-    "intent": "ask_gluten_free_cake"
-  },
-  {
-    "text": "Có bánh cho người tiểu đường không?",
-    "intent": "ask_diabetes_cake"
-  },
-  {
-    "text": "Bánh dành cho người tiểu đường có không shop?",
-    "intent": "ask_diabetes_cake"
-  },
-  {
-    "text": "Shop có bánh cho người lớn tuổi không?",
-    "intent": "ask_elderly_cake"
-  },
-  { "text": "Bánh cho ông bà có không shop?", "intent": "ask_elderly_cake" },
-  {
-    "text": "Có bánh cho người nước ngoài không?",
-    "intent": "ask_foreigner_cake"
-  },
-  { "text": "Bánh tây có không shop?", "intent": "ask_foreigner_cake" },
-  {
-    "text": "Shop có bánh cho tiệc công ty không?",
-    "intent": "ask_company_party_cake"
-  },
-  { "text": "Bánh party có không shop?", "intent": "ask_company_party_cake" },
-  { "text": "Shop có bánh sinh nhật không?", "intent": "ask_birthday_cake" },
-  { "text": "Bánh birthday có không shop?", "intent": "ask_birthday_cake" },
-  { "text": "Shop có bánh cưới không?", "intent": "ask_wedding_cake" },
-  { "text": "Bánh wedding có không shop?", "intent": "ask_wedding_cake" },
-  { "text": "Shop có bánh thôi nôi không?", "intent": "ask_baby_cake" },
-  { "text": "Bánh đầy tháng có không shop?", "intent": "ask_baby_cake" },
-  {
-    "text": "Shop có bánh baby shower không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Bánh baby shower có không shop?",
-    "intent": "ask_baby_shower_cake"
-  },
-  { "text": "Shop có bánh valentine không?", "intent": "ask_valentine_cake" },
-  { "text": "Bánh tình yêu có không shop?", "intent": "ask_valentine_cake" },
-  { "text": "Shop có bánh tết không?", "intent": "ask_tet_cake" },
-  { "text": "Bánh ngày tết có không shop?", "intent": "ask_tet_cake" },
-  { "text": "Shop có bánh trung thu không?", "intent": "ask_mid_autumn_cake" },
-  { "text": "Bánh trung thu có không shop?", "intent": "ask_mid_autumn_cake" },
-  { "text": "Shop có bánh giáng sinh không?", "intent": "ask_christmas_cake" },
-  { "text": "Bánh noel có không shop?", "intent": "ask_christmas_cake" },
-  { "text": "Shop có bánh halloween không?", "intent": "ask_halloween_cake" },
-  { "text": "Bánh halloween có không shop?", "intent": "ask_halloween_cake" },
-  { "text": "Shop có bánh 8/3 không?", "intent": "ask_womens_day_cake" },
-  {
-    "text": "Bánh quốc tế phụ nữ có không shop?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Shop có bánh 20/10 không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Bánh phụ nữ việt nam có không shop?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Shop có bánh ngày của mẹ không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Bánh mother's day có không shop?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Shop có bánh ngày của cha không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Bánh father's day có không shop?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Shop có bánh ngày nhà giáo không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  { "text": "Bánh 20/11 có không shop?", "intent": "ask_teachers_day_cake" },
-  {
-    "text": "Shop có bánh thiếu nhi không?",
-    "intent": "ask_childrens_day_cake"
-  },
-  { "text": "Bánh 1/6 có không shop?", "intent": "ask_childrens_day_cake" },
-  { "text": "Shop có bánh men's day không?", "intent": "ask_mens_day_cake" },
-  {
-    "text": "Bánh quốc tế đàn ông có không shop?",
-    "intent": "ask_mens_day_cake"
-  },
-  {
-    "text": "Shop có bánh ngày hạnh phúc không?",
-    "intent": "ask_happiness_day_cake"
-  },
-  {
-    "text": "Bánh quốc tế hạnh phúc có không shop?",
-    "intent": "ask_happiness_day_cake"
-  },
-  {
-    "text": "Shop có bánh ngày gia đình không?",
-    "intent": "ask_family_day_cake"
-  },
-  {
-    "text": "Bánh quốc tế gia đình có không shop?",
-    "intent": "ask_family_day_cake"
-  },
-  {
-    "text": "Shop có bánh ngày bạn bè không?",
-    "intent": "ask_friends_day_cake"
-  },
-  {
-    "text": "Bánh quốc tế bạn bè có không shop?",
-    "intent": "ask_friends_day_cake"
-  },
-  {
-    "text": "Shop có bánh ngày tình yêu không?",
-    "intent": "ask_love_day_cake"
-  },
-  {
-    "text": "Bánh quốc tế tình yêu có không shop?",
-    "intent": "ask_love_day_cake"
-  },
-  {
-    "text": "Shop có bánh ngày hòa bình không?",
-    "intent": "ask_peace_day_cake"
-  },
-  {
-    "text": "Bánh quốc tế hòa bình có không shop?",
-    "intent": "ask_peace_day_cake"
-  },
-  {
-    "text": "Shop có bánh ngày lao động không?",
-    "intent": "ask_labour_day_cake"
-  },
-  { "text": "Bánh 1/5 có không shop?", "intent": "ask_labour_day_cake" },
-  { "text": "Shop có bánh mousse vị dâu không?", "intent": "suggest_cake" },
-  { "text": "Có bánh nào ít béo không shop?", "intent": "suggest_cake" },
-  { "text": "Bánh nào hợp ăn sáng vậy shop?", "intent": "suggest_cake" },
-  { "text": "Shop có bánh kem bắp không?", "intent": "suggest_cake" },
-  { "text": "Bánh nào hợp làm quà tặng sinh nhật?", "intent": "suggest_cake" },
-  {
-    "text": "Có bánh nào cho người ăn kiêng không shop?",
+    "text": "Gợi ý bánh Bánh hoa xuân đi",
     "intent": "suggest_cake"
   },
   {
-    "text": "Shop có bánh nào không trứng không sữa không?",
+    "text": "Shop có bánh Bánh hoa xuân không?",
     "intent": "suggest_cake"
   },
-  { "text": "Bánh nào hợp cho tiệc trà chiều?", "intent": "suggest_cake" },
-  { "text": "Shop có bánh kem mini không?", "intent": "suggest_cake" },
-  { "text": "Bánh nào hợp cho bé gái 10 tuổi?", "intent": "suggest_cake" },
-  { "text": "Bánh kem 3 tầng giá bao nhiêu?", "intent": "ask_price" },
-  { "text": "Shop báo giá bánh mousse đi", "intent": "ask_price" },
-  { "text": "Bánh kem bắp giá sao vậy shop?", "intent": "ask_price" },
-  { "text": "Bánh sinh nhật cho bé giá bao nhiêu?", "intent": "ask_price" },
-  { "text": "Bánh nào giá dưới 100k không shop?", "intent": "ask_price" },
-  { "text": "Bánh kem in hình giá thế nào?", "intent": "ask_price" },
-  { "text": "Bánh healthy giá bao nhiêu?", "intent": "ask_price" },
-  { "text": "Bánh kem mini giá sao shop?", "intent": "ask_price" },
-  { "text": "Bánh mousse vị trà xanh giá bao nhiêu?", "intent": "ask_price" },
-  { "text": "Bánh kem bắp size nhỏ giá bao nhiêu?", "intent": "ask_price" },
   {
-    "text": "Shop có khuyến mãi gì cho bánh sinh nhật không?",
-    "intent": "ask_promotion"
+    "text": "Bánh Bánh hoa xuân có ngon không?",
+    "intent": "suggest_cake"
   },
   {
-    "text": "Có giảm giá cho combo bánh không shop?",
-    "intent": "ask_promotion"
-  },
-  { "text": "Bánh kem đang có ưu đãi gì không?", "intent": "ask_promotion" },
-  {
-    "text": "Shop có chương trình tặng quà gì không?",
-    "intent": "ask_promotion"
+    "text": "Cho xin thông tin bánh Bánh hoa xuân",
+    "intent": "suggest_cake"
   },
   {
-    "text": "Có mã giảm giá nào cho khách mới không shop?",
-    "intent": "ask_promotion"
-  },
-  { "text": "Bánh nào đang sale vậy shop?", "intent": "ask_promotion" },
-  {
-    "text": "Shop có ưu đãi gì dịp cuối tuần không?",
-    "intent": "ask_promotion"
+    "text": "Bánh hoa xuân giá bao nhiêu?",
+    "intent": "ask_price"
   },
   {
-    "text": "Có chương trình tích điểm không shop?",
-    "intent": "ask_promotion"
+    "text": "Bánh Bánh hoa xuân bao nhiêu tiền?",
+    "intent": "ask_price"
   },
-  { "text": "Bánh kem bắp làm từ gì vậy shop?", "intent": "ask_ingredient" },
-  { "text": "Nguyên liệu bánh mousse là gì?", "intent": "ask_ingredient" },
   {
-    "text": "Bánh healthy có thành phần gì đặc biệt?",
+    "text": "Cho hỏi giá Bánh hoa xuân",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh hoa xuân làm từ gì?",
     "intent": "ask_ingredient"
   },
-  { "text": "Bánh kem có dùng bột mì không?", "intent": "ask_ingredient" },
-  { "text": "Bánh mousse có chứa sữa không shop?", "intent": "ask_ingredient" },
-  { "text": "Bánh kem có chất bảo quản không?", "intent": "ask_ingredient" },
-  { "text": "Bánh nào không dùng trứng?", "intent": "ask_ingredient" },
-  { "text": "Shop ở đâu vậy?", "intent": "ask_address" },
-  { "text": "Địa chỉ cửa hàng ở quận 3 là gì?", "intent": "ask_address" },
-  { "text": "Shop có chi nhánh ở Thủ Đức không?", "intent": "ask_address" },
-  { "text": "Shop có giao hàng tận nơi không?", "intent": "ask_address" },
-  { "text": "Shop mở cửa lúc mấy giờ sáng?", "intent": "ask_opening_hours" },
-  { "text": "Shop có làm việc ngày lễ không?", "intent": "ask_opening_hours" },
-  { "text": "Shop đóng cửa lúc mấy giờ?", "intent": "ask_opening_hours" },
-  { "text": "Shop có mở cửa chủ nhật không?", "intent": "ask_opening_hours" },
   {
-    "text": "Cho tui nói chuyện với nhân viên tư vấn",
-    "intent": "connect_staff"
+    "text": "Thành phần Bánh hoa xuân là gì?",
+    "intent": "ask_ingredient"
   },
-  { "text": "Shop cho xin số điện thoại nhân viên", "intent": "connect_staff" },
   {
-    "text": "Tui cần hỗ trợ gấp, ai giúp được không?",
-    "intent": "connect_staff"
+    "text": "Tôi muốn bánh Bánh Corequette",
+    "intent": "suggest_cake"
   },
-  { "text": "Shop có Zalo không cho tui xin?", "intent": "connect_staff" },
-  { "text": "Shop giao hàng nhanh không?", "intent": "ask_delivery" },
-  { "text": "Phí ship tới quận 1 là bao nhiêu?", "intent": "ask_delivery" },
-  { "text": "Shop có giao hàng ngoài giờ không?", "intent": "ask_delivery" },
   {
-    "text": "Có thể đặt giao hàng hẹn giờ không shop?",
+    "text": "Gợi ý bánh Bánh Corequette đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Corequette không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Corequette có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Corequette",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Corequette giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Corequette bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Corequette",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Corequette làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Corequette là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Sắc Hoa",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Sắc Hoa đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Sắc Hoa không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Sắc Hoa có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Sắc Hoa",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Sắc Hoa giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Sắc Hoa bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Sắc Hoa",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Sắc Hoa làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Sắc Hoa là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Hồ Điệp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Hồ Điệp đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Hồ Điệp không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Hồ Điệp có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Hồ Điệp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Hồ Điệp giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Hồ Điệp bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Hồ Điệp",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Hồ Điệp làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Hồ Điệp là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Hương Hoa Hồng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Hương Hoa Hồng đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Hương Hoa Hồng không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Hương Hoa Hồng có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Hương Hoa Hồng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Hương Hoa Hồng giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Hương Hoa Hồng bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Hương Hoa Hồng",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Hương Hoa Hồng làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Hương Hoa Hồng là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Giáng Sinh",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Giáng Sinh đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Giáng Sinh không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Giáng Sinh có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Giáng Sinh",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Giáng Sinh giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Giáng Sinh bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Giáng Sinh",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Giáng Sinh làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Giáng Sinh là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Dâu Tây Ngọt Ngào",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Dâu Tây Ngọt Ngào đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Dâu Tây Ngọt Ngào không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Dâu Tây Ngọt Ngào có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Dâu Tây Ngọt Ngào",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Dâu Tây Ngọt Ngào giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Dâu Tây Ngọt Ngào bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Dâu Tây Ngọt Ngào",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Dâu Tây Ngọt Ngào làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Dâu Tây Ngọt Ngào là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Trái Cây Nhiệt Đới",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Trái Cây Nhiệt Đới đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Trái Cây Nhiệt Đới không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Trái Cây Nhiệt Đới có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Trái Cây Nhiệt Đới",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Trái Cây Nhiệt Đới giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Trái Cây Nhiệt Đới bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Trái Cây Nhiệt Đới",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Trái Cây Nhiệt Đới làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Trái Cây Nhiệt Đới là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Chocalate Oreo",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Chocalate Oreo đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Chocalate Oreo không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Chocalate Oreo có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Chocalate Oreo",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Chocalate Oreo giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Chocalate Oreo bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Chocalate Oreo",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Chocalate Oreo làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Chocalate Oreo là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Little Light",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Little Light đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Little Light không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Little Light có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Little Light",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Little Light giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Little Light bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Little Light",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Little Light làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Little Light là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Xoài Tài Lộc",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Xoài Tài Lộc đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Xoài Tài Lộc không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Xoài Tài Lộc có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Xoài Tài Lộc",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Xoài Tài Lộc giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Xoài Tài Lộc bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Xoài Tài Lộc",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Xoài Tài Lộc làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Xoài Tài Lộc là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Hoa Thỏ",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Hoa Thỏ đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Hoa Thỏ không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Hoa Thỏ có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Hoa Thỏ",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Hoa Thỏ giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Hoa Thỏ bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Hoa Thỏ",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Hoa Thỏ làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Hoa Thỏ là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Vườn Nho Năm Mới",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Vườn Nho Năm Mới đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Vườn Nho Năm Mới không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Vườn Nho Năm Mới có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Vườn Nho Năm Mới",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Vườn Nho Năm Mới giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Vườn Nho Năm Mới bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Vườn Nho Năm Mới",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Vườn Nho Năm Mới làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Vườn Nho Năm Mới là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Set 4 Bánh Donut Giáng SInh",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Set 4 Bánh Donut Giáng SInh đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Set 4 Bánh Donut Giáng SInh không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Set 4 Bánh Donut Giáng SInh có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Set 4 Bánh Donut Giáng SInh",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Set 4 Bánh Donut Giáng SInh giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Set 4 Bánh Donut Giáng SInh bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Set 4 Bánh Donut Giáng SInh",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Set 4 Bánh Donut Giáng SInh làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Set 4 Bánh Donut Giáng SInh là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Set 2 Bánh Donut Bông Hoa",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Set 2 Bánh Donut Bông Hoa đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Set 2 Bánh Donut Bông Hoa không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Set 2 Bánh Donut Bông Hoa có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Set 2 Bánh Donut Bông Hoa",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Set 2 Bánh Donut Bông Hoa giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Set 2 Bánh Donut Bông Hoa bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Set 2 Bánh Donut Bông Hoa",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Set 2 Bánh Donut Bông Hoa làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Set 2 Bánh Donut Bông Hoa là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Set 16 Bánh Macaron",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Set 16 Bánh Macaron đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Set 16 Bánh Macaron không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Set 16 Bánh Macaron có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Set 16 Bánh Macaron",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Set 16 Bánh Macaron giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Set 16 Bánh Macaron bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Set 16 Bánh Macaron",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Set 16 Bánh Macaron làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Set 16 Bánh Macaron là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Tiramisu Little Carrot",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Tiramisu Little Carrot đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Tiramisu Little Carrot không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Tiramisu Little Carrot có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Tiramisu Little Carrot",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tiramisu Little Carrot giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Tiramisu Little Carrot bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Tiramisu Little Carrot",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Tiramisu Little Carrot làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Tiramisu Little Carrot là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Set 6 nến sinh nhật",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Set 6 nến sinh nhật đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Set 6 nến sinh nhật không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Set 6 nến sinh nhật có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Set 6 nến sinh nhật",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Set 6 nến sinh nhật giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Set 6 nến sinh nhật bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Set 6 nến sinh nhật",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Set 6 nến sinh nhật làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Set 6 nến sinh nhật là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Set 5 túi đựng quà tặng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Set 5 túi đựng quà tặng đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Set 5 túi đựng quà tặng không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Set 5 túi đựng quà tặng có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Set 5 túi đựng quà tặng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Set 5 túi đựng quà tặng giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Set 5 túi đựng quà tặng bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Set 5 túi đựng quà tặng",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Set 5 túi đựng quà tặng làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Set 5 túi đựng quà tặng là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Nến HAPPY BIRTHDAY",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Nến HAPPY BIRTHDAY đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Nến HAPPY BIRTHDAY không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Nến HAPPY BIRTHDAY có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Nến HAPPY BIRTHDAY",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Nến HAPPY BIRTHDAY giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Nến HAPPY BIRTHDAY bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Nến HAPPY BIRTHDAY",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Nến HAPPY BIRTHDAY làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Nến HAPPY BIRTHDAY là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Pháo Hoa Giấy",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Pháo Hoa Giấy đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Pháo Hoa Giấy không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Pháo Hoa Giấy có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Pháo Hoa Giấy",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Pháo Hoa Giấy giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Pháo Hoa Giấy bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Pháo Hoa Giấy",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Pháo Hoa Giấy làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Pháo Hoa Giấy là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh ngọt cây thông",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh ngọt cây thông đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh ngọt cây thông không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh ngọt cây thông có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh ngọt cây thông",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh ngọt cây thông giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh ngọt cây thông bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh ngọt cây thông",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh ngọt cây thông làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh ngọt cây thông là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Đậu",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Đậu đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Đậu không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Đậu có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Đậu",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Đậu giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Đậu bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Đậu",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Đậu làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Đậu là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Nhẫn trái tim",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Nhẫn trái tim đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Nhẫn trái tim không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Nhẫn trái tim có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Nhẫn trái tim",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Nhẫn trái tim giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Nhẫn trái tim bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Nhẫn trái tim",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Nhẫn trái tim làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Nhẫn trái tim là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh nhẫn vàng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh nhẫn vàng đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh nhẫn vàng không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh nhẫn vàng có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh nhẫn vàng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "nhẫn vàng giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh nhẫn vàng bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá nhẫn vàng",
+    "intent": "ask_price"
+  },
+  {
+    "text": "nhẫn vàng làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần nhẫn vàng là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh kem mâm xôi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh kem mâm xôi đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh kem mâm xôi không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh kem mâm xôi có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh kem mâm xôi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh kem mâm xôi giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh kem mâm xôi bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh kem mâm xôi",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh kem mâm xôi làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh kem mâm xôi là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Chocolate dâu tây",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Chocolate dâu tây đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Chocolate dâu tây không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Chocolate dâu tây có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Chocolate dâu tây",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Chocolate dâu tây giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Chocolate dâu tây bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Chocolate dâu tây",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Chocolate dâu tây làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Chocolate dâu tây là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Tiramisu 5 lớp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Tiramisu 5 lớp đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Tiramisu 5 lớp không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Tiramisu 5 lớp có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Tiramisu 5 lớp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tiramisu 5 lớp giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Tiramisu 5 lớp bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Tiramisu 5 lớp",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Tiramisu 5 lớp làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Tiramisu 5 lớp là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh kem socola nâu",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh kem socola nâu đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh kem socola nâu không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh kem socola nâu có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh kem socola nâu",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh kem socola nâu giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh kem socola nâu bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh kem socola nâu",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh kem socola nâu làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh kem socola nâu là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Cupcake socola bạc hà",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Cupcake socola bạc hà đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Cupcake socola bạc hà không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Cupcake socola bạc hà có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Cupcake socola bạc hà",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cupcake socola bạc hà giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Cupcake socola bạc hà bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Cupcake socola bạc hà",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cupcake socola bạc hà làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Cupcake socola bạc hà là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh kem kì lân cầu vòng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh kem kì lân cầu vòng đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh kem kì lân cầu vòng không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh kem kì lân cầu vòng có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh kem kì lân cầu vòng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh kem kì lân cầu vòng giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh kem kì lân cầu vòng bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh kem kì lân cầu vòng",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh kem kì lân cầu vòng làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh kem kì lân cầu vòng là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Quy Bơ Hình Trái Bí Đỏ Halloween",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Quy Bơ Hình Trái Bí Đỏ Halloween đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Quy Bơ Hình Trái Bí Đỏ Halloween không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Quy Bơ Hình Trái Bí Đỏ Halloween có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Quy Bơ Hình Trái Bí Đỏ Halloween",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Quy Bơ Hình Trái Bí Đỏ Halloween giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Quy Bơ Hình Trái Bí Đỏ Halloween bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Quy Bơ Hình Trái Bí Đỏ Halloween",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Quy Bơ Hình Trái Bí Đỏ Halloween làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Quy Bơ Hình Trái Bí Đỏ Halloween là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh cupcake cherry đỏ mọng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh cupcake cherry đỏ mọng đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh cupcake cherry đỏ mọng không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh cupcake cherry đỏ mọng có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh cupcake cherry đỏ mọng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh cupcake cherry đỏ mọng giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh cupcake cherry đỏ mọng bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh cupcake cherry đỏ mọng",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh cupcake cherry đỏ mọng làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh cupcake cherry đỏ mọng là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh cupcake anh đào",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh cupcake anh đào đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh cupcake anh đào không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh cupcake anh đào có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh cupcake anh đào",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh cupcake anh đào giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh cupcake anh đào bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh cupcake anh đào",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh cupcake anh đào làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh cupcake anh đào là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh mochi tan chảy",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh mochi tan chảy đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh mochi tan chảy không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh mochi tan chảy có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh mochi tan chảy",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh mochi tan chảy giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh mochi tan chảy bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh mochi tan chảy",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh mochi tan chảy làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh mochi tan chảy là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh kem măm xôi đen huyền bí",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh kem măm xôi đen huyền bí đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh kem măm xôi đen huyền bí không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh kem măm xôi đen huyền bí có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh kem măm xôi đen huyền bí",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh kem măm xôi đen huyền bí giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh kem măm xôi đen huyền bí bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh kem măm xôi đen huyền bí",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh kem măm xôi đen huyền bí làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh kem măm xôi đen huyền bí là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Macaron hoa hồng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Macaron hoa hồng đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Macaron hoa hồng không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Macaron hoa hồng có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Macaron hoa hồng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Macaron hoa hồng giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Macaron hoa hồng bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Macaron hoa hồng",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Macaron hoa hồng làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Macaron hoa hồng là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Bông Lan Trứng Muối",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Bông Lan Trứng Muối đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Bông Lan Trứng Muối không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Bông Lan Trứng Muối có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Bông Lan Trứng Muối",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bông Lan Trứng Muối giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Bông Lan Trứng Muối bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Bông Lan Trứng Muối",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bông Lan Trứng Muối làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Bông Lan Trứng Muối là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Mì Phô Mai Que",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Mì Phô Mai Que đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Mì Phô Mai Que không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Mì Phô Mai Que có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Mì Phô Mai Que",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Mì Phô Mai Que giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Mì Phô Mai Que bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Mì Phô Mai Que",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Mì Phô Mai Que làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Mì Phô Mai Que là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Croissant Bơ Pháp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Croissant Bơ Pháp đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Croissant Bơ Pháp không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Croissant Bơ Pháp có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Croissant Bơ Pháp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Croissant Bơ Pháp giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Croissant Bơ Pháp bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Croissant Bơ Pháp",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Croissant Bơ Pháp làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Croissant Bơ Pháp là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Tiramisu Ý",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Tiramisu Ý đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Tiramisu Ý không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Tiramisu Ý có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Tiramisu Ý",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Tiramisu Ý giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Tiramisu Ý bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Tiramisu Ý",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Tiramisu Ý làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Tiramisu Ý là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Red Velvet",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Red Velvet đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Red Velvet không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Red Velvet có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Red Velvet",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Red Velvet giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Red Velvet bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Red Velvet",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Red Velvet làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Red Velvet là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Set Bánh Macaron Pháp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Set Bánh Macaron Pháp đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Set Bánh Macaron Pháp không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Set Bánh Macaron Pháp có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Set Bánh Macaron Pháp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Set Bánh Macaron Pháp giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Set Bánh Macaron Pháp bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Set Bánh Macaron Pháp",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Set Bánh Macaron Pháp làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Set Bánh Macaron Pháp là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Cheesecake Dâu",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Cheesecake Dâu đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Cheesecake Dâu không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Cheesecake Dâu có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Cheesecake Dâu",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Cheesecake Dâu giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Cheesecake Dâu bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Cheesecake Dâu",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Cheesecake Dâu làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Cheesecake Dâu là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Mousse Chocolate Đen",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Mousse Chocolate Đen đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Mousse Chocolate Đen không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Mousse Chocolate Đen có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Mousse Chocolate Đen",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Mousse Chocolate Đen giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Mousse Chocolate Đen bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Mousse Chocolate Đen",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Mousse Chocolate Đen làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Mousse Chocolate Đen là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Donut Nhiều Vị",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Donut Nhiều Vị đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Donut Nhiều Vị không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Donut Nhiều Vị có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Donut Nhiều Vị",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Donut Nhiều Vị giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Donut Nhiều Vị bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Donut Nhiều Vị",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Donut Nhiều Vị làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Donut Nhiều Vị là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Eclair Chocolate",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Eclair Chocolate đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Eclair Chocolate không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Eclair Chocolate có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Eclair Chocolate",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Eclair Chocolate giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Eclair Chocolate bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Eclair Chocolate",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Eclair Chocolate làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Eclair Chocolate là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Muffin Blueberry",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Muffin Blueberry đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Muffin Blueberry không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Muffin Blueberry có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Muffin Blueberry",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Muffin Blueberry giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Muffin Blueberry bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Muffin Blueberry",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Muffin Blueberry làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Muffin Blueberry là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Tart Trái Cây Tươi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Tart Trái Cây Tươi đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Tart Trái Cây Tươi không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Tart Trái Cây Tươi có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Tart Trái Cây Tươi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Tart Trái Cây Tươi giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Tart Trái Cây Tươi bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Tart Trái Cây Tươi",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Tart Trái Cây Tươi làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Tart Trái Cây Tươi là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Brownie Chocolate Hạt",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Brownie Chocolate Hạt đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Brownie Chocolate Hạt không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Brownie Chocolate Hạt có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Brownie Chocolate Hạt",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Brownie Chocolate Hạt giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Brownie Chocolate Hạt bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Brownie Chocolate Hạt",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Brownie Chocolate Hạt làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Brownie Chocolate Hạt là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Cupcake Vani Kem Bơ",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Cupcake Vani Kem Bơ đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Cupcake Vani Kem Bơ không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Cupcake Vani Kem Bơ có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Cupcake Vani Kem Bơ",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Cupcake Vani Kem Bơ giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Cupcake Vani Kem Bơ bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Cupcake Vani Kem Bơ",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Cupcake Vani Kem Bơ làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Cupcake Vani Kem Bơ là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Panna Cotta Caramel",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Panna Cotta Caramel đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Panna Cotta Caramel không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Panna Cotta Caramel có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Panna Cotta Caramel",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Panna Cotta Caramel giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Panna Cotta Caramel bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Panna Cotta Caramel",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Panna Cotta Caramel làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Panna Cotta Caramel là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Chiffon Cam",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Chiffon Cam đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Chiffon Cam không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Chiffon Cam có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Chiffon Cam",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Chiffon Cam giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Chiffon Cam bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Chiffon Cam",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Chiffon Cam làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Chiffon Cam là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Scone Bơ Mật Ong",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Scone Bơ Mật Ong đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Scone Bơ Mật Ong không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Scone Bơ Mật Ong có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Scone Bơ Mật Ong",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Scone Bơ Mật Ong giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Scone Bơ Mật Ong bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Scone Bơ Mật Ong",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Scone Bơ Mật Ong làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Scone Bơ Mật Ong là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Opera Pháp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Opera Pháp đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Opera Pháp không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Opera Pháp có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Opera Pháp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Opera Pháp giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Opera Pháp bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Opera Pháp",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Opera Pháp làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Opera Pháp là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Hokkaido Matcha",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Hokkaido Matcha đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Hokkaido Matcha không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Hokkaido Matcha có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Hokkaido Matcha",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Hokkaido Matcha giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Hokkaido Matcha bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Hokkaido Matcha",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Hokkaido Matcha làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Hokkaido Matcha là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Tart Trứng Bồ Đào Nha",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Tart Trứng Bồ Đào Nha đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Tart Trứng Bồ Đào Nha không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Tart Trứng Bồ Đào Nha có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Tart Trứng Bồ Đào Nha",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Tart Trứng Bồ Đào Nha giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Tart Trứng Bồ Đào Nha bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Tart Trứng Bồ Đào Nha",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Tart Trứng Bồ Đào Nha làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Tart Trứng Bồ Đào Nha là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Mousse Dâu Tây",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Mousse Dâu Tây đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Mousse Dâu Tây không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Mousse Dâu Tây có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Mousse Dâu Tây",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Mousse Dâu Tây giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Mousse Dâu Tây bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Mousse Dâu Tây",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Mousse Dâu Tây làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Mousse Dâu Tây là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Biscotti Hạnh Nhân",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Biscotti Hạnh Nhân đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Biscotti Hạnh Nhân không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Biscotti Hạnh Nhân có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Biscotti Hạnh Nhân",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Biscotti Hạnh Nhân giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Biscotti Hạnh Nhân bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Biscotti Hạnh Nhân",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Biscotti Hạnh Nhân làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Biscotti Hạnh Nhân là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Madeleine",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Madeleine đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Madeleine không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Madeleine có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Madeleine",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Madeleine giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Madeleine bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Madeleine",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Madeleine làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Madeleine là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Flan Caramel",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Flan Caramel đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Flan Caramel không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Flan Caramel có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Flan Caramel",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Flan Caramel giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Flan Caramel bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Flan Caramel",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Flan Caramel làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Flan Caramel là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Sừng Bò Truyền Thống",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Sừng Bò Truyền Thống đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Sừng Bò Truyền Thống không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Sừng Bò Truyền Thống có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Sừng Bò Truyền Thống",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Sừng Bò Truyền Thống giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Sừng Bò Truyền Thống bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Sừng Bò Truyền Thống",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Sừng Bò Truyền Thống làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Sừng Bò Truyền Thống là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Nho Khô",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Nho Khô đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Nho Khô không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Nho Khô có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Nho Khô",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Nho Khô giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Nho Khô bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Nho Khô",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Nho Khô làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Nho Khô là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Chuối Chocolate Chip",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Chuối Chocolate Chip đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Chuối Chocolate Chip không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Chuối Chocolate Chip có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Chuối Chocolate Chip",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Chuối Chocolate Chip giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Chuối Chocolate Chip bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Chuối Chocolate Chip",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Chuối Chocolate Chip làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Chuối Chocolate Chip là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Bơ Đậu Phộng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Bơ Đậu Phộng đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Bơ Đậu Phộng không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Bơ Đậu Phộng có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Bơ Đậu Phộng",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bơ Đậu Phộng giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Bơ Đậu Phộng bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Bơ Đậu Phộng",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bơ Đậu Phộng làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Bơ Đậu Phộng là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Carrot Cake",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Carrot Cake đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Carrot Cake không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Carrot Cake có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Carrot Cake",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Carrot Cake giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Carrot Cake bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Carrot Cake",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Carrot Cake làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Carrot Cake là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Financier Hạnh Nhân",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Financier Hạnh Nhân đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Financier Hạnh Nhân không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Financier Hạnh Nhân có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Financier Hạnh Nhân",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Financier Hạnh Nhân giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Financier Hạnh Nhân bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Financier Hạnh Nhân",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Financier Hạnh Nhân làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Financier Hạnh Nhân là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Canelé Bordeaux",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Canelé Bordeaux đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Canelé Bordeaux không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Canelé Bordeaux có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Canelé Bordeaux",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Canelé Bordeaux giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Canelé Bordeaux bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Canelé Bordeaux",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Canelé Bordeaux làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Canelé Bordeaux là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Palmier Đường",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Palmier Đường đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Palmier Đường không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Palmier Đường có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Palmier Đường",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Palmier Đường giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Palmier Đường bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Palmier Đường",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Palmier Đường làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Palmier Đường là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Basque Burnt Cheesecake",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Basque Burnt Cheesecake đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Basque Burnt Cheesecake không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Basque Burnt Cheesecake có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Basque Burnt Cheesecake",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Basque Burnt Cheesecake giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Basque Burnt Cheesecake bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Basque Burnt Cheesecake",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Basque Burnt Cheesecake làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Basque Burnt Cheesecake là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Dacquoise Hạt Dẻ",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Dacquoise Hạt Dẻ đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Dacquoise Hạt Dẻ không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Dacquoise Hạt Dẻ có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Dacquoise Hạt Dẻ",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Dacquoise Hạt Dẻ giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Dacquoise Hạt Dẻ bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Dacquoise Hạt Dẻ",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Dacquoise Hạt Dẻ làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Dacquoise Hạt Dẻ là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Sacher Áo",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Sacher Áo đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Sacher Áo không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Sacher Áo có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Sacher Áo",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Sacher Áo giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Sacher Áo bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Sacher Áo",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Sacher Áo làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Sacher Áo là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Fraisier Pháp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Fraisier Pháp đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Fraisier Pháp không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Fraisier Pháp có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Fraisier Pháp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Fraisier Pháp giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Fraisier Pháp bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Fraisier Pháp",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Fraisier Pháp làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Fraisier Pháp là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Mille-Feuille",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Mille-Feuille đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Mille-Feuille không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Mille-Feuille có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Mille-Feuille",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Mille-Feuille giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Mille-Feuille bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Mille-Feuille",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Mille-Feuille làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Mille-Feuille là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Paris-Brest",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Paris-Brest đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Paris-Brest không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Paris-Brest có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Paris-Brest",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Paris-Brest giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Paris-Brest bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Paris-Brest",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Paris-Brest làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Paris-Brest là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Saint-Honoré",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Saint-Honoré đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Saint-Honoré không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Saint-Honoré có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Saint-Honoré",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Saint-Honoré giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Saint-Honoré bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Saint-Honoré",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Saint-Honoré làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Saint-Honoré là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Clafoutis Cherry",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Clafoutis Cherry đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Clafoutis Cherry không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Clafoutis Cherry có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Clafoutis Cherry",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Clafoutis Cherry giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Clafoutis Cherry bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Clafoutis Cherry",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Clafoutis Cherry làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Clafoutis Cherry là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Tarte Tatin",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Tarte Tatin đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Tarte Tatin không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Tarte Tatin có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Tarte Tatin",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Tarte Tatin giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Tarte Tatin bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Tarte Tatin",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Tarte Tatin làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Tarte Tatin là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Religieuse Chocolate",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Religieuse Chocolate đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Religieuse Chocolate không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Religieuse Chocolate có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Religieuse Chocolate",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Religieuse Chocolate giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Religieuse Chocolate bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Religieuse Chocolate",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Religieuse Chocolate làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Religieuse Chocolate là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Tarte Citron",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Tarte Citron đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Tarte Citron không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Tarte Citron có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Tarte Citron",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Tarte Citron giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Tarte Citron bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Tarte Citron",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Tarte Citron làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Tarte Citron là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Kouign-Amann",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Kouign-Amann đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Kouign-Amann không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Kouign-Amann có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Kouign-Amann",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Kouign-Amann giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Kouign-Amann bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Kouign-Amann",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Kouign-Amann làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Kouign-Amann là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Gâteau Basque",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Gâteau Basque đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Gâteau Basque không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Gâteau Basque có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Gâteau Basque",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Gâteau Basque giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Gâteau Basque bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Gâteau Basque",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Gâteau Basque làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Gâteau Basque là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Savarin Rum",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Savarin Rum đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Savarin Rum không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Savarin Rum có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Savarin Rum",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Savarin Rum giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Savarin Rum bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Savarin Rum",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Savarin Rum làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Savarin Rum là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Gâteau Nantais",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Gâteau Nantais đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Gâteau Nantais không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Gâteau Nantais có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Gâteau Nantais",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Gâteau Nantais giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Gâteau Nantais bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Gâteau Nantais",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Gâteau Nantais làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Gâteau Nantais là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Pithiviers",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Pithiviers đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Pithiviers không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Pithiviers có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Pithiviers",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Pithiviers giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Pithiviers bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Pithiviers",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Pithiviers làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Pithiviers là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Tropézienne",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Tropézienne đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Tropézienne không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Tropézienne có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Tropézienne",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Tropézienne giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Tropézienne bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Tropézienne",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Tropézienne làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Tropézienne là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Galette des Rois",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Galette des Rois đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Galette des Rois không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Galette des Rois có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Galette des Rois",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Galette des Rois giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Galette des Rois bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Galette des Rois",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Galette des Rois làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Galette des Rois là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Croquembouche Mini",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Croquembouche Mini đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Croquembouche Mini không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Croquembouche Mini có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Croquembouche Mini",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Croquembouche Mini giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Croquembouche Mini bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Croquembouche Mini",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Croquembouche Mini làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Croquembouche Mini là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Baba Au Rhum",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Baba Au Rhum đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Baba Au Rhum không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Baba Au Rhum có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Baba Au Rhum",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Baba Au Rhum giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Baba Au Rhum bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Baba Au Rhum",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Baba Au Rhum làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Baba Au Rhum là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Viennoiserie Mix",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Viennoiserie Mix đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Viennoiserie Mix không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Viennoiserie Mix có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Viennoiserie Mix",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Viennoiserie Mix giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Viennoiserie Mix bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Viennoiserie Mix",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Viennoiserie Mix làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Viennoiserie Mix là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Brioche Feuilletée",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Brioche Feuilletée đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Brioche Feuilletée không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Brioche Feuilletée có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Brioche Feuilletée",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Brioche Feuilletée giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Brioche Feuilletée bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Brioche Feuilletée",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Brioche Feuilletée làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Brioche Feuilletée là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Moelleux Au Chocolat",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Moelleux Au Chocolat đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Moelleux Au Chocolat không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Moelleux Au Chocolat có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Moelleux Au Chocolat",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Moelleux Au Chocolat giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Moelleux Au Chocolat bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Moelleux Au Chocolat",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Moelleux Au Chocolat làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Moelleux Au Chocolat là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Crème Brûlée Tart",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Crème Brûlée Tart đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Crème Brûlée Tart không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Crème Brûlée Tart có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Crème Brûlée Tart",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Crème Brûlée Tart giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Crème Brûlée Tart bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Crème Brûlée Tart",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Crème Brûlée Tart làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Crème Brûlée Tart là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Japonais Pistachio",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Japonais Pistachio đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Japonais Pistachio không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Japonais Pistachio có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Japonais Pistachio",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Japonais Pistachio giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Japonais Pistachio bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Japonais Pistachio",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Japonais Pistachio làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Japonais Pistachio là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Gâteau Magique",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Gâteau Magique đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Gâteau Magique không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Gâteau Magique có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Gâteau Magique",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Gâteau Magique giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Gâteau Magique bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Gâteau Magique",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Gâteau Magique làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Gâteau Magique là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Fontainebleau",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Fontainebleau đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Fontainebleau không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Fontainebleau có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Fontainebleau",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Fontainebleau giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Fontainebleau bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Fontainebleau",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Fontainebleau làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Fontainebleau là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Gâteau Roulé",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Gâteau Roulé đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Gâteau Roulé không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Gâteau Roulé có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Gâteau Roulé",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Gâteau Roulé giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Gâteau Roulé bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Gâteau Roulé",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Gâteau Roulé làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Gâteau Roulé là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Passion Fruit Tart",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Passion Fruit Tart đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Passion Fruit Tart không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Passion Fruit Tart có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Passion Fruit Tart",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Passion Fruit Tart giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Passion Fruit Tart bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Passion Fruit Tart",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Passion Fruit Tart làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Passion Fruit Tart là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Ispahan",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Ispahan đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Ispahan không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Ispahan có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Ispahan",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Ispahan giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Ispahan bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Ispahan",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Ispahan làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Ispahan là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Mont Blanc",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Mont Blanc đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Mont Blanc không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Mont Blanc có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Mont Blanc",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Mont Blanc giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Mont Blanc bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Mont Blanc",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Mont Blanc làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Mont Blanc là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Pavlova Trái Cây",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Pavlova Trái Cây đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Pavlova Trái Cây không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Pavlova Trái Cây có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Pavlova Trái Cây",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Pavlova Trái Cây giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Pavlova Trái Cây bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Pavlova Trái Cây",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Pavlova Trái Cây làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Pavlova Trái Cây là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Tôi muốn bánh Bánh Schwarzwälder Kirschtorte",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Schwarzwälder Kirschtorte đi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có bánh Bánh Schwarzwälder Kirschtorte không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Bánh Schwarzwälder Kirschtorte có ngon không?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Cho xin thông tin bánh Bánh Schwarzwälder Kirschtorte",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Bánh Schwarzwälder Kirschtorte giá bao nhiêu?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Bánh Schwarzwälder Kirschtorte bao nhiêu tiền?",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Cho hỏi giá Bánh Schwarzwälder Kirschtorte",
+    "intent": "ask_price"
+  },
+  {
+    "text": "Bánh Schwarzwälder Kirschtorte làm từ gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Thành phần Bánh Schwarzwälder Kirschtorte là gì?",
+    "intent": "ask_ingredient"
+  },
+  {
+    "text": "Gợi ý bánh Bánh ngọt ",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh ngọt  nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh ngọt ",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh kem",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh kem nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh kem",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Phụ kiện",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Phụ kiện nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Phụ kiện",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh mặn",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh mặn nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh mặn",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh ăn liền",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh ăn liền nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh ăn liền",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh nhỏ",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh nhỏ nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh nhỏ",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh tươi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh tươi nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh tươi",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh bông lan giá rẻ",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh bông lan giá rẻ nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh bông lan giá rẻ",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh croissant",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh croissant nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh croissant",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh cupcake",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh cupcake nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh cupcake",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh tart",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh tart nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh tart",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh cheesecake",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh cheesecake nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh cheesecake",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh chocolate",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh chocolate nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh chocolate",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh sinh nhật",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh sinh nhật nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh sinh nhật",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh truyền thống",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh truyền thống nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh truyền thống",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh Pháp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh Pháp nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh Pháp",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh donut",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh donut nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh donut",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh muffin",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh muffin nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh muffin",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh brownie",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh brownie nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh brownie",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh macaron",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh macaron nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh macaron",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Gợi ý bánh Bánh eclair",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Shop có loại Bánh eclair nào ngon?",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Tôi muốn xem bánh Bánh eclair",
+    "intent": "suggest_cake"
+  },
+  {
+    "text": "Khuyến mãi Khuyến mãi sinh nhật AVOCADO thế nào?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Cho hỏi về Khuyến mãi sinh nhật AVOCADO",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Có giảm giá Khuyến mãi sinh nhật AVOCADO không?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Khuyến mãi Khuyến mãi giữa tháng thế nào?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Cho hỏi về Khuyến mãi giữa tháng",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Có giảm giá Khuyến mãi giữa tháng không?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Khuyến mãi qưerty thế nào?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Cho hỏi về qưerty",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Có giảm giá qưerty không?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Khuyến mãi Khuyến mãi lễ độc thân thế nào?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Cho hỏi về Khuyến mãi lễ độc thân",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Có giảm giá Khuyến mãi lễ độc thân không?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Khuyến mãi Khuyến mãi sinh nhật Ban học tập Công nghệ Phần mềm thế nào?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Cho hỏi về Khuyến mãi sinh nhật Ban học tập Công nghệ Phần mềm",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Có giảm giá Khuyến mãi sinh nhật Ban học tập Công nghệ Phần mềm không?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Khuyến mãi Khuyến mãi tết Dương lịch thế nào?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Cho hỏi về Khuyến mãi tết Dương lịch",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Có giảm giá Khuyến mãi tết Dương lịch không?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Khuyến mãi Khuyến mãi giáng sinh thế nào?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Cho hỏi về Khuyến mãi giáng sinh",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Có giảm giá Khuyến mãi giáng sinh không?",
+    "intent": "ask_promotion"
+  },
+  {
+    "text": "Chào shop",
+    "intent": "greeting"
+  },
+  {
+    "text": "Hello",
+    "intent": "greeting"
+  },
+  {
+    "text": "Hi shop",
+    "intent": "greeting"
+  },
+  {
+    "text": "Chào bạn",
+    "intent": "greeting"
+  },
+  {
+    "text": "Xin chào",
+    "intent": "greeting"
+  },
+  {
+    "text": "Tạm biệt",
+    "intent": "goodbye"
+  },
+  {
+    "text": "Bye",
+    "intent": "goodbye"
+  },
+  {
+    "text": "Hẹn gặp lại",
+    "intent": "goodbye"
+  },
+  {
+    "text": "Shop ở đâu?",
+    "intent": "ask_address"
+  },
+  {
+    "text": "Địa chỉ shop",
+    "intent": "ask_address"
+  },
+  {
+    "text": "Cho địa chỉ",
+    "intent": "ask_address"
+  },
+  {
+    "text": "Giờ mở cửa",
+    "intent": "ask_opening_hours"
+  },
+  {
+    "text": "Shop mở cửa lúc nào?",
+    "intent": "ask_opening_hours"
+  },
+  {
+    "text": "Số điện thoại shop",
+    "intent": "ask_contact"
+  },
+  {
+    "text": "Liên hệ shop",
+    "intent": "ask_contact"
+  },
+  {
+    "text": "Shop có giao hàng không?",
     "intent": "ask_delivery"
   },
-  { "text": "Tôi muốn gửi feedback cho shop", "intent": "ask_feedback" },
   {
-    "text": "Shop có nhận đánh giá khách hàng không?",
+    "text": "Giao hàng tận nơi không?",
+    "intent": "ask_delivery"
+  },
+  {
+    "text": "Kiểm tra đơn hàng",
+    "intent": "check_order"
+  },
+  {
+    "text": "Tra cứu đơn hàng",
+    "intent": "check_order"
+  },
+  {
+    "text": "Thanh toán thế nào?",
+    "intent": "ask_payment"
+  },
+  {
+    "text": "Phương thức thanh toán",
+    "intent": "ask_payment"
+  },
+  {
+    "text": "Kết nối nhân viên",
+    "intent": "connect_staff"
+  },
+  {
+    "text": "Nói chuyện với nhân viên",
+    "intent": "connect_staff"
+  },
+  {
+    "text": "Đặt bánh theo yêu cầu",
+    "intent": "custom_cake"
+  },
+  {
+    "text": "Làm bánh riêng được không?",
+    "intent": "custom_cake"
+  },
+  {
+    "text": "Đánh giá của khách",
     "intent": "ask_feedback"
   },
-  { "text": "Làm sao để gửi nhận xét về dịch vụ?", "intent": "ask_feedback" },
-  { "text": "Shop có form góp ý online không?", "intent": "ask_feedback" },
-  { "text": "Tôi muốn đặt bánh theo yêu cầu riêng", "intent": "custom_cake" },
-  { "text": "Shop có nhận làm bánh custom không?", "intent": "custom_cake" },
-  { "text": "Bánh cá nhân hóa đặt thế nào?", "intent": "custom_cake" },
-  { "text": "Shop có làm bánh in hình không?", "intent": "custom_cake" },
-  { "text": "Shop có combo bánh sinh nhật không?", "intent": "ask_combo" },
   {
-    "text": "Có set bánh cho nhóm 10 người không shop?",
+    "text": "Review bánh",
+    "intent": "ask_feedback"
+  },
+  {
+    "text": "Có combo nào không?",
     "intent": "ask_combo"
   },
-  { "text": "Combo bánh nào đang giảm giá vậy shop?", "intent": "ask_combo" },
   {
-    "text": "Shop gợi ý combo bánh phù hợp cho tiệc nhỏ",
+    "text": "Gợi ý combo",
     "intent": "ask_combo"
   },
-  { "text": "Bánh healthy có bao nhiêu calo?", "intent": "ask_nutrition" },
-  { "text": "Bánh kem bắp có nhiều đường không?", "intent": "ask_nutrition" },
-  { "text": "Bánh mousse có chất béo không shop?", "intent": "ask_nutrition" },
-  { "text": "Bánh nào phù hợp cho người ăn kiêng?", "intent": "ask_nutrition" },
-  { "text": "Bánh nào hợp cho bé 5 tuổi?", "intent": "ask_for_kids" },
-  { "text": "Shop gợi ý bánh cho bé trai giúp mình", "intent": "ask_for_kids" },
   {
-    "text": "Bánh nào ít ngọt cho trẻ em không shop?",
+    "text": "Bảo quản bánh thế nào?",
+    "intent": "ask_preservation"
+  },
+  {
+    "text": "Cách giữ bánh",
+    "intent": "ask_preservation"
+  },
+  {
+    "text": "Đổi trả thế nào?",
+    "intent": "ask_return"
+  },
+  {
+    "text": "Chính sách hoàn trả",
+    "intent": "ask_return"
+  },
+  {
+    "text": "Bánh mới nhất",
+    "intent": "ask_new_cake"
+  },
+  {
+    "text": "Có bánh gì mới không?",
+    "intent": "ask_new_cake"
+  },
+  {
+    "text": "Bánh bán chạy nhất",
+    "intent": "ask_best_seller"
+  },
+  {
+    "text": "Bánh nào hot nhất?",
+    "intent": "ask_best_seller"
+  },
+  {
+    "text": "Bánh cho trẻ em",
     "intent": "ask_for_kids"
   },
   {
-    "text": "Bánh sinh nhật cho bé gái có mẫu nào đẹp?",
+    "text": "Bánh cho bé",
     "intent": "ask_for_kids"
   },
-  { "text": "Cảm ơn shop nhiều nha!", "intent": "thank_you" },
-  { "text": "Shop nhiệt tình quá, cảm ơn!", "intent": "thank_you" },
-  { "text": "Cảm ơn bạn đã tư vấn!", "intent": "thank_you" },
-  { "text": "Cảm ơn shop, mình sẽ quay lại!", "intent": "thank_you" },
-  { "text": "Chào shop buổi sáng!", "intent": "greeting" },
-  { "text": "Hi shop!", "intent": "greeting" },
-  { "text": "Shop ơi cho mình hỏi với!", "intent": "greeting" },
-  { "text": "Hello Avocado Cake!", "intent": "greeting" },
-  { "text": "Tạm biệt shop nhé!", "intent": "goodbye" },
-  { "text": "Bye bye shop!", "intent": "goodbye" },
-  { "text": "Cảm ơn shop, hẹn gặp lại!", "intent": "goodbye" },
-  { "text": "Mình đi đây, chào shop!", "intent": "goodbye" },
-  { "text": "Shop có bánh ăn kiêng không?", "intent": "ask_diet_cake" },
-  { "text": "Có bánh chay không shop?", "intent": "ask_vegan_cake" },
-  { "text": "Bánh mini giá bao nhiêu?", "intent": "ask_mini_cake" },
-  { "text": "Có bánh cho lễ Halloween không?", "intent": "ask_halloween_cake" },
-  { "text": "Bánh màu xanh có không?", "intent": "ask_color_cake" },
-  { "text": "Bánh sinh nhật cho bé gái", "intent": "ask_birthday_cake" },
-  { "text": "Bánh cưới 2 tầng", "intent": "ask_wedding_cake" },
-  { "text": "Bánh thôi nôi cho bé trai", "intent": "ask_baby_cake" },
-  { "text": "Bánh giáng sinh năm nay", "intent": "ask_christmas_cake" },
-  { "text": "Có bánh tết không shop?", "intent": "ask_tet_cake" },
-  { "text": "Shop có bánh ăn kiêng không?", "intent": "ask_diet_cake" },
-  { "text": "Có bánh ít đường không shop?", "intent": "ask_diet_cake" },
-  { "text": "Bánh nào phù hợp cho người giảm cân?", "intent": "ask_diet_cake" },
-  { "text": "Tôi muốn mua bánh healthy", "intent": "ask_diet_cake" },
-  { "text": "Có bánh không đường không?", "intent": "ask_diet_cake" },
-  { "text": "Bánh nào ít calo vậy shop?", "intent": "ask_diet_cake" },
-  { "text": "Có bánh cho người tiểu đường không?", "intent": "ask_diet_cake" },
-  { "text": "Bánh nào không béo?", "intent": "ask_diet_cake" },
-  { "text": "Shop có bánh low carb không?", "intent": "ask_diet_cake" },
-  { "text": "Bánh nào ăn mà không sợ mập?", "intent": "ask_diet_cake" },
-  { "text": "Shop có bánh chay không?", "intent": "ask_vegan_cake" },
-  { "text": "Có bánh vegan không shop?", "intent": "ask_vegan_cake" },
   {
-    "text": "Bánh không trứng không sữa có không?",
-    "intent": "ask_vegan_cake"
+    "text": "Thông tin dinh dưỡng",
+    "intent": "ask_nutrition"
   },
-  { "text": "Tôi muốn đặt bánh chay", "intent": "ask_vegan_cake" },
-  { "text": "Bánh nào phù hợp cho người ăn chay?", "intent": "ask_vegan_cake" },
   {
-    "text": "Có bánh nào không dùng sản phẩm động vật không?",
-    "intent": "ask_vegan_cake"
-  },
-  { "text": "Bánh chay có vị gì ngon?", "intent": "ask_vegan_cake" },
-  {
-    "text": "Shop làm bánh chay theo yêu cầu được không?",
-    "intent": "ask_vegan_cake"
-  },
-  { "text": "Bánh chay có giao tận nơi không?", "intent": "ask_vegan_cake" },
-  { "text": "Bánh chay có giá bao nhiêu?", "intent": "ask_vegan_cake" },
-  { "text": "Shop có bánh mini không?", "intent": "ask_mini_cake" },
-  {
-    "text": "Bánh nhỏ nhỏ dễ thương có không shop?",
-    "intent": "ask_mini_cake"
-  },
-  { "text": "Bánh mini giá bao nhiêu?", "intent": "ask_mini_cake" },
-  { "text": "Có set bánh mini không?", "intent": "ask_mini_cake" },
-  { "text": "Bánh mini có vị gì?", "intent": "ask_mini_cake" },
-  { "text": "Bánh mini có giao tận nơi không?", "intent": "ask_mini_cake" },
-  {
-    "text": "Bánh mini phù hợp cho tiệc trà không?",
-    "intent": "ask_mini_cake"
-  },
-  { "text": "Có combo bánh mini không shop?", "intent": "ask_mini_cake" },
-  { "text": "Bánh mini có thể in hình không?", "intent": "ask_mini_cake" },
-  { "text": "Bánh mini có bán lẻ không?", "intent": "ask_mini_cake" },
-  { "text": "Shop có bánh cho dịp lễ không?", "intent": "ask_festival_cake" },
-  {
-    "text": "Có bánh cho ngày lễ đặc biệt không shop?",
-    "intent": "ask_festival_cake"
-  },
-  { "text": "Bánh nào hợp tặng dịp lễ?", "intent": "ask_festival_cake" },
-  { "text": "Bánh cho ngày 8/3 có không?", "intent": "ask_festival_cake" },
-  {
-    "text": "Bánh cho ngày 20/10 shop có không?",
-    "intent": "ask_festival_cake"
-  },
-  { "text": "Bánh cho ngày nhà giáo Việt Nam?", "intent": "ask_festival_cake" },
-  { "text": "Bánh cho ngày quốc tế thiếu nhi?", "intent": "ask_festival_cake" },
-  {
-    "text": "Bánh cho ngày valentine có không?",
-    "intent": "ask_festival_cake"
-  },
-  { "text": "Bánh cho ngày tết thiếu nhi?", "intent": "ask_festival_cake" },
-  { "text": "Bánh cho ngày quốc tế phụ nữ?", "intent": "ask_festival_cake" },
-
-  {
-    "text": "Shop có bánh cho người lớn tuổi không?",
-    "intent": "ask_elderly_cake"
-  },
-  { "text": "Bánh nào phù hợp cho ông bà?", "intent": "ask_elderly_cake" },
-  {
-    "text": "Có bánh ít đường cho người già không shop?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Bánh cho người cao tuổi có vị gì?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Shop có bánh mềm cho người lớn tuổi không?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Bánh nào dễ tiêu hóa cho người già?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Có bánh healthy cho người lớn tuổi không?",
-    "intent": "ask_elderly_cake"
-  },
-  { "text": "Bánh cho ông bà giá bao nhiêu?", "intent": "ask_elderly_cake" },
-  {
-    "text": "Shop có bánh ít béo cho người già không?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Bánh nào không ngọt cho người lớn tuổi?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho người cao tuổi không?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Bánh cho người già có thể giao tận nơi không?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Shop có bánh truyền thống cho người lớn tuổi không?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Bánh nào phù hợp cho người bị tiểu đường?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Có bánh ít calo cho người già không?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Bánh cho người lớn tuổi có thể đặt trước không?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Shop có bánh nhỏ cho người già không?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Bánh nào dễ ăn cho người cao tuổi?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho người lớn tuổi không?",
-    "intent": "ask_elderly_cake"
-  },
-  {
-    "text": "Bánh cho ông bà có thể làm theo yêu cầu không?",
-    "intent": "ask_elderly_cake"
-  },
-
-  {
-    "text": "Shop có bánh cho tiệc công ty không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Bánh cho sự kiện công ty giá bao nhiêu?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Có bánh cho hội nghị không shop?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Bánh cho party công ty có thể in logo không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Shop có combo bánh cho tiệc công ty không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Bánh cho sự kiện công ty có vị gì?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Có bánh mini cho tiệc công ty không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Bánh cho hội nghị có thể giao tận nơi không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Shop có bánh cho party công ty không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Bánh cho tiệc công ty có thể đặt trước không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho sự kiện công ty không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Bánh cho hội nghị có thể làm theo yêu cầu không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Shop có bánh cho party công ty không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Bánh cho tiệc công ty có thể in tên công ty không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Có bánh cho sự kiện công ty không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Bánh cho hội nghị có thể giao trong ngày không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Shop có bánh cho party công ty không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Bánh cho tiệc công ty có thể làm theo chủ đề không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho sự kiện công ty không?",
-    "intent": "ask_company_party_cake"
-  },
-  {
-    "text": "Bánh cho hội nghị có thể in thông điệp không?",
-    "intent": "ask_company_party_cake"
-  },
-
-  {
-    "text": "Shop có bánh baby shower không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Bánh cho baby shower có vị gì?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Có bánh dễ thương cho baby shower không shop?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Bánh baby shower có thể in tên em bé không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Shop có combo bánh cho baby shower không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Bánh cho tiệc baby shower giá bao nhiêu?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Có bánh mini cho baby shower không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Bánh baby shower có thể làm theo chủ đề không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Shop có bánh cho baby shower không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Bánh cho baby shower có thể giao tận nơi không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho baby shower không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Bánh baby shower có thể đặt trước không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Shop có bánh cho tiệc baby shower không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Bánh baby shower có thể in hình em bé không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Có bánh dễ thương cho baby shower không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Bánh cho baby shower có thể làm theo yêu cầu không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Shop có bánh cho baby shower không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Bánh baby shower có thể in lời chúc không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho tiệc baby shower không?",
-    "intent": "ask_baby_shower_cake"
-  },
-  {
-    "text": "Bánh cho baby shower có thể giao trong ngày không?",
-    "intent": "ask_baby_shower_cake"
-  },
-
-  { "text": "Shop có bánh valentine không?", "intent": "ask_valentine_cake" },
-  { "text": "Bánh cho valentine có vị gì?", "intent": "ask_valentine_cake" },
-  {
-    "text": "Có bánh lãng mạn cho valentine không shop?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Bánh valentine có thể in tên người yêu không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Shop có combo bánh cho valentine không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Bánh cho ngày lễ tình nhân giá bao nhiêu?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Có bánh chocolate cho valentine không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Bánh valentine có thể làm theo yêu cầu không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Shop có bánh cho valentine không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Bánh valentine có thể giao tận nơi không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho valentine không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Bánh valentine có thể đặt trước không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày lễ tình nhân không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Bánh valentine có thể in lời yêu thương không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Có bánh lãng mạn cho valentine không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Bánh cho valentine có thể làm theo chủ đề không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Shop có bánh cho valentine không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Bánh valentine có thể in hình trái tim không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho ngày lễ tình nhân không?",
-    "intent": "ask_valentine_cake"
-  },
-  {
-    "text": "Bánh valentine có thể giao trong ngày không?",
-    "intent": "ask_valentine_cake"
-  },
-
-  {
-    "text": "Shop có bánh trung thu không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  { "text": "Bánh trung thu có vị gì?", "intent": "ask_mid_autumn_cake" },
-  {
-    "text": "Có bánh trung thu truyền thống không shop?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Bánh trung thu có thể làm theo yêu cầu không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Shop có set bánh trung thu không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Bánh trung thu giá bao nhiêu?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Có bánh trung thu hiện đại không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Bánh trung thu có thể giao tận nơi không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Shop có bánh trung thu không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Bánh trung thu có thể đặt trước không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Có bánh trung thu đặc biệt không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Bánh trung thu có thể làm theo nhân đặc biệt không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Shop có bánh trung thu tặng quà không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Bánh trung thu có thể in hình không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Có bánh trung thu truyền thống không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Bánh trung thu có thể làm theo yêu cầu không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Shop có bánh trung thu không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Bánh trung thu có thể in lời chúc không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Có bánh trung thu đặc biệt không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-  {
-    "text": "Bánh trung thu có thể giao trong ngày không?",
-    "intent": "ask_mid_autumn_cake"
-  },
-
-  { "text": "Shop có bánh 8/3 không?", "intent": "ask_womens_day_cake" },
-  { "text": "Bánh cho ngày 8/3 có vị gì?", "intent": "ask_womens_day_cake" },
-  {
-    "text": "Có bánh đặc biệt cho ngày 8/3 không shop?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Bánh 8/3 có thể in lời chúc không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Shop có combo bánh cho ngày 8/3 không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Bánh cho ngày quốc tế phụ nữ giá bao nhiêu?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Có bánh chocolate cho ngày 8/3 không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Bánh 8/3 có thể làm theo yêu cầu không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày 8/3 không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Bánh 8/3 có thể giao tận nơi không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho ngày 8/3 không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Bánh 8/3 có thể đặt trước không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày quốc tế phụ nữ không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Bánh 8/3 có thể in tên người nhận không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho ngày 8/3 không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Bánh cho ngày 8/3 có thể làm theo chủ đề không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày 8/3 không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Bánh 8/3 có thể in hình hoa không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho ngày quốc tế phụ nữ không?",
-    "intent": "ask_womens_day_cake"
-  },
-  {
-    "text": "Bánh 8/3 có thể giao trong ngày không?",
-    "intent": "ask_womens_day_cake"
-  },
-
-  {
-    "text": "Shop có bánh 20/10 không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Bánh cho ngày 20/10 có vị gì?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho ngày 20/10 không shop?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Bánh 20/10 có thể làm theo phong cách Việt Nam không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Shop có combo bánh cho ngày 20/10 không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Bánh cho ngày phụ nữ Việt Nam giá bao nhiêu?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Có bánh truyền thống cho ngày 20/10 không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Bánh 20/10 có thể làm theo yêu cầu không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày 20/10 không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Bánh 20/10 có thể giao tận nơi không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho ngày 20/10 không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Bánh 20/10 có thể đặt trước không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày phụ nữ Việt Nam không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Bánh 20/10 có thể in lời chúc không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho ngày 20/10 không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Bánh cho ngày 20/10 có thể làm theo chủ đề không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày 20/10 không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Bánh 20/10 có thể in hình hoa sen không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho ngày phụ nữ Việt Nam không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-  {
-    "text": "Bánh 20/10 có thể giao trong ngày không?",
-    "intent": "ask_vietnamese_womens_day_cake"
-  },
-
-  {
-    "text": "Shop có bánh cho ngày của mẹ không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  { "text": "Bánh cho mẹ có vị gì?", "intent": "ask_mothers_day_cake" },
-  {
-    "text": "Có bánh đặc biệt cho ngày của mẹ không shop?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Bánh cho mẹ có thể in lời yêu thương không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Shop có combo bánh cho ngày của mẹ không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  { "text": "Bánh cho mẹ giá bao nhiêu?", "intent": "ask_mothers_day_cake" },
-  {
-    "text": "Có bánh chocolate cho mẹ không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Bánh cho mẹ có thể làm theo yêu cầu không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày của mẹ không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Bánh cho mẹ có thể giao tận nơi không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho mẹ không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Bánh cho mẹ có thể đặt trước không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho mother's day không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Bánh cho mẹ có thể in tên mẹ không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho ngày của mẹ không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Bánh cho mẹ có thể làm theo chủ đề không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày của mẹ không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Bánh cho mẹ có thể in hình hoa hồng không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho mẹ không?",
-    "intent": "ask_mothers_day_cake"
-  },
-  {
-    "text": "Bánh cho mẹ có thể giao trong ngày không?",
-    "intent": "ask_mothers_day_cake"
-  },
-
-  {
-    "text": "Shop có bánh cho ngày của cha không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  { "text": "Bánh cho cha có vị gì?", "intent": "ask_fathers_day_cake" },
-  {
-    "text": "Có bánh đặc biệt cho ngày của cha không shop?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Bánh cho cha có thể in lời tri ân không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Shop có combo bánh cho ngày của cha không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  { "text": "Bánh cho cha giá bao nhiêu?", "intent": "ask_fathers_day_cake" },
-  {
-    "text": "Có bánh chocolate cho cha không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Bánh cho cha có thể làm theo yêu cầu không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày của cha không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Bánh cho cha có thể giao tận nơi không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho cha không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Bánh cho cha có thể đặt trước không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho father's day không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Bánh cho cha có thể in tên cha không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho ngày của cha không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Bánh cho cha có thể làm theo chủ đề không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày của cha không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Bánh cho cha có thể in logo thể thao không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho cha không?",
-    "intent": "ask_fathers_day_cake"
-  },
-  {
-    "text": "Bánh cho cha có thể giao trong ngày không?",
-    "intent": "ask_fathers_day_cake"
-  },
-
-  {
-    "text": "Shop có bánh cho ngày nhà giáo không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  { "text": "Bánh cho thầy cô có vị gì?", "intent": "ask_teachers_day_cake" },
-  {
-    "text": "Có bánh đặc biệt cho ngày 20/11 không shop?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Bánh cho thầy cô có thể in lời tri ân không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Shop có combo bánh cho ngày nhà giáo không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Bánh cho thầy cô giá bao nhiêu?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Có bánh chocolate cho thầy cô không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Bánh cho thầy cô có thể làm theo yêu cầu không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày 20/11 không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Bánh cho thầy cô có thể giao tận nơi không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho thầy cô không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Bánh cho thầy cô có thể đặt trước không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày nhà giáo Việt Nam không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Bánh cho thầy cô có thể in tên thầy cô không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho ngày 20/11 không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Bánh cho thầy cô có thể làm theo chủ đề không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Shop có bánh cho ngày nhà giáo không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Bánh cho thầy cô có thể in hình hoa không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Có bánh đặc biệt cho thầy cô không?",
-    "intent": "ask_teachers_day_cake"
-  },
-  {
-    "text": "Bánh cho thầy cô có thể giao trong ngày không?",
-    "intent": "ask_teachers_day_cake"
+    "text": "Calo của bánh",
+    "intent": "ask_nutrition"
   }
 ]

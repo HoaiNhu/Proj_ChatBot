@@ -11,10 +11,14 @@ from .response_templates import (
     ASK_PRESERVATION_TEMPLATES, ASK_RETURN_TEMPLATES, ASK_SPECIAL_EVENT_TEMPLATES, ASK_LOYALTY_TEMPLATES,
     ASK_INVOICE_TEMPLATES, ASK_PURCHASE_HISTORY_TEMPLATES
 )
+from .gemini_service import get_gemini_service
 
 # Kết nối MongoDB cửa hàng để lấy dữ liệu động
 store_client = MongoClient(ChatbotConfig.STORE_MONGO_URI)
 store_db = store_client[ChatbotConfig.STORE_DB_NAME]
+
+# Khởi tạo Gemini service
+gemini_service = get_gemini_service()
 
 def normalize_text(text):
     """Chuẩn hóa text để so sánh, loại bỏ dấu và khoảng trắng thừa"""
@@ -283,8 +287,8 @@ class ResponseService:
                     return prod['productName']
         return None
 
-    def get_response(self, intent, user_message, context_action=None, last_bot_intent=None):
-        """Cải thiện logic xử lý response với context tốt hơn"""
+    def get_response(self, intent, user_message, context_action=None, last_bot_intent=None, conversation_context=None):
+        """Cải thiện logic xử lý response với context tốt hơn và Gemini AI"""
         # Nếu intent là index, chuyển sang intent name
         if isinstance(intent, int):
             if 0 <= intent < len(INTENT_LIST):
@@ -296,15 +300,31 @@ class ResponseService:
 
         # Xử lý các câu hỏi ngắn gọn với context
         if self.is_short_question_with_context(intent_name, user_message, context_action):
-            return self.handle_short_question_with_context(intent_name, user_message, context_action)
+            base_response = self.handle_short_question_with_context(intent_name, user_message, context_action)
+        else:
+            # Xử lý response động cho các intent
+            dynamic_response = get_dynamic_response(intent_name, user_message, context_action)
+            if dynamic_response:
+                base_response = fix_duplicate_cake_name(dynamic_response)
+            else:
+                # Fallback về template response
+                base_response = self.get_intent_template_response(intent, user_message, context_action)
         
-        # Xử lý response động cho các intent
-        dynamic_response = get_dynamic_response(intent_name, user_message, context_action)
-        if dynamic_response:
-            return fix_duplicate_cake_name(dynamic_response)
+        # Cải thiện response bằng Gemini AI nếu có enable
+        if gemini_service.enabled:
+            try:
+                enhanced_response = gemini_service.enhance_response(
+                    base_response=base_response,
+                    user_message=user_message,
+                    intent=intent_name,
+                    context=conversation_context
+                )
+                return enhanced_response
+            except Exception as e:
+                print(f"⚠️ Không thể enhance response với Gemini: {e}")
+                return base_response
         
-        # Fallback về template response
-        return self.get_intent_template_response(intent, user_message, context_action)
+        return base_response
 
     def is_short_question_with_context(self, intent_name, user_message, context_action):
         """Kiểm tra xem có phải câu hỏi ngắn gọn cần context không"""

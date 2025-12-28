@@ -182,11 +182,28 @@ async def chat(request: ChatRequest):
         print(f"DEBUG - Context Action: {context_action}")
         print(f"DEBUG - Intent: {intent_name}")
         
+        # Chuẩn bị conversation context cho Gemini
+        conversation_context = {
+            'last_messages': context[-5:] if context else [],  # Lấy 5 tin nhắn gần nhất
+            'current_cake': conversation_service.conversation_context.get('current_cake'),
+            'user_preferences': conversation_service.conversation_context.get('user_preferences', {})
+        }
+        
         # Nếu có context_action, truyền vào response_service.get_response
         if context_action:
-            response_text = response_service.get_response(intent_index, request.message, context_action=context_action, last_bot_intent=last_bot_intent)
+            response_text = response_service.get_response(
+                intent_index, 
+                request.message, 
+                context_action=context_action, 
+                last_bot_intent=last_bot_intent,
+                conversation_context=conversation_context
+            )
         else:
-            response_text = response_service.get_response(intent_index, request.message)
+            response_text = response_service.get_response(
+                intent_index, 
+                request.message,
+                conversation_context=conversation_context
+            )
         
         # Debug: In ra response_text
         print(f"DEBUG - Response: {response_text}")
@@ -407,6 +424,6 @@ if __name__ == "__main__":
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
-        port=int(os.getenv("PORT", 8000)),
+        port=int(os.getenv("PORT", 8002)),
         reload=True
     )

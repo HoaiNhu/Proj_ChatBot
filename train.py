@@ -123,10 +123,19 @@ training_args = TrainingArguments(
     output_dir='./results',
     num_train_epochs=ChatbotConfig.TRAINING_EPOCHS,
     per_device_train_batch_size=ChatbotConfig.BATCH_SIZE,
-    warmup_steps=500,
+    warmup_steps=200,  # Giảm từ 500
     weight_decay=0.01,
     logging_dir='./logs',
-    learning_rate=ChatbotConfig.LEARNING_RATE
+    learning_rate=ChatbotConfig.LEARNING_RATE,
+    # Tăng tốc training
+    logging_steps=100,  # Log ít hơn
+    save_steps=1000,  # Save ít checkpoint hơn
+    save_total_limit=3,  # Chỉ giữ 3 checkpoint gần nhất
+    dataloader_num_workers=2,  # Dùng multi-processing
+    disable_tqdm=False,  # Vẫn hiển thị progress bar
+    report_to='none',  # Tắt wandb/tensorboard
+    eval_strategy='no',  # Tắt eval trong quá trình train
+    fp16=False,  # CPU không hỗ trợ fp16
 )
 
 trainer = Trainer(
@@ -176,7 +185,22 @@ if __name__ == "__main__":
     else:
         # Train và đánh giá như cũ
         trainer.train()
-        model.save_pretrained(ChatbotConfig.MODEL_PATH)
+        
+        # Fix Windows file lock issue
+        import gc
+        # Giải phóng GPU memory nếu có
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        # Force garbage collection
+        gc.collect()
+        
+        # Save với safe_serialization=False để tránh lỗi safetensors trên Windows
+        try:
+            model.save_pretrained(ChatbotConfig.MODEL_PATH, safe_serialization=True)
+        except Exception as e:
+            logger.warning(f"Failed to save with safetensors, trying pytorch: {e}")
+            model.save_pretrained(ChatbotConfig.MODEL_PATH, safe_serialization=False)
+        
         tokenizer.save_pretrained(ChatbotConfig.MODEL_PATH)
         logger.info("Model training completed and saved")
         evaluate_model(trainer, val_dataset, labels_val)

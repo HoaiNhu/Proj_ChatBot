@@ -34,16 +34,16 @@ class ChatbotConfig:
     
     # Server config
     HOST = os.getenv("HOST", "0.0.0.0")
-    PORT = int(os.getenv("PORT", 8000))
+    PORT = int(os.getenv("PORT", 8002))
     
     # Model config
     MODEL_PATH = os.getenv("MODEL_PATH", "./models")
     FALLBACK_MODEL = "distilbert-base-uncased"
-    MAX_LENGTH = 512
+    MAX_LENGTH = 256  # Giảm từ 512 xuống 256 để train nhanh hơn
 
     # Training config
-    TRAINING_EPOCHS = int(os.getenv("TRAINING_EPOCHS", 10))
-    BATCH_SIZE = int(os.getenv("BATCH_SIZE", 8))
+    TRAINING_EPOCHS = int(os.getenv("TRAINING_EPOCHS", 5))  # Giảm từ 10 xuống 5
+    BATCH_SIZE = int(os.getenv("BATCH_SIZE", 16))  # Tăng từ 8 lên 16
     LEARNING_RATE = float(os.getenv("LEARNING_RATE", 5e-5))
     
     # Logging

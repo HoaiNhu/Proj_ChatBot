@@ -1,45 +1,45 @@
 Classification Report:
                                 precision    recall  f1-score   support
 
-                      greeting       0.83      1.00      0.91         5
+                      greeting       1.00      1.00      1.00         5
                      thank_you       1.00      1.00      1.00         4
                        goodbye       0.00      0.00      0.00         1
-                  suggest_cake       0.98      0.94      0.96        65
+                  suggest_cake       0.97      0.93      0.95        97
                      ask_price       1.00      0.96      0.98        23
-                 connect_staff       0.87      1.00      0.93        20
-                 ask_promotion       1.00      0.98      0.99        45
-                   check_order       1.00      1.00      1.00        29
+                 connect_staff       0.91      1.00      0.95        20
+                 ask_promotion       0.98      0.93      0.96        46
+                   check_order       1.00      1.00      1.00       133
                    custom_cake       1.00      1.00      1.00        14
              ask_opening_hours       1.00      1.00      1.00        20
-                   ask_address       1.00      0.78      0.88        18
+                   ask_address       0.89      0.94      0.92        18
                    ask_payment       1.00      1.00      1.00        17
-                  ask_delivery       0.89      1.00      0.94        31
-                  ask_feedback       1.00      0.95      0.97        19
-                     ask_combo       0.96      1.00      0.98        25
+                  ask_delivery       0.97      0.94      0.95        31
+                  ask_feedback       0.97      1.00      0.98        90
+                     ask_combo       0.93      1.00      0.96        25
                 ask_ingredient       1.00      1.00      1.00        25
              ask_special_event       1.00      1.00      1.00         5
               ask_preservation       1.00      1.00      1.00        17
                     ask_return       1.00      1.00      1.00        19
-                   ask_contact       1.00      0.94      0.97        17
+                   ask_contact       1.00      1.00      1.00        17
                    ask_invoice       1.00      1.00      1.00         4
-                   ask_loyalty       1.00      1.00      1.00         3
-          ask_purchase_history       1.00      1.00      1.00        14
+                   ask_loyalty       1.00      0.67      0.80         3
+          ask_purchase_history       0.93      0.93      0.93        14
                  ask_nutrition       1.00      1.00      1.00        26
                   ask_for_kids       0.93      1.00      0.96        25
                   ask_new_cake       0.83      1.00      0.91         5
-               ask_best_seller       0.67      0.67      0.67         3
-                 ask_diet_cake       1.00      1.00      1.00        26
-                ask_vegan_cake       1.00      1.00      1.00        26
+               ask_best_seller       1.00      0.33      0.50         3
+                 ask_diet_cake       1.00      0.96      0.98        26
+                ask_vegan_cake       0.96      1.00      0.98        26
                  ask_mini_cake       1.00      1.00      1.00        24
-             ask_festival_cake       1.00      1.00      1.00        18
+             ask_festival_cake       1.00      0.94      0.97        18
                 ask_color_cake       1.00      1.00      1.00         7
-             ask_birthday_cake       1.00      1.00      1.00         5
-              ask_wedding_cake       1.00      1.00      1.00         5
+             ask_birthday_cake       0.83      1.00      0.91         5
+              ask_wedding_cake       1.00      0.80      0.89         5
                  ask_baby_cake       1.00      1.00      1.00         5
             ask_christmas_cake       1.00      1.00      1.00         5
                   ask_tet_cake       1.00      1.00      1.00         7
             ask_halloween_cake       1.00      1.00      1.00         7
-              ask_elderly_cake       1.00      1.00      1.00        38
+              ask_elderly_cake       0.97      1.00      0.99        38
         ask_company_party_cake       1.00      1.00      1.00        46
           ask_baby_shower_cake       1.00      1.00      1.00        46
             ask_valentine_cake       1.00      1.00      1.00        48
@@ -49,7 +49,7 @@ ask_vietnamese_womens_day_cake       1.00      1.00      1.00        48
           ask_mothers_day_cake       1.00      1.00      1.00        47
           ask_fathers_day_cake       1.00      1.00      1.00        47
          ask_teachers_day_cake       1.00      1.00      1.00        49
-        ask_childrens_day_cake       1.00      1.00      1.00         4
+        ask_childrens_day_cake       0.80      1.00      0.89         4
              ask_mens_day_cake       1.00      1.00      1.00         4
         ask_happiness_day_cake       1.00      1.00      1.00         5
            ask_family_day_cake       1.00      1.00      1.00         5
@@ -58,9 +58,9 @@ ask_vietnamese_womens_day_cake       1.00      1.00      1.00        48
             ask_peace_day_cake       1.00      1.00      1.00         5
            ask_labour_day_cake       1.00      1.00      1.00         5
 
-                      accuracy                           0.99      1136
-                     macro avg       0.96      0.97      0.97      1136
-                  weighted avg       0.99      0.99      0.99      1136
+                      accuracy                           0.98      1344
+                     macro avg       0.96      0.95      0.95      1344
+                  weighted avg       0.98      0.98      0.98      1344
 
 Confusion Matrix:
 [[5 0 0 ... 0 0 0]

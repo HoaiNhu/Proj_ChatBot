@@ -9,7 +9,7 @@ from utils.logger import logger
 class LearningSystem:
     def __init__(self, db):
         self.db = db
-        self.chats_collection = db['conversation']  # Đổi từ 'chats' sang 'conversation'
+        self.chats_collection = db['conversation'] 
         self.feedback_collection = db['feedback']
         self.learning_data_file = 'learning_data.json'
         self.intent_detector = ConversationService(model_path=ChatbotConfig.MODEL_PATH)
