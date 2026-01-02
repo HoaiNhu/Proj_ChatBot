@@ -6,6 +6,7 @@
   "attention_dropout": 0.1,
   "dim": 768,
   "dropout": 0.1,
+  "dtype": "float32",
   "hidden_dim": 3072,
   "id2label": {
     "0": "LABEL_0",
@@ -63,7 +64,11 @@
     "52": "LABEL_52",
     "53": "LABEL_53",
     "54": "LABEL_54",
-    "55": "LABEL_55"
+    "55": "LABEL_55",
+    "56": "LABEL_56",
+    "57": "LABEL_57",
+    "58": "LABEL_58",
+    "59": "LABEL_59"
   },
   "initializer_range": 0.02,
   "label2id": {
@@ -119,6 +124,10 @@
     "LABEL_53": 53,
     "LABEL_54": 54,
     "LABEL_55": 55,
+    "LABEL_56": 56,
+    "LABEL_57": 57,
+    "LABEL_58": 58,
+    "LABEL_59": 59,
     "LABEL_6": 6,
     "LABEL_7": 7,
     "LABEL_8": 8,
@@ -134,7 +143,6 @@
   "seq_classif_dropout": 0.2,
   "sinusoidal_pos_embds": false,
   "tie_weights_": true,
-  "torch_dtype": "float32",
-  "transformers_version": "4.52.4",
+  "transformers_version": "4.57.3",
   "vocab_size": 30522
 }

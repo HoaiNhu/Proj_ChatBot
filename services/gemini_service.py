@@ -17,7 +17,7 @@ class GeminiService:
             return
         
         genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel('gemini-pro')
+        self.model = genai.GenerativeModel('gemini-2.5-flash')
         self.enabled = True
         print("✅ Gemini API đã được khởi tạo")
     

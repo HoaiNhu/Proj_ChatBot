@@ -4578,5 +4578,17 @@
   {
     "text": "Calo của bánh",
     "intent": "ask_nutrition"
-  }
+  },
+  { "text": "Cách tạo tài khoản", "intent": "ask_create_account" },
+  { "text": "Làm sao để đăng ký?", "intent": "ask_create_account" },
+  { "text": "Tôi muốn tạo tài khoản", "intent": "ask_create_account" },
+  { "text": "Cách tạo đơn hàng", "intent": "ask_create_order" },
+  { "text": "Làm sao để đặt hàng?", "intent": "ask_create_order" },
+  { "text": "Tôi muốn đặt đơn hàng", "intent": "ask_create_order" },
+  { "text": "Cách hoàn hàng", "intent": "ask_refund" },
+  { "text": "Làm sao để đổi trả bánh?", "intent": "ask_refund" },
+  { "text": "Tôi muốn hoàn hàng", "intent": "ask_refund" },
+  { "text": "Cách bảo quản bánh", "intent": "ask_preservation" },
+  { "text": "Làm sao để giữ bánh lâu?", "intent": "ask_preservation" },
+  { "text": "Tôi muốn biết cách bảo quản bánh", "intent": "ask_preservation" }
 ]

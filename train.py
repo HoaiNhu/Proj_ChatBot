@@ -79,6 +79,7 @@ def extract_training_samples():
             samples.append({"text": rating['comment'], "intent": "ask_feedback"})
     return samples
 
+
 # Thêm data từ các collection trên vào expanded_data
 expanded_data.extend(extract_training_samples())
 
