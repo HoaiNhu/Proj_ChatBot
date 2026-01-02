@@ -32,7 +32,7 @@ class GeminiService:
             context: Context conversation (optional)
         
         Returns:
-            Enhanced response tự nhiên hơn
+            Enhanced response tự nhiên hơn, bỏ những dấu **, mỗi thông tin sẽ nằm trên một dòng.
         """
         if not self.enabled:
             return base_response

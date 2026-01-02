@@ -269,7 +269,7 @@ def generate_template_response(intent, entities, templates):
         return None
     template = random.choice(templates)
     try:
-        return template.format(**entities)
+        return template.format(entities)
     except Exception:
         return None
 
