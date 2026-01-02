@@ -83,7 +83,7 @@ def get_dynamic_response(intent, user_message, context_action=None):
                         price = cake.get("productPrice", 0)
                         rating = cake.get("averageRating", 0)
                         if name:
-                            cake_info.append(f"{name} ({price:,}đ, ⭐{rating})")
+                            cake_info.append(f" - {name} ({price:,}đ, ⭐{rating})")
                     
                     cake_list = "\n".join(cake_info)
                     return f"Shop có các loại bánh dưới {max_price:,}đ:\n{cake_list}. Bạn thích loại nào?"
@@ -99,7 +99,7 @@ def get_dynamic_response(intent, user_message, context_action=None):
             ]
         }))
         if matched_cakes:
-            cake_names = "\n ".join([cake["productName"] for cake in matched_cakes if "productName" in cake])
+            cake_names = "\n -  ".join([cake["productName"] for cake in matched_cakes if "productName" in cake])
             return f"Shop có các loại bánh phù hợp với yêu cầu của bạn: {cake_names}. Bạn muốn chọn loại nào?"
         
         # Nếu không tìm thấy, lấy 3-5 bánh ngẫu nhiên từ top 10 bánh có rating cao
@@ -113,7 +113,7 @@ def get_dynamic_response(intent, user_message, context_action=None):
                 price = cake.get("productPrice", "")
                 rating = cake.get("averageRating", 0)
                 if name:
-                    cake_info.append(f"{name} ({price:,}đ, ⭐{rating})")
+                    cake_info.append(f" - {name} ({price:,}đ, ⭐{rating})")
             
             cake_list = "\n".join(cake_info)
             return f"Shop gợi ý bạn thử các loại bánh:\n{cake_list}. Bạn thích loại nào?"
@@ -183,7 +183,7 @@ def get_dynamic_response(intent, user_message, context_action=None):
                 name = combo.get("productName", "")
                 price = combo.get("productPrice", "")
                 if name:
-                    combo_info.append(f"{name} ({price:,}đ)")
+                    combo_info.append(f"- {name} ({price:,}đ)")
             combo_list = "\n ".join(combo_info)
             return f"Shop có các combo:\n{combo_list}. Bạn muốn tham khảo combo nào?"
 
