@@ -59,7 +59,7 @@ class GeminiService:
     
     def _create_enhancement_prompt(self, base_response: str, user_message: str, intent: str, context: dict = None) -> str:
         """Tạo prompt để enhance response"""
-        
+        print("response before enhance:", base_response)    
         # Thêm context nếu có
         context_info = ""
         if context:
