@@ -85,10 +85,10 @@ def get_dynamic_response(intent, user_message, context_action=None):
                         if name:
                             cake_info.append(f"{name} ({price:,}đ, ⭐{rating})")
                     
-                    cake_list = ", ".join(cake_info)
-                    return f"Shop có các loại bánh dưới {max_price:,}đ: {cake_list}. Bạn thích loại nào?"
+                    cake_list = "\n".join(cake_info)
+                    return f"Shop có các loại bánh dưới {max_price:,}đ:\n{cake_list}. Bạn thích loại nào?"
                 else:
-                    return f"Hiện tại shop chưa có bánh nào dưới {max_price:,}đ. Bạn có thể tham khảo các loại bánh khác nhé!"
+                    return f"Hiện tại shop chưa có bánh nào dưới {max_price:,}đ.\nBạn có thể tham khảo các loại bánh khác nhé!"
         
         # Tìm bánh theo từ khóa user hỏi
         keyword = user_message.lower()
@@ -99,7 +99,7 @@ def get_dynamic_response(intent, user_message, context_action=None):
             ]
         }))
         if matched_cakes:
-            cake_names = ", ".join([cake["productName"] for cake in matched_cakes if "productName" in cake])
+            cake_names = "\n ".join([cake["productName"] for cake in matched_cakes if "productName" in cake])
             return f"Shop có các loại bánh phù hợp với yêu cầu của bạn: {cake_names}. Bạn muốn chọn loại nào?"
         
         # Nếu không tìm thấy, lấy 3-5 bánh ngẫu nhiên từ top 10 bánh có rating cao
@@ -115,15 +115,15 @@ def get_dynamic_response(intent, user_message, context_action=None):
                 if name:
                     cake_info.append(f"{name} ({price:,}đ, ⭐{rating})")
             
-            cake_list = ", ".join(cake_info)
-            return f"Shop gợi ý bạn thử các loại bánh: {cake_list}. Bạn thích loại nào?"
+            cake_list = "\n".join(cake_info)
+            return f"Shop gợi ý bạn thử các loại bánh:\n{cake_list}. Bạn thích loại nào?"
         
         # Fallback nếu không có bánh nào
         return "Hiện tại shop đang cập nhật menu, bạn vui lòng liên hệ hotline để được tư vấn nhé!"
         
     elif intent_name == "ask_preservation":
         # Trả lời về cách bảo quản bánh
-        return "Cách bảo quản bánh: Bánh kem nên để trong tủ lạnh từ 2-4°C, có thể bảo quản được 3-5 ngày. Bánh ngọt để ở nhiệt độ phòng được 2-3 ngày. Khi vận chuyển xa, shop sẽ đóng gói đặc biệt với đá khô để giữ lạnh."
+        return "Cách bảo quản bánh: Bánh kem nên để trong ngăn mát tủ lạnh, có thể bảo quản được 3-5 ngày. Bánh ngọt để ở nhiệt độ phòng được 2-3 ngày. Khi vận chuyển xa, shop sẽ đóng gói đặc biệt với đá khô để giữ lạnh."
         
     elif intent_name == "ask_price":
         # LUÔN kiểm tra tên bánh trong user_message trước (chuẩn hóa)
@@ -184,9 +184,9 @@ def get_dynamic_response(intent, user_message, context_action=None):
                 price = combo.get("productPrice", "")
                 if name:
                     combo_info.append(f"{name} ({price:,}đ)")
-            combo_list = ", ".join(combo_info)
-            return f"Shop có các combo: {combo_list}. Bạn muốn tham khảo combo nào?"
-        
+            combo_list = "\n ".join(combo_info)
+            return f"Shop có các combo:\n{combo_list}. Bạn muốn tham khảo combo nào?"
+
         # Nếu không có combo, tạo combo từ các bánh phổ biến
         popular_cakes = list(store_db['products'].find({}, {"productName": 1, "productPrice": 1}).sort([("averageRating", -1)]).limit(2))
         if len(popular_cakes) >= 2:
