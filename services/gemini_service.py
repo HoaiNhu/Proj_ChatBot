@@ -86,6 +86,8 @@ Hãy viết lại câu trả lời sao cho:
 4. Không thêm thông tin không có trong câu trả lời gốc
 5. Sử dụng emoji phù hợp (1-2 emoji) để thân thiện hơn
 6. Kết thúc bằng câu hỏi mở hoặc lời mời nếu phù hợp
+7. Mỗi thông tin quan trọng nên nằm trên một dòng riêng biệt
+8. Loại bỏ tất cả dấu ** nếu có
 
 Chỉ trả lời câu đã được cải thiện, không giải thích thêm:"""
         
