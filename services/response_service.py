@@ -33,13 +33,21 @@ def normalize_text(text):
 
 def fix_duplicate_cake_name(response):
     """Sửa lỗi lặp từ 'Bánh' trong response"""
-    if not response:
+    if not response or not isinstance(response, str):
         return response
     # Sửa "Bánh Bánh" thành "Bánh"
     response = response.replace("Bánh Bánh", "Bánh")
     # Sửa "bánh Bánh" thành "bánh"
     response = response.replace("bánh Bánh", "bánh")
     return response
+
+
+def format_product_link(name, product_id):
+    """Định dạng tên sản phẩm thành link Markdown"""
+    if not name or not product_id:
+        return name
+    return f'<a href="/view-product-detail/{product_id}"><u>{name}</u></a>'
+
 
 def get_dynamic_response(intent, user_message, context_action=None):
     # Nếu intent là index, chuyển sang intent name
@@ -74,7 +82,7 @@ def get_dynamic_response(intent, user_message, context_action=None):
                 # Tìm bánh trong khoảng giá
                 affordable_cakes = list(store_db['products'].find({
                     "productPrice": {"$lte": max_price}
-                }, {"productName": 1, "productPrice": 1, "averageRating": 1}).sort([("averageRating", -1)]).limit(5))
+                }, {"productName": 1, "productPrice": 1, "averageRating": 1, "_id": 1}).sort([("averageRating", -1)]).limit(5))
                 
                 if affordable_cakes:
                     cake_info = []
@@ -82,11 +90,14 @@ def get_dynamic_response(intent, user_message, context_action=None):
                         name = cake.get("productName", "")
                         price = cake.get("productPrice", 0)
                         rating = cake.get("averageRating", 0)
+                        product_id = str(cake.get("_id", ""))
                         if name:
-                            cake_info.append(f" - {name} ({price:,}đ, ⭐{rating})")
+                            linked_name = format_product_link(name, product_id)
+                            cake_info.append(f" - {linked_name} ({price:,}đ, ⭐{rating})")
                     
                     cake_list = "\n".join(cake_info)
                     return f"Shop có các loại bánh dưới {max_price:,}đ:\n{cake_list}. Bạn thích loại nào?"
+
                 else:
                     return f"Hiện tại shop chưa có bánh nào dưới {max_price:,}đ.\nBạn có thể tham khảo các loại bánh khác nhé!"
         
@@ -99,11 +110,18 @@ def get_dynamic_response(intent, user_message, context_action=None):
             ]
         }))
         if matched_cakes:
-            cake_names = "\n -  ".join([cake["productName"] for cake in matched_cakes if "productName" in cake])
+            cake_names_list = []
+            for cake in matched_cakes:
+                if "productName" in cake:
+                    name = cake["productName"]
+                    product_id = str(cake.get("_id", ""))
+                    cake_names_list.append(format_product_link(name, product_id))
+            cake_names = "\n -  ".join(cake_names_list)
             return f"Shop có các loại bánh phù hợp với yêu cầu của bạn: {cake_names}. Bạn muốn chọn loại nào?"
+
         
         # Nếu không tìm thấy, lấy 3-5 bánh ngẫu nhiên từ top 10 bánh có rating cao
-        top_cakes = list(store_db['products'].find({}, {"productName": 1, "productPrice": 1, "averageRating": 1}).sort([("averageRating", -1)]).limit(10))
+        top_cakes = list(store_db['products'].find({}, {"productName": 1, "productPrice": 1, "averageRating": 1, "_id": 1}).sort([("averageRating", -1)]).limit(10))
         if top_cakes:
             # Chọn ngẫu nhiên 3-5 bánh từ top 10
             selected_cakes = random.sample(top_cakes, min(3, len(top_cakes)))
@@ -112,11 +130,15 @@ def get_dynamic_response(intent, user_message, context_action=None):
                 name = cake.get("productName", "")
                 price = cake.get("productPrice", "")
                 rating = cake.get("averageRating", 0)
+                product_id = str(cake.get("_id", ""))
                 if name:
-                    cake_info.append(f" - {name} ({price:,}đ, ⭐{rating})")
+                    linked_name = format_product_link(name, product_id)
+                    cake_info.append(f" - {linked_name} ({price:,}đ, ⭐{rating})")
             
             cake_list = "\n".join(cake_info)
             return f"Shop gợi ý bạn thử các loại bánh:\n{cake_list}. Bạn thích loại nào?"
+
+
         
         # Fallback nếu không có bánh nào
         return "Hiện tại shop đang cập nhật menu, bạn vui lòng liên hệ hotline để được tư vấn nhé!"
@@ -126,14 +148,17 @@ def get_dynamic_response(intent, user_message, context_action=None):
         return "Cách bảo quản bánh: Bánh kem nên để trong ngăn mát tủ lạnh, có thể bảo quản được 3-5 ngày. Bánh ngọt để ở nhiệt độ phòng được 2-3 ngày. Khi vận chuyển xa, shop sẽ đóng gói đặc biệt với đá khô để giữ lạnh."
         
     elif intent_name == "ask_price":
-        # LUÔN kiểm tra tên bánh trong user_message trước (chuẩn hóa)
         msg_norm = normalize_text(user_message)
         for prod in store_db['products'].find():
             if prod.get('productName'):
                 cake_name_norm = normalize_text(prod['productName'])
                 if cake_name_norm in msg_norm:
                     price = prod.get('productPrice', 'không rõ')
-                    return fix_duplicate_cake_name(f"Bánh {prod['productName']} có giá {price:,}đ.")
+                    product_id = str(prod.get("_id", ""))
+                    linked_name = format_product_link(prod['productName'], product_id)
+                    return fix_duplicate_cake_name(f"Bánh {linked_name} có giá {price:,}đ.")
+
+
         
         # Nếu không tìm thấy trong message, mới dùng context_action
         if context_action and context_action.get("cake_name"):
@@ -142,7 +167,11 @@ def get_dynamic_response(intent, user_message, context_action=None):
                 cake = store_db['products'].find_one({"productName": cake_name})
                 if cake:
                     price = cake.get('productPrice', 'không rõ')
-                    return fix_duplicate_cake_name(f"Bánh {cake_name} có giá {price:,}đ.")
+                    product_id = str(cake.get("_id", ""))
+                    linked_name = format_product_link(cake_name, product_id)
+                    return fix_duplicate_cake_name(f"Bánh {linked_name} có giá {price:,}đ.")
+
+
         
         return "Bạn muốn hỏi giá loại bánh nào ạ?"
         
@@ -176,23 +205,32 @@ def get_dynamic_response(intent, user_message, context_action=None):
         
     elif intent_name == "ask_combo":
         # Gợi ý combo từ sản phẩm
-        combos = list(store_db['products'].find({"productName": {"$regex": "combo", "$options": "i"}}, {"productName": 1, "productPrice": 1}).limit(3))
+        combos = list(store_db['products'].find({"productName": {"$regex": "combo", "$options": "i"}}, {"productName": 1, "productPrice": 1, "_id": 1}).limit(3))
         if combos:
             combo_info = []
             for combo in combos:
                 name = combo.get("productName", "")
                 price = combo.get("productPrice", "")
+                product_id = str(combo.get("_id", ""))
                 if name:
-                    combo_info.append(f"- {name} ({price:,}đ)")
+                    linked_name = format_product_link(name, product_id)
+                    combo_info.append(f"- {linked_name} ({price:,}đ)")
             combo_list = "\n ".join(combo_info)
             return f"Shop có các combo:\n{combo_list}. Bạn muốn tham khảo combo nào?"
 
         # Nếu không có combo, tạo combo từ các bánh phổ biến
-        popular_cakes = list(store_db['products'].find({}, {"productName": 1, "productPrice": 1}).sort([("averageRating", -1)]).limit(2))
+        popular_cakes = list(store_db['products'].find({}, {"productName": 1, "productPrice": 1, "_id": 1}).sort([("averageRating", -1)]).limit(2))
         if len(popular_cakes) >= 2:
-            cake1 = popular_cakes[0].get("productName", "")
-            cake2 = popular_cakes[1].get("productName", "")
-            return f"Shop có thể tạo combo từ {cake1} và {cake2} với giá ưu đãi. Bạn quan tâm không?"
+            cake1_name = popular_cakes[0].get("productName", "")
+            cake1_id = str(popular_cakes[0].get("_id", ""))
+            cake2_name = popular_cakes[1].get("productName", "")
+            cake2_id = str(popular_cakes[1].get("_id", ""))
+            
+            linked_cake1 = format_product_link(cake1_name, cake1_id)
+            linked_cake2 = format_product_link(cake2_name, cake2_id)
+            
+            return f"Shop có thể tạo combo từ {linked_cake1} và {linked_cake2} với giá ưu đãi. Bạn quan tâm không?"
+
         
         return "Shop có thể tạo combo theo yêu cầu của bạn, bạn muốn combo gì ạ?"
         
@@ -201,21 +239,32 @@ def get_dynamic_response(intent, user_message, context_action=None):
         for prod in store_db['products'].find():
             if prod.get('productName') and prod['productName'].lower() in user_message.lower():
                 desc = prod.get('productDescription', '')
-                return fix_duplicate_cake_name(f"Thành phần bánh {prod['productName']}: {desc}")
+                product_id = str(prod.get("_id", ""))
+                linked_name = format_product_link(prod['productName'], product_id)
+                return fix_duplicate_cake_name(f"Thành phần bánh {linked_name}: {desc}")
+
         return "Bạn muốn hỏi thành phần của loại bánh nào ạ?"
         
     elif intent_name == "ask_new_cake":
         # Lấy sản phẩm mới nhất
         cake = store_db['products'].find_one(sort=[("createdAt", -1)])
         if cake and cake.get('productName'):
-            return fix_duplicate_cake_name(f"Bánh mới nhất của shop là: {cake['productName']}.")
+            name = cake['productName']
+            product_id = str(cake.get("_id", ""))
+            linked_name = format_product_link(name, product_id)
+            return fix_duplicate_cake_name(f"Bánh mới nhất của shop là: {linked_name}.")
+
         return "Shop thường xuyên cập nhật menu mới, bạn có thể ghé shop để thưởng thức!"
         
     elif intent_name == "ask_best_seller":
         # Lấy sản phẩm bán chạy nhất
         cake = store_db['products'].find_one(sort=[("totalRatings", -1)])
         if cake and cake.get('productName'):
-            return fix_duplicate_cake_name(f"Bánh bán chạy nhất hiện nay là: {cake['productName']}.")
+            name = cake['productName']
+            product_id = str(cake.get("_id", ""))
+            linked_name = format_product_link(name, product_id)
+            return fix_duplicate_cake_name(f"Bánh bán chạy nhất hiện nay là: {linked_name}.")
+
         return "Shop có nhiều loại bánh được khách hàng yêu thích, bạn muốn thử loại nào?"
         
     elif intent_name == "ask_for_kids":
@@ -231,7 +280,10 @@ def get_dynamic_response(intent, user_message, context_action=None):
             if prod.get('productName') and prod['productName'].lower() in user_message.lower():
                 nutrition = prod.get('nutrition') or prod.get('productDescription')
                 if nutrition:
-                    return fix_duplicate_cake_name(f"Thông tin dinh dưỡng bánh {prod['productName']}: {nutrition}")
+                    product_id = str(prod.get("_id", ""))
+                    linked_name = format_product_link(prod['productName'], product_id)
+                    return fix_duplicate_cake_name(f"Thông tin dinh dưỡng bánh {linked_name}: {nutrition}")
+
         return "Bạn muốn hỏi dinh dưỡng của loại bánh nào ạ?"
         
     elif intent_name == "ask_address":
@@ -344,14 +396,20 @@ class ResponseService:
         
         if intent_name == "ask_price":
             price = cake.get('productPrice', 'không rõ')
-            return f"{cake_name} có giá {price:,}đ."
+            product_id = str(cake.get("_id", ""))
+            linked_name = format_product_link(cake_name, product_id)
+            return f"{linked_name} có giá {price:,}đ."
+
         
         elif intent_name == "ask_ingredient":
             desc = cake.get('productDescription', '')
+            product_id = str(cake.get("_id", ""))
+            linked_name = format_product_link(cake_name, product_id)
             if desc:
-                return f"Thành phần {cake_name}: {desc}"
+                return f"Thành phần {linked_name}: {desc}"
             else:
-                return f"Thành phần {cake_name}: Bột mì, đường, trứng, sữa tươi và các nguyên liệu tự nhiên khác."
+                return f"Thành phần {linked_name}: Bột mì, đường, trứng, sữa tươi và các nguyên liệu tự nhiên khác."
+
         
         elif intent_name == "ask_combo":
             # Gợi ý combo với bánh hiện tại
@@ -360,10 +418,13 @@ class ResponseService:
         elif intent_name == "ask_promotion":
             # Kiểm tra khuyến mãi cho bánh cụ thể
             promo = store_db['discounts'].find_one(sort=[("createdAt", -1)])
+            product_id = str(cake.get("_id", ""))
+            linked_name = format_product_link(cake_name, product_id)
             if promo and promo.get('discountName'):
-                return f"Hiện tại {cake_name} đang có khuyến mãi: {promo['discountName']} giảm {promo.get('discountValue', '')}%."
+                return f"Hiện tại {linked_name} đang có khuyến mãi: {promo['discountName']} giảm {promo.get('discountValue', '')}%."
             else:
-                return f"{cake_name} hiện tại chưa có khuyến mãi, nhưng shop có nhiều ưu đãi khác. Bạn quan tâm không?"
+                return f"{linked_name} hiện tại chưa có khuyến mãi, nhưng shop có nhiều ưu đãi khác. Bạn quan tâm không?"
+
         
         return self.get_fallback_response(intent_name)
 

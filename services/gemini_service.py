@@ -88,6 +88,7 @@ Hãy viết lại câu trả lời sao cho:
 6. Kết thúc bằng câu hỏi mở hoặc lời mời nếu phù hợp
 7. Mỗi thông tin quan trọng nên nằm trên một dòng riêng biệt
 8. Loại bỏ tất cả dấu ** nếu có
+9. GIỮ NGUYÊN định dạng link Markdown <a href="...">... </a> nếu có trong câu trả lời gốc. Tuyệt đối không được thay đổi đường dẫn này.
 
 Chỉ trả lời câu đã được cải thiện, không giải thích thêm:"""
         
