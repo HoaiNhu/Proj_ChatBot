@@ -65,10 +65,98 @@ def get_dynamic_response(intent, user_message, context_action=None):
         text_lower = user_message.lower()
         
         # Tìm bánh theo khoảng giá
+        import re
         price_match = None
-        if "dưới" in text_lower and any(char.isdigit() for char in text_lower):
+        
+        # Ưu tiên tìm theo khoảng giá từ A đến B
+        if ("đến" in text_lower or "tới" in text_lower or "đến" in text_lower) and "từ" in text_lower and any(char.isdigit() for char in text_lower):
+            numbers = re.findall(r'\d+', text_lower)
+            if len(numbers) >= 2:
+                # Lấy 2 số đầu tiên làm min và max
+                min_price = int(numbers[0])
+                max_price = int(numbers[1])
+                
+                # Xử lý đơn vị cho min_price
+                text_parts = text_lower.split("đến" if "đến" in text_lower else "tới")
+                first_part = text_parts[0] if len(text_parts) > 0 else text_lower
+                
+                if "k" in first_part or "nghìn" in first_part:
+                    min_price = int(numbers[0]) * 1000
+                elif "tr" in first_part or "triệu" in first_part:
+                    min_price = int(numbers[0]) * 1000000
+                else:
+                    min_price = int(numbers[0])
+                
+                # Xử lý đơn vị cho max_price
+                second_part = text_parts[1] if len(text_parts) > 1 else text_lower
+                
+                if "k" in second_part or "nghìn" in second_part:
+                    max_price = int(numbers[1]) * 1000
+                elif "tr" in second_part or "triệu" in second_part:
+                    max_price = int(numbers[1]) * 1000000
+                else:
+                    max_price = int(numbers[1])
+                
+                # Tìm bánh trong khoảng giá
+                range_cakes = list(store_db['products'].find({
+                    "productPrice": {"$gte": min_price, "$lte": max_price}
+                }, {"productName": 1, "productPrice": 1, "averageRating": 1, "_id": 1}).sort([("averageRating", -1)]).limit(5))
+                
+                if range_cakes:
+                    cake_info = []
+                    for cake in range_cakes:
+                        name = cake.get("productName", "")
+                        price = cake.get("productPrice", 0)
+                        rating = cake.get("averageRating", 0)
+                        product_id = str(cake.get("_id", ""))
+                        if name:
+                            linked_name = format_product_link(name, product_id)
+                            cake_info.append(f" - {linked_name} ({price:,}đ, ⭐{rating})")
+                    
+                    cake_list = "\n".join(cake_info)
+                    return f"Shop có các loại bánh từ {min_price:,}đ đến {max_price:,}đ:\n{cake_list}. Bạn thích loại nào?"
+                else:
+                    return f"Hiện tại shop chưa có bánh nào trong khoảng giá từ {min_price:,}đ đến {max_price:,}đ.\nBạn có thể tham khảo các loại bánh khác nhé!"
+        
+        # Tìm bánh trên khoảng giá (chỉ khi không có "đến/tới")
+        if ("trên" in text_lower or "từ" in text_lower or ("từ" in text_lower and "trở lên" in text_lower)) and any(char.isdigit() for char in text_lower) and "đến" not in text_lower and "tới" not in text_lower:
             # Tìm số trong câu
             import re
+            numbers = re.findall(r'\d+', text_lower)
+            if numbers:
+                min_price = int(numbers[0]) * 1000  # Chuyển k thành nghìn
+                if "k" in text_lower or "nghìn" in text_lower:
+                    min_price = int(numbers[0]) * 1000
+                elif "tr" in text_lower or "triệu" in text_lower:
+                    min_price = int(numbers[0]) * 1000000
+                else:
+                    min_price = int(numbers[0])
+                
+                # Tìm bánh trên khoảng giá
+                expensive_cakes = list(store_db['products'].find({
+                    "productPrice": {"$gte": min_price}
+                }, {"productName": 1, "productPrice": 1, "averageRating": 1, "_id": 1}).sort([("averageRating", -1)]).limit(5))
+                
+                if expensive_cakes:
+                    cake_info = []
+                    for cake in expensive_cakes:
+                        name = cake.get("productName", "")
+                        price = cake.get("productPrice", 0)
+                        rating = cake.get("averageRating", 0)
+                        product_id = str(cake.get("_id", ""))
+                        if name:
+                            linked_name = format_product_link(name, product_id)
+                            cake_info.append(f" - {linked_name} ({price:,}đ, ⭐{rating})")
+                    
+                    cake_list = "\n".join(cake_info)
+                    return f"Shop có các loại bánh từ {min_price:,}đ trở lên:\n{cake_list}.\n Bạn thích loại nào?"
+
+                else:
+                    return f"Hiện tại shop chưa có bánh nào từ {min_price:,}đ trở lên.\nBạn có thể tham khảo các loại bánh khác nhé!"
+        
+        # Tìm bánh dưới khoảng giá
+        if ("dưới" in text_lower or "ít hơn" in text_lower or "thấp hơn" in text_lower) and any(char.isdigit() for char in text_lower):
+            # Tìm số trong câu
             numbers = re.findall(r'\d+', text_lower)
             if numbers:
                 max_price = int(numbers[0]) * 1000  # Chuyển k thành nghìn
@@ -96,7 +184,7 @@ def get_dynamic_response(intent, user_message, context_action=None):
                             cake_info.append(f" - {linked_name} ({price:,}đ, ⭐{rating})")
                     
                     cake_list = "\n".join(cake_info)
-                    return f"Shop có các loại bánh dưới {max_price:,}đ:\n{cake_list}. Bạn thích loại nào?"
+                    return f"Shop có các loại bánh dưới {max_price:,}đ:\n{cake_list}.\n Bạn thích loại nào?"
 
                 else:
                     return f"Hiện tại shop chưa có bánh nào dưới {max_price:,}đ.\nBạn có thể tham khảo các loại bánh khác nhé!"
@@ -117,7 +205,7 @@ def get_dynamic_response(intent, user_message, context_action=None):
                     product_id = str(cake.get("_id", ""))
                     cake_names_list.append(format_product_link(name, product_id))
             cake_names = "\n -  ".join(cake_names_list)
-            return f"Shop có các loại bánh phù hợp với yêu cầu của bạn: {cake_names}. Bạn muốn chọn loại nào?"
+            return f"Shop có các loại bánh phù hợp với yêu cầu của bạn: {cake_names}.\n Bạn muốn chọn loại nào?"
 
         
         # Nếu không tìm thấy, lấy 3-5 bánh ngẫu nhiên từ top 10 bánh có rating cao
@@ -136,7 +224,7 @@ def get_dynamic_response(intent, user_message, context_action=None):
                     cake_info.append(f" - {linked_name} ({price:,}đ, ⭐{rating})")
             
             cake_list = "\n".join(cake_info)
-            return f"Shop gợi ý bạn thử các loại bánh:\n{cake_list}. Bạn thích loại nào?"
+            return f"Shop gợi ý bạn thử các loại bánh:\n{cake_list}.\n Bạn thích loại nào?"
 
 
         
@@ -171,8 +259,6 @@ def get_dynamic_response(intent, user_message, context_action=None):
                     linked_name = format_product_link(cake_name, product_id)
                     return fix_duplicate_cake_name(f"Bánh {linked_name} có giá {price:,}đ.")
 
-
-        
         return "Bạn muốn hỏi giá loại bánh nào ạ?"
         
     elif intent_name == "ask_promotion":
@@ -216,7 +302,7 @@ def get_dynamic_response(intent, user_message, context_action=None):
                     linked_name = format_product_link(name, product_id)
                     combo_info.append(f"- {linked_name} ({price:,}đ)")
             combo_list = "\n ".join(combo_info)
-            return f"Shop có các combo:\n{combo_list}. Bạn muốn tham khảo combo nào?"
+            return f"Shop có các combo:\n{combo_list}.\n Bạn muốn tham khảo combo nào?"
 
         # Nếu không có combo, tạo combo từ các bánh phổ biến
         popular_cakes = list(store_db['products'].find({}, {"productName": 1, "productPrice": 1, "_id": 1}).sort([("averageRating", -1)]).limit(2))
@@ -229,7 +315,7 @@ def get_dynamic_response(intent, user_message, context_action=None):
             linked_cake1 = format_product_link(cake1_name, cake1_id)
             linked_cake2 = format_product_link(cake2_name, cake2_id)
             
-            return f"Shop có thể tạo combo từ {linked_cake1} và {linked_cake2} với giá ưu đãi. Bạn quan tâm không?"
+            return f"Shop có thể tạo combo từ {linked_cake1} và {linked_cake2} với giá ưu đãi.\n Bạn quan tâm không?"
 
         
         return "Shop có thể tạo combo theo yêu cầu của bạn, bạn muốn combo gì ạ?"
@@ -263,7 +349,7 @@ def get_dynamic_response(intent, user_message, context_action=None):
             name = cake['productName']
             product_id = str(cake.get("_id", ""))
             linked_name = format_product_link(name, product_id)
-            return fix_duplicate_cake_name(f"Bánh bán chạy nhất hiện nay là: {linked_name}.")
+            return fix_duplicate_cake_name(f"Bánh bán chạy nhất hiện nay là:\n {linked_name}.")
 
         return "Shop có nhiều loại bánh được khách hàng yêu thích, bạn muốn thử loại nào?"
         
